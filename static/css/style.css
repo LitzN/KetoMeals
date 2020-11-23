@@ -2,10 +2,27 @@ body{
     background-color:#d9c5b2;
 }
 
+.img-background{ 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.signin{
+    background: url(register_image.jpg) no-repeat center center fixed; 
+}
+
 body img{
     max-width:200px;
 }
 
 .goldman{
     font-family:'Goldman', cursive;
+}
+
+.opaque{
+    background-color: rgba(0,0,0,0.8);
+    color: #d9c5b2;
+    padding:2rem;
 }
