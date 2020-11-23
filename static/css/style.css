@@ -2,6 +2,11 @@ body{
     background-color:#d9c5b2;
 }
 
+.signin{
+    background: url(register_image.jpg) no-repeat center center;
+    background-position: contain; 
+}
+
 .img-background{ 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -9,14 +14,11 @@ body{
   background-size: cover;
 }
 
-.signin{
-    background: url(register_image.jpg) no-repeat center center fixed; 
-}
-
+/*
 body img{
     max-width:200px;
 }
-
+*/
 .goldman{
     font-family:'Goldman', cursive;
 }
