@@ -1,12 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="container">
     {% for recipe in recipes %}
-    <h3>{{ recipe.recipe_name }}</h3>
-    <p> <strong>Meal type :</strong>{{ recipe.meal_type }}</p>
-    <img src="{{ recipe.image_url}}" alt="{{recipe.recipe_name}}">
-    <p><strong> Ingredients :</strong>{{ recipe.ingredients }}</p>
-    <p><strong> Instructions:</strong> {{ recipe.instructions }}</p>
-    <p>{{ recipe.cookware }}</p>
-    <p>{{ recipe.created_by }}</p>
+    <div class="row">
+    <div class="col s10 center-align">
+        <div class="row">
+        <h3>{{ recipe.recipe_name }}</h3> 
+        <p>{{ recipe.meal_type }}</p>
+        <div class="col s4">
+            <img src="{{ recipe.image_url}}" alt="{{recipe.recipe_name}}">
+        </div>
+        <div class="col s8"><p><strong> Ingredients :</strong>{{ recipe.ingredients }}</p>
+            <p><strong> Instructions:</strong> {{ recipe.instructions }}</p>
+            <p>{{ recipe.cookware }}</p>
+        </div>
+        <p>{{ recipe.created_by }}</p>
+        </div>
+        </div>
+    </div>
     {% endfor %}
+</div>
 {% endblock %}

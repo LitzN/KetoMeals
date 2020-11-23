@@ -1,3 +1,11 @@
+body{
+    background-color:#d9c5b2;
+}
+
 body img{
     max-width:200px;
+}
+
+.goldman{
+    font-family:'Goldman', cursive;
 }
