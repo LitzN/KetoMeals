@@ -28,3 +28,7 @@ body img{
     color: #d9c5b2;
     padding:2rem;
 }
+
+.flashes h4{
+    line-height: 2;
+}
