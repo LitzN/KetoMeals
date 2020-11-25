@@ -74,8 +74,18 @@ def login():
 def my_recipes(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("my_recipes.html", username=username)
 
+    if session["user"]:
+        return render_template("my_recipes.html", username=username)
+
+    return redirect(url_for("login"))
+
+
+@app.route("/logout")
+def logout():
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 # CHANGE DEBUG TO FALSE WHEN PROJECTS DONE
 if __name__ == "__main__":
