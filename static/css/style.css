@@ -2,9 +2,18 @@ body{
     background-color:#d9c5b2;
 }
 
+.almond{
+    background-color: #d9c5b2
+}
+
 .signin{
     background: url(register_image.jpg) no-repeat center center;
     background-position: contain; 
+}
+
+.add_img{
+    background: url(add_image.jpg) no-repeat center center;
+    background-position: contain;
 }
 
 .img-background{ 
@@ -31,4 +40,8 @@ body img{
 
 .flashes h4{
     line-height: 2;
+}
+
+.recipe-pic{
+    max-width:200px;
 }

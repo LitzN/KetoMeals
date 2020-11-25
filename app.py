@@ -87,6 +87,12 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
+
+@app.route("/add_recipe")
+def add_recipe():
+    return render_template("add_recipe.html")
+
+
 # CHANGE DEBUG TO FALSE WHEN PROJECTS DONE
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
