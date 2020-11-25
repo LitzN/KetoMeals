@@ -4,27 +4,29 @@
 <div class="container">
 <div class="row center-align">
 
-    <form class="col s12 almond">
+    <form class="col s12 almond" method="POST" action="">
     <h3 class="goldman"> Add a Recipe</h3>
         <div class="row">
             <div class="input-field col s12">
-                <select>
+                <select id="meal_type" name="meal_type" required>
                     <option value="" requried>Choose the meal type</option>
-                    <option value="1">Option 1</option>
+                    {% for type in meal_type %}
+                    <option value="{{ type.meal_type }}">{{ type.meal_type }}</option>
+                    {% endfor %}
                 </select>
-                <label><strong>Meal Type</strong></label>
+                <label for="meal_type"><strong>Meal Type</strong></label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="recipe_name" name="recipe_name" type="text" class="validate" redquired>
-                <label for="recipe_name black-text">Recipe Name</label>
+                <input id="recipe_name" name="recipe_name" type="text" class="validate" required>
+                <label class="black-text" for="recipe_name">Recipe Name</label>
             </div>
       </div>
     <div class="row">
         <div class="input-field col s12">
             <input id="ingredients" name="ingredients" type="text" class="validate">
-            <label for="ingredients">Ingredients</label>
+            <label class="black-text" for="ingredients"> Ingredients</label>
             <span class="helper-text" data-error="wrong" data-success="right">
             Seperate ingredients using a comma Eg: 300g sprinkles, 200g love, 2tsp sunshine</span>
         </div>
@@ -32,7 +34,7 @@
     <div class="row">
             <div class="input-field col s12">
             <input id="instructions" name="instructions" type="text" class="validate">
-            <label for="instructions">Ingredients</label>
+            <label for="instructions">Instructions</label>
             <span class="helper-text" data-error="wrong" data-success="right">
             Seperate instructions using a full stop Eg: Fry sprinkles, love and sunshine. Add Garnish</span>
         </div>

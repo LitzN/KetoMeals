@@ -90,7 +90,8 @@ def logout():
 
 @app.route("/add_recipe")
 def add_recipe():
-    return render_template("add_recipe.html")
+    meal_type = mongo.db.types.find().sort("meal_type", 1)
+    return render_template("add_recipe.html", meal_type=meal_type)
 
 
 # CHANGE DEBUG TO FALSE WHEN PROJECTS DONE
