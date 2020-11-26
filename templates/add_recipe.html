@@ -4,11 +4,11 @@
 <div class="container">
 <div class="row center-align">
 
-    <form class="col s12 almond" method="POST" action="">
+    <form class="col s12 almond" method="POST" action="{{ url_for('add_recipe') }}">
     <h3 class="goldman"> Add a Recipe</h3>
         <div class="row">
             <div class="input-field col s12">
-                <select id="meal_type" name="meal_type" required>
+                <select id="meal_type" name="meal_type" validate required>
                     <option value="" requried>Choose the meal type</option>
                     {% for type in meal_type %}
                     <option value="{{ type.meal_type }}">{{ type.meal_type }}</option>
@@ -55,9 +55,13 @@
             Simply copy and paste the link leading to your meal image</span>
         </div>
     </div>
-    <button type="submit" class="hoverable btn-large orange darken-4 center-align">
-        <i class="fas fa-plus"></i>Add Recipe
-      </button>
+    <div class="row">
+        <div class="col s12">
+            <button type="submit" class="hoverable btn-large orange darken-4 center-align">
+                <i class="fas fa-plus"></i>Add Recipe
+            </button>      
+        </div>
+    </div>
     </form> 
 </div>
 </div>
