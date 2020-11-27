@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+<body class="img-background add_img">
+<div class="container">
+<div class="row center-align">
+
+    <form class="col s12 almond" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
+    <h3 class="goldman"> Edit a Recipe</h3>
+        <div class="row">
+            <div class="input-field col s12">
+                <select id="meal_type" name="meal_type" validate required>
+                    <option value="" requried>Choose the meal type</option>
+                    {% for type in meal_type %}
+                    <option value="{{ type.meal_type }}">{{ type.meal_type }}</option>
+                    {% endfor %}
+                </select>
+                <label for="meal_type"><strong>Meal Type</strong></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="recipe_name" name="recipe_name" type="text" class="validate" required>
+                <label class="black-text" for="recipe_name">Recipe Name</label>
+            </div>
+      </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="ingredients" name="ingredients" type="text" class="validate" required>
+            <label class="black-text" for="ingredients"> Ingredients</label>
+            <span class="helper-text" data-error="wrong" data-success="right">
+            Seperate ingredients using a comma Eg: 300g sprinkles, 200g love, 2tsp sunshine</span>
+        </div>
+      </div>
+    <div class="row">
+            <div class="input-field col s12">
+            <input id="instructions" name="instructions" type="text" class="validate" required>
+            <label for="instructions">Instructions</label>
+            <span class="helper-text" data-error="wrong" data-success="right">
+            Seperate instructions using a full stop Eg: Fry sprinkles, love and sunshine. Add Garnish</span>
+        </div>
+    </div>
+    <div class="row">
+            <div class="input-field col s12">
+            <input id="cookware" name="cookware" type="text" class="validate" required>
+            <label for="cookware">Cookware</label>
+            <span class="helper-text" data-error="wrong" data-success="right">
+            List the cookware needed for this recipe</span>
+        </div>
+    </div>
+    <div class="row">
+            <div class="input-field col s12">
+            <input id="image" name="image" type="text" class="validate" required>
+            <label for="image">Add a picture of the meal</label>
+            <span class="helper-text" data-error="wrong" data-success="right">
+            Simply copy and paste the link leading to your meal image</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <button type="submit" class="hoverable btn-large orange darken-4 center-align">
+                <i class="fas fa-plus"></i>Edit Recipe
+            </button>      
+        </div>
+    </div>
+    </form> 
+</div>
+</div>
+</body>
+{% endblock %}
