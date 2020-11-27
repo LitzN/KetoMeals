@@ -9,7 +9,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <select id="meal_type" name="meal_type" validate required>
-                    <option value="" requried>Choose the meal type</option>
+                    <option value="" disabled>Choose the meal type</option>
                     {% for type in meal_type %}
                     <option value="{{ type.meal_type }}">{{ type.meal_type }}</option>
                     {% endfor %}
