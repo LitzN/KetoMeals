@@ -45,3 +45,7 @@ body img{
 .recipe-pic{
     max-width:200px;
 }
+
+.btn-small{
+    margin: 5px;
+}
