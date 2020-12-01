@@ -1,17 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="row">
+    <div class="col s12 header">
+    </div>
+</div>
 <div class="container">
 <h2 class="goldman center-align"> KetoMeals</h2>
+<div class="row">
+    <div class="col s12">
+        <p>Intro text</p>
+    </div>
+</div>
+<div class="row">
+<p>Search by category</p>
+    <div class="col s4">
+        <h4>Snack</h4>
+    </div>
+    <div class="col s4">
+        <h4>Main Meal</h4>
+    </div>
+    <div class="col s4">
+        <h4>Dessert</h4>
+    </div>
+    
+</div>
 <ul class="collapsible">
     {% for recipe in recipes %}
     <li>
-
         <div class="collapsible-header">
-            <h4 class="center-align">{{ recipe.recipe_name }}</h4> 
-            <p class="center-align">{{ recipe.meal_type }}</p>
-            <div class="head">
-                <img src="{{ recipe.image_url}}" alt="{{recipe.recipe_name}}" class="recipe-pic">
-            </div>
+            <div class="col sm6">
+            <h4 class="center-align">{{ recipe.recipe_name }}</h4></div>
+            <div class="col sm6 center-align">
+            <img src="{{ recipe.image_url}}" alt="{{recipe.recipe_name}}" class="recipe-pic"></div>
         </div>
         <div class="collapsible-body">
             <p>

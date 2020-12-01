@@ -75,8 +75,14 @@ def my_recipes(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
+    myrecipes = {"created_by": session["user"]}
+
+    ownrecipes = mongo.db.recipes.find(myrecipes)
+
     if session["user"]:
-        return render_template("my_recipes.html", username=username)
+        return render_template(
+            "my_recipes.html", username=username, myrecipes=myrecipes, 
+            ownrecipes=ownrecipes)
 
     return redirect(url_for("login"))
 

@@ -38,16 +38,26 @@ body img{
     padding:2rem;
 }
 
+.user-header{
+    background-color:#465775;
+    color: blanchedalmond;
+}
+
 .flashes h4{
     line-height: 2;
 }
 
 .recipe-pic{
-    max-width:25rem;
-    max-height:25rem;
+    max-width:20rem;
+    max-height:20rem;
     padding:2rem;
 }
 
+
 .btn-small{
     margin: 5px;
+}
+
+.credits{
+    padding-bottom:4rem;
 }
