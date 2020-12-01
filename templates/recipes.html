@@ -5,34 +5,34 @@
 <ul class="collapsible">
     {% for recipe in recipes %}
     <li>
-    <div class="row">
+
         <div class="collapsible-header">
             <h4 class="center-align">{{ recipe.recipe_name }}</h4> 
             <p class="center-align">{{ recipe.meal_type }}</p>
             <div class="head">
                 <img src="{{ recipe.image_url}}" alt="{{recipe.recipe_name}}" class="recipe-pic">
             </div>
-            <div class="collapsible-body">
-                <p>
-                    <strong> Ingredients :</strong>
-                    {% autoescape false %}
-                    <ul class="collection">
+        </div>
+        <div class="collapsible-body">
+            <p>
+                <strong> Ingredients :</strong>
+                {% autoescape false %}
+                <ul class="collection">
                     <li class="collection-item red lighten-5">{{ recipe.ingredients|replace(",", "</li><li class='collection-item red lighten-5'>") }}</li>
-                    </ul>
-                    {% endautoescape %}
-                </p>
-                <p>
-                    <strong> Instructions :</strong>
-                    {% autoescape false %}
-                    <ul class="collection">
-                                        <li class="collection-item red lighten-5">{{ recipe.instructions|replace(".", "</li><li class='collection-item red lighten-5'>") }}</li>
-                    </ul>
-                    {% endautoescape %}
-                </p>
-                <p>{{ recipe.cookware }}</p>
+                </ul>
+                {% endautoescape %}
+            </p>
+            <p>
+                <strong> Instructions :</strong>
+                {% autoescape false %}
+                <ul class="collection">
+                    <li class="collection-item red lighten-5">{{ recipe.instructions|replace(".", "</li><li class='collection-item red lighten-5'>") }}</li>
+                </ul>
+                {% endautoescape %}
+            </p>
+            <p>{{ recipe.cookware }}</p>
                             
-                <p>{{ recipe.created_by }}</p>
-            </div>
+            <p>{{ recipe.created_by }}</p>
             <div class="center-align">
             {% if session.user|lower == recipe.created_by|lower %}
                 <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small">Delete</a>
@@ -41,7 +41,6 @@
             </div>
         
         </div>
-    </div>
 </li>
     {% endfor %}
 </ul>
