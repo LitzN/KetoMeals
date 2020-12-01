@@ -1,15 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
+<h2 class="goldman center-align"> KetoMeals</h2>
+<ul class="collapsible">
     {% for recipe in recipes %}
+    <li>
     <div class="row">
-        <div class="col s12 m8">
+        <div class="collapsible-header">
             <h4 class="center-align">{{ recipe.recipe_name }}</h4> 
             <p class="center-align">{{ recipe.meal_type }}</p>
-            <div class="col s4">
+            <div class="head">
                 <img src="{{ recipe.image_url}}" alt="{{recipe.recipe_name}}" class="recipe-pic">
             </div>
-            <div class="col s12 m8">
+            <div class="collapsible-body">
                 <p>
                     <strong> Ingredients :</strong>
                     {% autoescape false %}
@@ -30,15 +33,17 @@
                             
                 <p>{{ recipe.created_by }}</p>
             </div>
-            <div class="col s12 m8 center-align">
+            <div class="center-align">
             {% if session.user|lower == recipe.created_by|lower %}
                 <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small">Delete</a>
                 <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit</a>
             {% endif %}
             </div>
+        
         </div>
     </div>
-
+</li>
     {% endfor %}
+</ul>
 </div>
 {% endblock %}

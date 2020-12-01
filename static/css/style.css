@@ -43,7 +43,10 @@ body img{
 }
 
 .recipe-pic{
-    max-width:200px;
+    max-width:25rem;
+    max-height:25rem;
+    padding:2rem;
+    float:right;
 }
 
 .btn-small{
