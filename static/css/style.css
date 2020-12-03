@@ -79,6 +79,8 @@ body img{
 
 .categories{
     border-radius:10px;
+    margin-top:1rem;
+    margin-bottom:3rem;
 }
 
 .btn-small{
@@ -87,4 +89,8 @@ body img{
 
 .credits{
     padding-bottom:4rem;
+}
+
+.activator{
+    max-height:30rem;
 }

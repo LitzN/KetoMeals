@@ -1,49 +1,147 @@
 {% extends "base.html" %}
 {% block content %}
+<!--------------------------------------HEADER----------------------------------------------->
 <div class="row">
-        <div class="header-pic img-background responsive-img">
-            <h1 class="goldman header-text"> KetoMeals</h1>
+    <div class="header-pic img-background responsive-img">
+        <h1 class="goldman header-text"> KetoMeals</h1>
+    </div>
 </div>
 <div class="container">
+<!------------------------------------CATEGORY BUTTONS--------------------------------------->
 <div class="row">
-<h3>Search by category</h3>
+    <h4 class="goldman center-align">Search by category</h4>
     <div class="col s4">
-    <button class="hoverable categories brown darken-4 white-text goldman">
-        <h4>Snack</h4>
-        <img src="static/css/snack.jpg" class="category-pic">
-    </button>
+        <button class="hoverable categories brown darken-4 white-text goldman open-snack">
+            <h4>Snack</h4>
+            <img src="static/css/snack.jpg" class="category-pic">
+        </button>
     </div>
     <div class="col s4">
-    <button class="hoverable categories brown darken-4 white-text goldman">
-        <h4>Main Meal</h4>
-        <img src="static/css/main.jpg" class="category-pic">
-    </button>
+        <button class="hoverable categories brown darken-4 white-text goldman open-main">
+            <h4>Main Meal</h4>
+            <img src="static/css/main.jpg" class="category-pic">
+        </button>
     </div>
     <div class="col s4">
-    <button class="hoverable categories brown darken-4 white-text goldman">
-        <h4>Dessert</h4>
-        <img src="static/css/dessert.jpg" class="category-pic">
-    </button>
+        <button class="hoverable categories brown darken-4 white-text goldman open-dessert">
+            <h4>Dessert</h4>
+            <img src="static/css/dessert.jpg" class="category-pic">
+        </button>
     </div>
 </div>
+<!------------------------------------CATEGORY RESULTS--------------------------------------->
+<div class="row">
+    <div class="col s12">
+        <h3 class="goldman">
+            Results:
+        </h3>
+    </div>
+</div> 
+<div class="snacks">
+    {% for snack in snacks %}
+    <div class="row">
+        <div class="col s6">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{ snack.image_url }}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{ snack.recipe_name }}<i class="fas fa-ellipsis-v right"></i></span>
+                    <p><a href="#">{{ snack.recipe_name }}</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{{ snack.recipe_name }}<i class="fas fa-caret-down left"></i></span>
+                    <p><strong>Ingredients:</strong><br>{{ snack.ingredients }}</p>
+                    <p>
+                        <strong> Instructions :</strong>
+                        {% autoescape false %}
+                        <ul class="collection">
+                            <li class="collection-item red lighten-5">{{ snack.instructions|replace(".", "</li><li class='collection-item red lighten-5'>") }}</li>
+                        </ul>
+                        {% endautoescape %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<div class="mains">
+    {% for main in mains %}
+    <div class="row">
+        <div class="col s6">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{ main.image_url }}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{ main.recipe_name }}<i class="fas fa-ellipsis-v right"></i></span>
+                    <p><a href="#">{{ main.recipe_name }}</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{{ main.recipe_name }}<i class="fas fa-caret-down left"></i></span>
+                    <p><strong>Ingredients:</strong><br>{{ main.ingredients }}</p>
+                    <p>
+                        <strong> Instructions :</strong>
+                        {% autoescape false %}
+                        <ul class="collection">
+                            <li class="collection-item red lighten-5">{{ main.instructions|replace(".", "</li><li class='collection-item red lighten-5'>") }}</li>
+                        </ul>
+                        {% endautoescape %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="desserts">
+    {% for dessert in desserts %}
+    <div class="row">
+        <div class="col s6">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{ dessert.image_url }}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">{{ dessert.recipe_name }}<i class="fas fa-ellipsis-v right"></i></span>
+                    <p><a href="#">{{ dessert.recipe_name }}</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{{ dessert.recipe_name }}<i class="fas fa-caret-down left"></i></span>
+                    <p><strong>Ingredients:</strong><br>{{ dessert.ingredients }}</p>
+                    <p>
+                        <strong> Instructions :</strong>
+                        {% autoescape false %}
+                        <ul class="collection">
+                            <li class="collection-item red lighten-5">{{ dessert.instructions|replace(".", "</li><li class='collection-item red lighten-5'>") }}</li>
+                        </ul>
+                        {% endautoescape %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+        {% endfor %}
+</div>
+<!---------------------------------------SEARCH BAR------------------------------------------>
 <div class="row card-panel grey">
     <div class="col s12">
         <form action="{{ url_for('search') }}" method="POST" class="col s12">
             <div class="row valign-wrapper center-align">
                 <div class="input-field col s12 m8">
-                <i class="fas fa-search prefix"></i>
-                <input type="text" name="query" id="query" minlength="3" class="validate" required>
-                <label for="query">Search Recipes</label>
+                    <i class="fas fa-search prefix"></i>
+                    <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                    <label for="query">Search Recipes</label>
                 </div>
                 <div class="col s12 m4">
                     <a href="{{ url_for('get_recipes') }}" class="btn orange">Reset</a>
                     <button type="submit"><i class="fas fa-search left"></i>Search</button>
-
                 </div>
             </div>
         </form>
     </div>
 </div>
+<!------------------------------------RECIPE LIST--------------------------------------->
 <ul class="collapsible">
     {% for recipe in recipes %}
     <li>
@@ -74,15 +172,15 @@
                             
             <p>{{ recipe.created_by }}</p>
             <div class="center-align">
-            {% if session.user|lower == recipe.created_by|lower %}
-                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small">Delete</a>
-                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit</a>
-            {% endif %}
+                {% if session.user|lower == recipe.created_by|lower %}
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small">Delete</a>
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit</a>
+                {% endif %}
             </div>
-        
         </div>
-</li>
+    </li>
     {% endfor %}
 </ul>
+</div>
 </div>
 {% endblock %}
