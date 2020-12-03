@@ -53,6 +53,14 @@ body img{
     padding:2rem;
 }
 
+.category-pic{
+    width:100%;
+    height:100%;
+}
+
+.categories{
+    border-radius:10px;
+}
 
 .btn-small{
     margin: 5px;
