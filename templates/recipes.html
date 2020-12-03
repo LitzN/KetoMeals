@@ -37,7 +37,7 @@
         </h3>
     </div>
 </div> 
-<div class="snacks">
+<div class="snacks hide">
     {% for snack in snacks %}
     <div class="row">
         <div class="col s6">
@@ -63,9 +63,10 @@
                 </div>
             </div>
         </div>
+    </div>
     {% endfor %}
 </div>
-<div class="mains">
+<div class="mains hide">
     {% for main in mains %}
     <div class="row">
         <div class="col s6">
@@ -94,7 +95,7 @@
     </div>
     {% endfor %}
 </div>
-<div class="desserts">
+<div class="desserts hide">
     {% for dessert in desserts %}
     <div class="row">
         <div class="col s6">
@@ -121,7 +122,7 @@
             </div>
         </div>
     </div>
-        {% endfor %}
+    {% endfor %}
 </div>
 <!---------------------------------------SEARCH BAR------------------------------------------>
 <div class="row card-panel grey">
