@@ -2,7 +2,8 @@
 {% block styles %}
 {% endblock %}
 {% block content %}
-<div class="container">
+<body class="img-background tablecloth">
+<div class="container white">
     <div class="row user-header">
         <div class="col s12 m8 offset-m2">
             <h2 class="center-align goldman">
@@ -52,24 +53,33 @@
                 <p><strong> Cookware required:</strong> {{ recipe.cookware }}</p>
             </div>
         </div>
-        <div class="row">
+        <div class="row center-align cookware-ad">
             <p><strong> Missing something?</strong> View quality cookware needed for this recipe by Haden</p>
+            {% if "oven" in recipe.cookware %}
             <div class="col s4 center-align">
-                {% if "oven" in recipe.cookware %}
-                    <a href="https://www.amazon.co.uk/Oven-Sngl-Fan-64L-Timer/dp/B07YZB63Z3/ref=sr_1_7_sspa?dchild=1&keywords=oven&qid=1607180596&sr=8-7-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyNzdDRFRMWlI0QjhZJmVuY3J5cHRlZElkPUEwOTAzNDI1WlFDRE1UU1MxUkZPJmVuY3J5cHRlZEFkSWQ9QTA1MTMyNDQyTzlOODk3V1lUVFImd2lkZ2V0TmFtZT1zcF9tdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/4147%2BH1OULL._AC_.jpg" alt="oven" class="recipe-pic">
-                    <p class="ad-link"> Electric oven £225</p>
-                    </a>
-                {% endif %}
+                <a href="https://www.amazon.co.uk/Oven-Sngl-Fan-64L-Timer/dp/B07YZB63Z3/ref=sr_1_7_sspa?dchild=1&keywords=oven&qid=1607180596&sr=8-7-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyNzdDRFRMWlI0QjhZJmVuY3J5cHRlZElkPUEwOTAzNDI1WlFDRE1UU1MxUkZPJmVuY3J5cHRlZEFkSWQ9QTA1MTMyNDQyTzlOODk3V1lUVFImd2lkZ2V0TmFtZT1zcF9tdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/4147%2BH1OULL._AC_.jpg" alt="oven" class="ad-pic">
+                <p class="ad-link"> Electric oven £225</p>
+                </a>
             </div>
+            {% endif %}
+            {% if "microwave" in recipe.cookware %}
             <div class="col s4 center-align">
-                {% if "microwave" in recipe.cookware %}
                     <a href="ZW5jcnlwdGVkUXVhbGlmaWVyPUFEWUs4TVVHMlhTSVImZW5jcnlwdGVkSWQ9QTAwMzM3ODcyOVkzTDRUTVRSSDUwJmVuY3J5cHRlZEFkSWQ9QTAzODM3ODEyWjdGNlBMNERGWkNHJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/719nytTJ4GL._AC_SL1500_.jpg" alt="microwave" class="recipe-pic">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/719nytTJ4GL._AC_SL1500_.jpg" alt="microwave" class="ad-pic">
                     <p class="ad-link"> Microwave £105</p>
                     </a>
-                {% endif %}
             </div>
+            {% endif %}
+            {% if "stove" in recipe.cookware %}
+            <div class="col s4 center-align">
+                    <a href="https://www.amazon.co.uk/Haden-HG60W-Gas-Hob-Stovetop/dp/B08DD3TJCW/ref=sr_1_1?dchild=1&keywords=stove+top+haden&qid=1607183238&sr=8-1">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/71Km3T%2BAnpL._AC_SL1500_.jpg" alt="microwave" class="ad-pic">
+                    <p class="ad-link"> Gas stove £139</p>
+                    </a>
+            </div>
+            {% endif %}
+
         </div>
 
         <div class="row">
@@ -84,5 +94,6 @@
             <a href="{{ url_for('add_recipe')}}" class="center-align orange darken-4 btn-large"><i class="fas fa-plus right"></i>Add Recipe</a>
         </div>
     </div>
+</div>
 </div>
 {% endblock %}

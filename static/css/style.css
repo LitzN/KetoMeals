@@ -95,6 +95,20 @@ body img{
     max-height:30rem;
 }
 
+.cookware-ad{
+    background-color: #465775;
+}
+
 .ad-link{
-    line-height:1.5;
+    font-size:1.5rem;
+    color: gray;
+}
+
+.ad-pic{
+    max-width:12rem;
+    max-height:12rem;
+}
+
+.tablecloth{
+    background: url(https://cdn.pixabay.com/photo/2015/03/12/22/31/tablecloth-670934_960_720.jpg);
 }
