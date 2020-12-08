@@ -3,9 +3,10 @@
 <body class="img-background add_img">
 <div class="container">
 <div class="row center-align">
-
+<!---------------------------------ADD RECIPE FORM-------------------------------------------------->
     <form class="col s12 almond" method="POST" action="{{ url_for('add_recipe') }}">
     <h3 class="goldman"> Add a Recipe</h3>
+    <!--------------------------------MEAL TYPE OPTION---------------------------------------------->
         <div class="row">
             <div class="input-field col s12">
                 <select id="meal_type" name="meal_type" validate required>
@@ -17,12 +18,14 @@
                 <label for="meal_type"><strong>Meal Type</strong></label>
             </div>
         </div>
+        <!--------------------------------RECIPE NAME INPUT---------------------------------------------->
         <div class="row">
             <div class="input-field col s12">
                 <input id="recipe_name" name="recipe_name" type="text" class="validate" required>
                 <label class="black-text" for="recipe_name">Recipe Name</label>
             </div>
       </div>
+      <!--------------------------------INGREDIENT INPUT---------------------------------------------->
     <div class="row">
         <div class="input-field col s12">
             <input id="ingredients" name="ingredients" type="text" class="validate" required>
@@ -31,6 +34,7 @@
             Seperate ingredients using a comma Eg: 300g sprinkles, 200g love, 2tsp sunshine</span>
         </div>
       </div>
+      <!--------------------------------INSTRUCTION INPUT---------------------------------------------->
     <div class="row">
             <div class="input-field col s12">
             <input id="instructions" name="instructions" type="text" class="validate" required>
@@ -39,6 +43,7 @@
             Seperate instructions using a full stop Eg: Fry sprinkles, love and sunshine. Add Garnish</span>
         </div>
     </div>
+    <!--------------------------------COOKWARE INPUT---------------------------------------------->
     <div class="row">
             <div class="input-field col s12">
             <input id="cookware" name="cookware" type="text" class="validate" required>
@@ -47,6 +52,7 @@
             List the cookware needed for this recipe</span>
         </div>
     </div>
+    <!--------------------------------IMAGE INPUT---------------------------------------------->
     <div class="row">
             <div class="input-field col s12">
             <input id="image" name="image" type="text" class="validate" required>
@@ -55,6 +61,7 @@
             Simply copy and paste the link leading to your meal image</span>
         </div>
     </div>
+    <!--------------------------------FORM SUBMIT---------------------------------------------->
     <div class="row">
         <div class="col s12">
             <button type="submit" class="hoverable btn-large orange darken-4 center-align">

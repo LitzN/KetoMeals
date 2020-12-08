@@ -4,14 +4,17 @@
 <div class="valign-wrapper">
   <div class="row offset-s2 s8 opaque">
   <h4 class="center-align goldman">Log in</h4>
+  <!--------------------------------LOGIN FORM---------------------------------------------->
     <form class="col s12" method="POST" action="{{ url_for('login') }}">
       <div class="row">
+      <!--------------------------------USERNAME INPUT---------------------------------------------->
         <div class="input-field col s12">
           <input id="username" name="username" type="text" minlength="5"
           maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
           <label for="username"><i class="fa fa-user-circle" aria-hidden="true"></i>Username</label>
         </div>
       </div>
+      <!--------------------------------PASSWORD INPUT---------------------------------------------->
       <div class="row">
         <div class="input-field col s12">
             <input id="password" name="password" type="password" minlength="5" 
@@ -19,10 +22,12 @@
             <label for="password"><i class="fa fa-key" aria-hidden="true"></i>Password</label>
         </div>
       </div>
+      <!--------------------------------LOGIN SUBMIT---------------------------------------------->
       <button type="submit" class="hoverable btn-large orange darken-4 center-align">
         Log in
       </button>
       </form>
+      <!--------------------------------REGISTER OPTION LINK---------------------------------------------->
     <div class="row">
         <div class="col s12">
             <p>Not registered yet? <a href="{{ url_for('register') }}" class="orange-text text-darken-4">Register here</a></p>

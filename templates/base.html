@@ -15,6 +15,7 @@
 <div class="row">
 <header>
   <nav>
+  <!----------------------------------MAIN NAVIGATION------------------------------------------>
     <div class="nav-wrapper brown darken-4">
       <a href="{{ url_for('get_recipes') }}" class="brand-logo goldman">KetoMeals</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
@@ -32,7 +33,7 @@
       </ul>
     </div>
   </nav>
-
+<!--------------------------------MOBILE NAVIGATION---------------------------------------------->
   <ul class="sidenav" id="mobile-demo">
         <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
         {% if session.user %}
@@ -47,7 +48,7 @@
 </header>
 </div>
 <section>
-<!------------------FLASH MESSAGES---------------------->
+<!--------------------------------FLASH MESSAGES---------------------->
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}

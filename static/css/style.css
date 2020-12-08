@@ -120,3 +120,9 @@ body img{
 .tablecloth{
     background: url(https://cdn.pixabay.com/photo/2015/03/12/22/31/tablecloth-670934_960_720.jpg);
 }
+
+.ad{
+    font-size: 1rem;
+    color: lightgray;
+    padding-top:1rem;
+}
