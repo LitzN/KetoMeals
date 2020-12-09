@@ -28,7 +28,7 @@ def get_recipes():
     recipes = mongo.db.recipes.find()
     return render_template(
         "recipes.html", mains=mains, snacks=snacks, desserts=desserts,
-         recipes=recipes)
+        recipes=recipes)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -36,6 +36,7 @@ def search():
     query = request.form.get("query")
     recipes = mongo.db.recipes.find({"$text": {"$search": query}})
     return render_template("recipes.html", recipes=recipes)
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -67,11 +68,11 @@ def login():
 
         if existing_user:
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                    existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
                 return redirect(url_for(
-                        "my_recipes", username=session["user"]))
+                    "my_recipes", username=session["user"]))
             else:
                 flash("Invalid username/password")
                 return redirect(url_for("login"))
@@ -92,7 +93,7 @@ def my_recipes(username):
 
     if session["user"]:
         return render_template(
-            "my_recipes.html", username=username, myrecipes=myrecipes, 
+            "my_recipes.html", username=username, myrecipes=myrecipes,
             ownrecipes=ownrecipes)
 
     return redirect(url_for("login"))
@@ -123,6 +124,15 @@ def add_recipe():
 
     meal_type = mongo.db.types.find().sort("meal_type", 1)
     return render_template("add_recipe.html", meal_type=meal_type)
+
+
+@app.route("/add_favourite/<recipe_id>", methods=["GET", "POST"])
+def add_favourite(recipe_id):
+    mongo.db.users.update_one(
+        {"username": session["user"].lower()},
+        {"$push": {"favourites": ObjectId(recipe_id)}})
+    flash("Favourite saved")
+    return redirect(url_for("get_recipes"))
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
