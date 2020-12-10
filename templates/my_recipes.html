@@ -133,5 +133,9 @@
         </div>
     </div>
 </div>
+
+{% for result in results %}
+<p>{{ result.recipe_name }}</p>
+{% endfor %}
 </div>
 {% endblock %}

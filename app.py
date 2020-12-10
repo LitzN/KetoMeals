@@ -89,12 +89,19 @@ def my_recipes(username):
 
     myrecipes = {"created_by": session["user"]}
 
+    user = mongo.db.users.find_one({"username": session["user"]})
+
+    favourites = user['favourites']
+    results = []
+    for fav in favourites:
+        results.append(mongo.db.recipes.find_one({"_id": ObjectId(fav)}))
+
     ownrecipes = mongo.db.recipes.find(myrecipes)
 
     if session["user"]:
         return render_template(
-            "my_recipes.html", username=username, myrecipes=myrecipes,
-            ownrecipes=ownrecipes)
+            "my_recipes.html", username=username, favourites=favourites,
+             myrecipes=myrecipes, ownrecipes=ownrecipes, results=results)
 
     return redirect(url_for("login"))
 
