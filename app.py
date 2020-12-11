@@ -50,7 +50,8 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "favourites": []
         }
         mongo.db.users.insert_one(register)
 
@@ -138,6 +139,15 @@ def add_favourite(recipe_id):
     mongo.db.users.update_one(
         {"username": session["user"].lower()},
         {"$push": {"favourites": ObjectId(recipe_id)}})
+    flash("Favourite saved")
+    return redirect(url_for("get_recipes"))
+
+
+@app.route("/remove_favourite/<recipe_id>", methods=["GET", "POST"])
+def remove_favourite(recipe_id):
+    mongo.db.users.find_one_and_update(
+        {"username": session["user"].lower()},
+        {"$pull": {"favourites": ObjectId(recipe_id)}})
     flash("Favourite saved")
     return redirect(url_for("get_recipes"))
 

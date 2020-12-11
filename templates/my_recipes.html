@@ -136,6 +136,7 @@
 
 {% for result in results %}
 <p>{{ result.recipe_name }}</p>
+<a href="{{ url_for('remove_favourite', recipe_id=result._id) }}" class="center-align blue darken-1 btn-large"></a>
 {% endfor %}
 </div>
 {% endblock %}
