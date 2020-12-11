@@ -90,11 +90,11 @@
                     <p><strong>Ingredients:</strong><br>{{ main.ingredients }}</p>
                     <p>
                         <strong> Instructions :</strong>
-                        {% autoescape false %}
                         <ul class="collection">
+                        {% autoescape false %}
                             <li class="collection-item red lighten-5">{{ main.instructions|replace(".", "</li><li class='collection-item red lighten-5'>") }}</li>
-                        </ul>
                         {% endautoescape %}
+                        </ul>
                     </p>
                 </div>
             </div>
@@ -159,7 +159,7 @@
 </div>
 <!------------------------------------RECIPE LIST--------------------------------------->
 <ul class="collapsible">
-    {% for recipe in recipes %}
+    {% for recipe in find_recipe %}
     <li>
     <!--------------------------------RECIPE LIST HEADER---------------------------------------------->
         <div class="collapsible-header">
@@ -175,7 +175,7 @@
                 <strong> Ingredients :</strong>
                 {% autoescape false %}
                 <ul class="collection">
-                    <li class="collection-item red lighten-5">{{ recipe.ingredients|replace(",", "</li><li class='collection-item red lighten-5'>") }}</li>
+                    <li class="collection-item blue lighten-5">{{ recipe.ingredients|replace(",", "</li><li class='collection-item blue lighten-5'>") }}</li>
                 </ul>
                 {% endautoescape %}
             </p>

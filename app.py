@@ -33,9 +33,14 @@ def get_recipes():
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    snacks = mongo.db.recipes.find({"meal_type": "Snack"})
+    mains = mongo.db.recipes.find({"meal_type": "Main"})
+    desserts = mongo.db.recipes.find({"meal_type": "Dessert"})
+    recipes = mongo.db.recipes.find()
     query = request.form.get("query")
-    recipes = mongo.db.recipes.find({"$text": {"$search": query}})
-    return render_template("recipes.html", recipes=recipes)
+    find_recipe = mongo.db.recipes.find({"$text": {"$search": query}})
+    return render_template("recipes.html", recipes=recipes, mains=mains,
+                snacks=snacks, desserts=desserts, find_recipe=find_recipe)
 
 
 @app.route("/register", methods=["GET", "POST"])

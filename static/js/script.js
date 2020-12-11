@@ -20,5 +20,6 @@ $(".open-dessert").click(function(){
     $(".mains").addClass("hide");
     $(".snack").addClass("hide")
 })
+
 })
 
