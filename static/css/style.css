@@ -33,7 +33,14 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+    font-size:8rem;
 }
+
+.subheading-text{
+    font-size: 3rem;
+    margin:0;
+}
+
 
 .img-background{ 
   -webkit-background-size: cover;
@@ -83,6 +90,19 @@ body img{
     margin-bottom:3rem;
 }
 
+.cat-btn-txt{
+    font-size:2rem;
+    margin:0.5rem;
+}
+
+.search-form{
+    padding-bottom:1.5rem;
+}
+
+.search-bar{
+    min-width:200%;
+}
+
 .btn-small{
     margin: 5px;
 }
@@ -125,4 +145,32 @@ body img{
     font-size: 1rem;
     color: lightgray;
     padding-top:1rem;
+}
+
+/*-----------------------------------------------------------MEDIA QUERIES MOBILE------*/
+@media only screen and (max-width: 600px) {
+
+.header-text{
+    font-size:3rem;
+}
+
+.subheading-text{
+    font-size: 2rem;
+    margin:0;
+}
+
+.cat-btn-txt{
+    font-size: large;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.categories{
+    margin-bottom:0.5rem;
+}
+
+.search-bar{
+    min-width:100%;
+}
+
 }
