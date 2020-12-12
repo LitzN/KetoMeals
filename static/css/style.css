@@ -49,11 +49,10 @@ body{
   background-size: cover;
 }
 
-/*
-body img{
-    max-width:200px;
+
+body{
+    min-height:100vh;
 }
-*/
 .goldman{
     font-family:'Goldman', cursive;
 }
@@ -71,6 +70,10 @@ body img{
 
 .flashes h4{
     line-height: 2;
+    font-weight:800;
+    color:white;
+    background-color:rgba(0, 0, 0, 0.4);
+    
 }
 
 .recipe-pic{
