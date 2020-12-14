@@ -2,25 +2,31 @@
 {% block styles %}
 {% endblock %}
 {% block content %}
-<body class="img-background tablecloth">
-<div class="container white">
-    <div class="row user-header">
+<body class="">
+<div class="container">
     <!--------------------------------USER RECIPE HEADING---------------------------------------------->
+    <div class="row user-header">
         <div class="col s12 m8 offset-m2">
             <h2 class="center-align goldman">
-                {{ username|capitalize() }}'s Recipes
+                {{ username|capitalize() }}'s Cookbook
             </h2>
         </div>
     </div>
+     <div class="row">
+        <div class="col s12 m8 offset-m2 center-align bottom-space">
+            <a href="{{ url_for('add_recipe')}}" class="center-align orange darken-4 btn-large"><i class="fas fa-plus right"></i>Add Recipe</a>
+        </div>
+    </div>
         {% for recipe in ownrecipes %}
+        <div class="own-recipes">
         <div class="row">
             <div class="col s12 m6">
             <!----------------------------------RECIPE NAME + EDIT BUTTONS ---------------------------------->
-                <h3 class="center-align">{{ recipe.recipe_name }}</h3>
+                <p class="recipe-name center-align">{{ recipe.recipe_name }}</p>
                 <div class="center-align">
                 {% if session.user|lower == recipe.created_by|lower %}
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-large">Delete</a>
-                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-large">Edit</a>
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn km-pink">Delete</a>
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn km-green">Edit</a>
                 {% endif %}
                 </div>
             </div>
@@ -32,30 +38,35 @@
         <!----------------------------------INGREDIENTS ------------------------------------------------------>
         <div class="row">
             <div class="col s12 m6">
-                <p>
-                    <strong> Ingredients :</strong>
+                <p class="ingred-item">
+                    <strong class="recipe-section"> Ingredients :</strong>
                     {% autoescape false %}
-                    <ul class="collection">
-                        <li class="collection-item red lighten-5">{{ recipe.ingredients|replace(",", "</li><li class='collection-item red lighten-5'>") }}</li>
+                    <ul class="ingred-list">
+                        <li class="ingred-item"><i class=" km-green-text fas fa-heart"></i>{{ recipe.ingredients|replace(",", "</li><li class='ingred-item'><i class=' km-green-text fas fa-heart'></i>") }}</li>
                     </ul>
                     {% endautoescape %}
                 </p>
             </div>
-            <!----------------------------------INSTRUCTIONS ------------------------------------------------------>
             <div class="col s12 m6">
-                <p>
-                    <strong> Instructions :</strong>
-                    {% autoescape false %}
-                    <ul class="collection">
-                        <li class="collection-item red lighten-5">{{ recipe.instructions|replace(".", "</li><li class='collection-item red lighten-5'>") }}</li>
-                    </ul>
-                    {% endautoescape %}
-                </p>
+                <p><strong class="recipe-section"> Cookware required:</strong></p>
+                {% autoescape false %}
+                <ul>
+                <li><i class="fas fa-heart km-pink-text"></i>{{ recipe.cookware|replace(",", "</li><li><i class='fas fa-heart km-pink-text'></i>") }}</li>
+                </ul>
+                {% endautoescape %}
             </div>
         </div>
+        <!----------------------------------INSTRUCTIONS ------------------------------------------------------>
         <div class="row">
-        <div class="col s12 center-align">
-                <p><strong> Cookware required:</strong> {{ recipe.cookware }}</p>
+            <div class="col s12">
+                <p>
+                    <strong class="recipe-section"> Instructions :</strong>
+                    {% autoescape false %}
+                    <ul class="collection">
+                        <li class="collection-item">{{ recipe.instructions|replace(".", "</li><li class='collection-item'>") }}</li>
+                    </ul>
+                    {% endautoescape %}
+                </p>
             </div>
         </div>
         <!-------------------------------------------COOKWARE PROMOTION--------------------------------------------->
@@ -119,23 +130,19 @@
             {% endif %}
 
         </div>
-        <!----------------------------------CREATED BY ------------------------------------------------------>
-        <div class="row">
-            <div class="col s12">
-                <p> <strong>Created by:</strong> {{ recipe.created_by }}</p>
-            </div>
         </div>
         {% endfor %}
-        <!----------------------------------ADD RECIPE-------------------------------------------------------->
-    <div class="row">
-        <div class="col s12 center-align">
-            <a href="{{ url_for('add_recipe')}}" class="center-align orange darken-4 btn-large"><i class="fas fa-plus right"></i>Add Recipe</a>
-        </div>
-    </div>
 </div>
 
 
 <div class="container white">
+    <div class="row user-header">
+        <div class="col s12 m8 offset-m2">
+            <h2 class="center-align goldman">
+                {{ username|capitalize() }}'s Favourites
+            </h2>
+        </div>
+    </div>
     <div class="row user-header">
     <!--------------------------------FAVOURITE RECIPE TITLE---------------------------------------------->
     </div>

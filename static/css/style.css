@@ -6,6 +6,26 @@ body{
     background-color: #d9c5b2
 }
 
+.km-green-text{
+    color:#60992D;
+}
+
+.km-green{
+    background-color:#60992D;
+}
+
+.km-blue{
+    background-color: #274C77;
+}
+
+.km-pink-text{
+    color:#af3b6e;
+}
+
+.km-pink{
+    background-color:#af3b6e;
+}
+
 .signin{
     background: url(register_image.jpg) no-repeat center center;
     background-position: contain; 
@@ -118,10 +138,6 @@ body{
     max-height:30rem;
 }
 
-.km-blue{
-    background-color: #465775;
-}
-
 .rounded{
     border-radius:10px;
 }
@@ -144,6 +160,27 @@ body{
     background: url(cloth.jpg);
 }
 
+.own-recipes{
+    background-color:white;
+    border-radius:25px;
+    margin-bottom:1rem;
+}
+
+.ingred-item{
+    padding-left:5rem;
+    font-size:1rem;
+}
+
+.recipe-section{
+    font-size:1.5rem;
+}
+
+.recipe-name{
+    line-height:3rem;
+    padding-top:2rem;
+    font-size:2rem;
+    font-weight:bolder;
+}
 .ad{
     font-size: 1rem;
     color: lightgray;
