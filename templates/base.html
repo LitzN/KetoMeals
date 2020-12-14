@@ -12,22 +12,22 @@
     <title>KetoMeals</title>
 </head>
 <body>
-<div class="row">
+<div class="row no-margin">
 <header>
   <nav>
   <!----------------------------------MAIN NAVIGATION------------------------------------------>
-    <div class="nav-wrapper brown darken-4">
-      <a href="{{ url_for('get_recipes') }}" class="brand-logo goldman">KetoMeals</a>
+    <div class="nav-wrapper black">
+      <a href="{{ url_for('get_recipes') }}" class="brand-logo goldman"><i class="fas fa-cutlery km-green-text"></i>KetoMeals</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+        <li><a href="{{ url_for('get_recipes') }}" class="km-green-text">Home</a></li>
         {% if session.user %}
-            <li><a href="{{ url_for('my_recipes', username=session['user']) }}">My Recipes</a></li>
-            <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
-            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            <li><a href="{{ url_for('my_recipes', username=session['user']) }}" class="km-green-text">My Recipes</a></li>
+            <li><a href="{{ url_for('add_recipe') }}" class="km-green-text">Add Recipe</a></li>
+            <li><a href="{{ url_for('logout') }}" class="km-green-text">Logout</a></li>
         {% else %}
-            <li><a href="{{ url_for('register') }}">Register</a></li>
-            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('register') }}" class="km-green-text">Register</a></li>
+            <li><a href="{{ url_for('login') }}" class="km-green-text">Login</a></li>
             
         {% endif %}
       </ul>

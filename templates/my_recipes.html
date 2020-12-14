@@ -14,11 +14,11 @@
     </div>
      <div class="row">
         <div class="col s12 m8 offset-m2 center-align bottom-space">
-            <a href="{{ url_for('add_recipe')}}" class="center-align orange darken-4 btn-large"><i class="fas fa-plus right"></i>Add Recipe</a>
+            <a href="{{ url_for('add_recipe')}}" class="center-align km-green btn-large"><i class="fas fa-plus right"></i>Add Recipe</a>
         </div>
     </div>
         {% for recipe in ownrecipes %}
-        <div class="own-recipes">
+        <div class="recipes">
         <div class="row">
             <div class="col s12 m6">
             <!----------------------------------RECIPE NAME + EDIT BUTTONS ---------------------------------->
@@ -31,7 +31,7 @@
                 </div>
             </div>
             <!----------------------------------IMAGE ------------------------------------------------------>
-            <div class="col s12 m6">
+            <div class="col s12 m6 center-align">
                 <img src="{{ recipe.image_url}}" alt="{{recipe.recipe_name}}" class="recipe-pic">
             </div>
         </div>
@@ -51,14 +51,14 @@
                 <p><strong class="recipe-section"> Cookware required:</strong></p>
                 {% autoescape false %}
                 <ul>
-                <li><i class="fas fa-heart km-pink-text"></i>{{ recipe.cookware|replace(",", "</li><li><i class='fas fa-heart km-pink-text'></i>") }}</li>
+                    <li><i class="fas fa-heart km-pink-text"></i>{{ recipe.cookware|replace(",", "</li><li><i class='fas fa-heart km-pink-text'></i>") }}</li>
                 </ul>
                 {% endautoescape %}
             </div>
         </div>
         <!----------------------------------INSTRUCTIONS ------------------------------------------------------>
         <div class="row">
-            <div class="col s12">
+            <div class="col offset-s1 s10">
                 <p>
                     <strong class="recipe-section"> Instructions :</strong>
                     {% autoescape false %}
@@ -140,7 +140,7 @@
 </div>
 
 
-<div class="container white">
+<div class="container">
     <div class="row user-header">
         <div class="col s12 m8 offset-m2">
             <h2 class="center-align goldman">
@@ -152,52 +152,71 @@
     <!--------------------------------FAVOURITE RECIPE TITLE---------------------------------------------->
     </div>
         {% for result in results %}
+    <div class="recipes">
         <div class="row">
             <div class="col s12 m6">
             <!----------------------------------FAV RECIPE NAME---------------------------------->
-                <h3 class="center-align">{{ result.recipe_name }}</h3>
+                <p class="center-align recipe-name">{{ result.recipe_name }}</p>
             </div>
             <!----------------------------------FAV RECIPE IMAGE ------------------------------------------------------>
-            <div class="col s12 m6">
+            <div class="col s12 m6 center-align">
                 <img src="{{ result.image_url}}" alt="{{result.recipe_name}}" class="recipe-pic">
+            </div>
+        </div>
+        <!--------------------------------------------FAV CREATED BY & UNFAVOURITE-------------------------------------->
+        <div class="row">
+            <div class="col s6 center-align">
+                <a href="{{ url_for('remove_favourite', recipe_id=result._id) }}" class="center-align btn km-pink">
+                <i class="fas fa-times-circle"></i> Remove favourite</a>
+            </div>
+            <div class="col s6 center-align">
+                <p class= "center-align"> <strong>Created by:</strong><i>{{ result.created_by }}</i></p>
+                
             </div>
         </div>
         <!----------------------------------FAV INGREDIENTS ------------------------------------------------------>
         <div class="row">
             <div class="col s12 m6">
-                <p>
-                    <strong> Ingredients :</strong>
+                <p class="ingred-item">
+                    <strong class="recipe-section"> Ingredients :</strong>
                     {% autoescape false %}
-                    <ul class="collection">
-                        <li class="collection-item red lighten-5">{{ result.ingredients|replace(",", "</li><li class='collection-item red lighten-5'>") }}</li>
+                    <ul class="ingred-list">
+                        <li class="ingred-item"><i class=" km-green-text fas fa-heart"></i>{{ result.ingredients|replace(",", "</li><li class='ingred-item'><i class='km-green-text fas fa-heart'></i>") }}</li>
                     </ul>
                     {% endautoescape %}
                 </p>
             </div>
-            <!---------------------------------- FAV INSTRUCTIONS ------------------------------------------------------>
-            <div class="col s12 m6">
-                <p>
-                    <strong> Instructions :</strong>
-                    {% autoescape false %}
-                    <ul class="collection">
-                        <li class="collection-item red lighten-5">{{ result.instructions|replace(".", "</li><li class='collection-item red lighten-5'>") }}</li>
-                    </ul>
-                    {% endautoescape %}
-                </p>
+            <!---------------------------------------FAV COOKWARE--------------------------------------------------------->
+            <div class="col s12 m6 ">
+                <p><strong class="recipe-section"> Cookware required:</strong></p>
+                {% autoescape false %}
+                <ul class="ingred-list">
+                <li><i class="fas fa-heart km-pink-text"></i>{{ result.cookware|replace(",", "</li><li><i class='fas fa-heart km-pink-text'></i>") }}</li>
+                </ul>
+                {% endautoescape %}
             </div>
         </div>
+         <!---------------------------------- FAV INSTRUCTIONS ------------------------------------------------------>
         <div class="row">
-        <div class="col s12 center-align">
-                <p><strong> Cookware required:</strong> {{ result.cookware }}</p>
+            <div class="col offset-s1 s10">
+                <p>
+                    <strong class="recipe-section"> Instructions :</strong>
+                    {% autoescape false %}
+                    <ul class="collection">
+                        <li class="collection-item">{{ result.instructions|replace(".", "</li><li class='collection-item'>") }}</li>
+                    </ul>
+                    {% endautoescape %}
+                </p>
             </div>
         </div>
+        
         <!-------------------------------------------FAV COOKWARE PROMOTION--------------------------------------------->
         <div class="row center-align ad-box">
             <p><strong> Missing something?</strong> View quality cookware needed for this recipe by Haden</p>
             <div class="col s4 center-align">
                 <div class="valign-wrapper">
                 <img class="logo" src="https://d2o7dtsnwzl7g9.cloudfront.net/blaines/media/image/f1/c5/fc/Haden_Logo.png" alt="Haden logo">
-                </div>
+            </div>
             </div>
             {% if "oven" in result.cookware %}
             <div class="col s4 center-align">
@@ -258,18 +277,7 @@
 
         </div>
         <!---------------------------------- FAV CREATED BY ------------------------------------------------------>
-        <div class="row">
-            <div class="col s12">
-                <p class= "center-align"> <strong>Created by:</strong> {{ result.created_by }}</p>
-            </div>
-            <div class="center-align">
-                <a href="{{ url_for('remove_favourite', recipe_id=result._id) }}" class="center-align blue darken-1 btn-large">
-                <i class="fas fa-times-circle"></i> Remove favourite</a>
-            </div>
         </div>
-        {% endfor %}
-    </div>
-
-
+{% endfor %}
 </div>
 {% endblock %}
