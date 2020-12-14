@@ -154,6 +154,14 @@ body{
 .ad-pic{
     max-width:12rem;
     max-height:12rem;
+    min-height:8rem;
+}
+
+.ad-box{
+    border-color:#60992D;
+    border-width:3px;
+    border-style:solid;
+    border-radius:25px;
 }
 
 .tablecloth{
@@ -185,6 +193,12 @@ body{
     font-size: 1rem;
     color: lightgray;
     padding-top:1rem;
+}
+
+.logo{
+    height:100%;
+    width:100%;
+    padding-bottom:1rem;
 }
 
 /*-----------------------------------------------------------MEDIA QUERIES MOBILE------*/
