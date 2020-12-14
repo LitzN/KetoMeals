@@ -2,6 +2,10 @@ body{
     background-color:#E2E4F3;
 }
 
+.nav-links{
+    font-size:1.5rem;
+}
+
 .almond{
     background-color: #d9c5b2
 }
@@ -28,6 +32,12 @@ body{
 
 .km-pink{
     background-color:#af3b6e;
+}
+
+.pink-border{
+    border-style:solid;
+    border-color:#af3b6e;
+    border-width:2px;
 }
 
 .no-margin{
@@ -90,6 +100,7 @@ body{
 }
 
 .user-header{
+    margin-top:1rem;
     border-color:#af3b6e;
     border-style:solid;
     border-width:5px;
@@ -201,6 +212,21 @@ body{
     font-size:2rem;
     font-weight:bolder;
 }
+
+.intro-heading{
+    padding:2rem;
+    font-size:2rem;
+    line-height:2rem;
+}
+
+.intro-text{
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-top: 0;
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
 .ad{
     font-size: 1rem;
     color: lightgray;
