@@ -94,3 +94,24 @@ is explained through helper text below the input field. All fields must be fille
 * __Image Background__ is the same image as the add recipe page so form is easily recognised by the user.
 * __Form__ is used to update a recipe in the database and is styled using site theme colours. The form's input fields are prefilled with the current recipe data, allowing the user
 to easily make adjustments to the recipe. 
+
+### Features left to implement
+
+## Technologies used
+* __HTML__ was used to build all templates.
+* __CSS__ was used to style the HTML.
+* [__Balsamic__](https://balsamiq.cloud/#) was used to create the wireframes for the project.
+* __Javascript__ was used to add responsive features.
+* [__Materialize__](https://materializecss.com/) grid was used for page structure. Components were also used to display data.
+* __Jquery__ was used to make materialise components functional and simplify javascript.
+* __Python__ was used to write the logic for the app.
+* __Flask__ was used to create the app and connect to the database.
+* __Jinja__ templates were used to create and structure page content.
+* __Werkzeug__ was used to encrypt and check password inputs.
+* [__Fontawesome__](https://fontawesome.com/) was used to add icons throughout the site.
+* [__Googlefonts__](https://fonts.google.com/) was used for the main font throughout the site.
+* [__W3C Validator__](https://validator.w3.org/) was used to check HTML for errors.
+* [__Jigsaw__](https://jigsaw.w3.org/css-validator/) was used to check CSS for errors
+* []() was used to check python code for errors.
+
+## __Testing__
