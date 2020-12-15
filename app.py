@@ -40,7 +40,8 @@ def search():
     query = request.form.get("query")
     find_recipe = mongo.db.recipes.find({"$text": {"$search": query}})
     return render_template("recipes.html", recipes=recipes, mains=mains,
-                snacks=snacks, desserts=desserts, find_recipe=find_recipe)
+                           snacks=snacks, desserts=desserts,
+                           find_recipe=find_recipe)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -107,7 +108,7 @@ def my_recipes(username):
     if session["user"]:
         return render_template(
             "my_recipes.html", username=username, favourites=favourites,
-             myrecipes=myrecipes, ownrecipes=ownrecipes, results=results)
+            myrecipes=myrecipes, ownrecipes=ownrecipes, results=results)
 
     return redirect(url_for("login"))
 

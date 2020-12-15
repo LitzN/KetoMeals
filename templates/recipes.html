@@ -22,21 +22,21 @@
 <div class="row">
     <h4 class="goldman center-align subheading-text">Search by category</h4>
     <div class="col s6 m4">
-        <button class="hoverable categories black darken-4 white-text goldman open-snack">
-            <p class="cat-btn-txt">Snack</p>
-            <img src="static/images/snack.jpg" class="category-pic">
+        <button class="hoverable categories black darken-4 white-text cat-btn-txt goldman open-snack">
+            Snack
+            <img src="static/images/snack.jpg" class="category-pic" alt="Salmon Canapes">
         </button>
     </div>
     <div class="col s6 m4">
-        <button class="hoverable categories black white-text goldman open-main">
-            <p class="cat-btn-txt">Main Meal</p>
-            <img src="static/images/main.jpg" class="category-pic">
+        <button class="hoverable categories black cat-btn-txt white-text goldman open-main">
+            Main Meal
+            <img src="static/images/main.jpg" class="category-pic" alt="Steak meal">
         </button>
     </div>
     <div class="col s6 offset-s3 m4 center-align">
-        <button class="hoverable categories black white-text goldman open-dessert">
-            <p class="cat-btn-txt">Dessert</p>
-            <img src="static/images/dessert.jpg" class="category-pic">
+        <button class="hoverable categories black white-text cat-btn-txt goldman open-dessert">
+            Dessert
+            <img src="static/images/dessert.jpg" class="category-pic" alt="Pudding in a glass">
         </button>
     </div>
 </div>
@@ -55,7 +55,7 @@
         <div class="col m6 s12">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{ snack.image_url }}">
+                    <img class="activator" src="{{ snack.image_url }}" alt="{{ snack.recipe_name}}">
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">{{ snack.recipe_name }}<i class="fas fa-ellipsis-v right"></i></span>

@@ -105,13 +105,14 @@ to easily make adjustments to the recipe.
 * [__Materialize__](https://materializecss.com/) grid was used for page structure. Components were also used to display data.
 * __Jquery__ was used to make materialise components functional and simplify javascript.
 * __Python__ was used to write the logic for the app.
-* __Flask__ was used to create the app and connect to the database.
+* __Mongodb__ was used to hold the database for the project.
+* __Flask and pymongo__ was used to create the app and connect to the database.
 * __Jinja__ templates were used to create and structure page content.
 * __Werkzeug__ was used to encrypt and check password inputs.
 * [__Fontawesome__](https://fontawesome.com/) was used to add icons throughout the site.
 * [__Googlefonts__](https://fonts.google.com/) was used for the main font throughout the site.
 * [__W3C Validator__](https://validator.w3.org/) was used to check HTML for errors.
 * [__Jigsaw__](https://jigsaw.w3.org/css-validator/) was used to check CSS for errors
-* []() was used to check python code for errors.
+* [PEP8](http://pep8online.com/) was used to check python code for errors.
 
 ## __Testing__

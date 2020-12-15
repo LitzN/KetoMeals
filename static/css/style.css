@@ -46,12 +46,10 @@ body{
 
 .signin{
     background: url(../images/register_image.jpg) no-repeat center center;
-    background-position: contain; 
 }
 
 .add_img{
     background: url(../images/add_image.jpg) no-repeat center center;
-    background-position: contain;
 }
 
 .header-pic{
