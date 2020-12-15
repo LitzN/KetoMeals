@@ -271,9 +271,11 @@
                     <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit</a>
                 {% endif %}
             </div>
+            {% if session['user'] != recipe.created_by %}
             <div class="center-align">
             <a href="{{ url_for('add_favourite', recipe_id=recipe._id) }}" class="btn">Favourite<i class="fas fa-star"></i></a>
             </div>
+            {% endif %}
         </div>
     </li>
     {% endfor %}
