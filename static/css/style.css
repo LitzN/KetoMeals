@@ -243,6 +243,14 @@ body{
     padding-bottom:1rem;
 }
 
+.list-title{
+    padding-top:2rem;
+}
+
+.fav-btn{
+    margin-bottom:1rem;
+}
+
 /*-----------------------------------------------------------MEDIA QUERIES MOBILE------*/
 @media only screen and (max-width: 600px) {
 
