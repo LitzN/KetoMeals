@@ -116,3 +116,39 @@ to easily make adjustments to the recipe.
 * [PEP8](http://pep8online.com/) was used to check python code for errors.
 
 ## __Testing__
+
+All code was put through validators (listed above) and passed with no errors.
+Except for and error on the edit and add page which is outlined in the bugs section below.
+
+### Testing is user stories needs are met
+
+1. I am new to keto lifestyle and want to know why I should follow this and what would be available to me.
+    * Homepage has a brief explanation about the benefits of following a ketogenic diet. Directly below are the meal type 
+    selector buttons where a user can see what their meals might look like, they can also use the search bar to see if the 
+    database contains their favourite foods.
+    ![Homepage](static/images/screenshots/homepage.png)
+
+2. I am following a keto diet and need ideas on what to cook which I can access quickly and easily
+    * Users are able to view recipes on the homepage by the meal type they want to make right now or by searching the ingredient they want to use
+    * While browsing, they also have the option of saving the recipes they like to their favourites, which appear on their personal 
+    page. This allows users to create their own personalised cookbook full of their favorite recipes, for immediate access when logging in. 
+
+    ![recipe favourite](static/images/screenshots/meal_type_recipe.png)
+
+    * Users are also able to remove any recipe from their favourite.
+    ![recipe unfavourite](static/images/screenshots/favourites.png)
+
+3. I am following a keto diet and want to see if the site has recipes for a specific ingredient I want to use
+    * The search bar is located on the home page, users have the option to search for recipes by ingredient or by name of the recipe.
+
+4. I am a follower of the keto diet and want to share my recipes and update them if I’ve found a better way to make them
+    ![Add & edit recipe access](static/images/screenshots/add_buttons.png)
+    * On logging in to the site the user is able to share their recipes, either through the “add recipe” button on the navigation or on their personal page.
+    * On the users personal recipe page, alongside every recipe is an edit or delete button, if a user decides they want to update or remove a recipe all together.
+5. I am the site owner and would like to promote Haden cookware
+    ![Examples of cookware promotions](static/images/screenshot/haden_ad_1.png)
+    ![Examples of cookware promotions](static/images/screenshot/haden_ad_2.png)
+    * On every recipe, based on the cookware specified, adverts will appear at the end showing the relevant Haden cookware. Adverts contain the Haden logo, 
+    an image, name of the product and lead to the purchase page of the product on Amazon when pressed.
+    * Seeing as the adverts appear on every recipe both registered and guest users will be able to see them.
+

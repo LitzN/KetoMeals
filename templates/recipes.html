@@ -79,6 +79,11 @@
                         </ul>
                         {% endautoescape %}
                     </p>
+                    {% if session['user'] != snack.created_by %}
+                    <div class="center-align">
+                        <a href="{{ url_for('add_favourite', recipe_id=snack._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -258,6 +263,7 @@
             <div class="center-align">
                 <a href="{{ url_for('add_favourite', recipe_id=recipe._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
             </div>
+            
             <!--------------------------------COOKWARE PROMOTION---------------------------------------------->
             <div class="row center-align ad-box">
                 <p class="ad"><strong> Missing something?</strong> View quality cookware needed for this recipe by Haden</p>
