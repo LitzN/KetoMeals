@@ -45,12 +45,12 @@ body{
 }
 
 .signin{
-    background: url(register_image.jpg) no-repeat center center;
+    background: url(../images/register_image.jpg) no-repeat center center;
     background-position: contain; 
 }
 
 .add_img{
-    background: url(add_image.jpg) no-repeat center center;
+    background: url(../images/add_image.jpg) no-repeat center center;
     background-position: contain;
 }
 
