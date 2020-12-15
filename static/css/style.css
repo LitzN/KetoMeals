@@ -6,12 +6,8 @@ body{
     font-size:1.5rem;
 }
 
-.almond{
-    background-color: #d9c5b2
-}
-
-.l-blue{
-    background-color:#6F79C3;
+.l-blue-text{
+    color:#E2E4F3;
 }
 
 .km-green-text{
@@ -42,6 +38,10 @@ body{
 
 .no-margin{
     margin:0;
+}
+
+.margin-top{
+    margin-top:2rem;
 }
 
 .signin{
