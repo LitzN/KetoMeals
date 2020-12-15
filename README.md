@@ -39,8 +39,15 @@ Wireframes created for this project:
 ### **Sitewide Features**
 
 * __Navigation bar__ is dark to compliment both the lighter site colour theme and image backgrounds.
-Bar is collapsible and appears as a bar icon on smaller screen sizes.
-* __Cookware promotion__ 
+Bar is collapsible and appears as a bar icon on smaller screen sizes. Navigation shows the "Register", "Login" 
+and homepage links to user's who aren't logged in. For registered users, the links are "My recipes", "Add recipe",
+"Home" and "Logout".
+* __Cookware promotion__ appears below most recipes. A selection of cookware from the brand Haden is 
+displayed based on the cookware required for the recipe. The cookware is displayed through an image link,
+name of product and price. When selected, the user is directed to the amazon purchase page for the product.
+Where the recipe contains none of the promoted products, the users will still see the Haden logo and link to
+visit the store. The promotion style is simple and subtle, a white background with a bright green border is 
+used to make it stand out and seperate it from the recipe.
 
 ### **Homepage**
 
@@ -52,29 +59,38 @@ The text is intended to inform users who are not familiar with the keto diet and
 and view relevant recipes. The buttons are made up of a large image, showing an example of the meal type and a heading. Background color is dark to draw attention against the lighter
 colour scheme and keep the main focus on the images.
 * __Meal Type results__ are displayed below the buttons, in the form of cards. Cards show the recipe image and title only until selected,
-once clicked on an overlay containing the recipe and ingredients appears. This allows users to view more than one recipe at a time.
+once clicked on, an overlay containing the recipe and ingredients appears. This allows users to view more than one recipe at a time.
 * __Search bar__ allows users to search for recipes by ingredient or recipe name. 
 * __Search results__ are displayed as a list of collapsibles with the recipe name and image appearing side by side. Once 
-recipe is selected the drop down reveals the recipe and relevant cookware promotion. This section also contains different buttons 
+recipe is selected, the drop down reveals the recipe and relevant cookware promotion. This section also contains different buttons 
 depending on the identity of the user. If the user is the recipe owner, they have the option of "Edit" or "Delete"; while other users
 will see a "favourite" button, used to add the recipe to their personal page.
 
 ### **Register/Login Pages**
-* __Image background__ 
-* __Form__
+* __Image background__ is of a wooden table with a knife and fork and a form centered in the middle. The image motivates
+the user to sign up and start cooking. 
+* __Form__ uses a translucent black background to fit with the image but remain readable. The register form allows the 
+user to choose an alphanumeric username and password. When the form is submitted, the user's username, hashed password and 
+an empty favourites array are added to the database. If the form is incorrectly filled the input fields will be highlighted
+in red to alert the user. The login form allows the user to sign in to their account, if the users input doesn't match with
+a user in the database they will be shown a message telling them the username or password is invalid.
 
 
 ### **My Recipes** 
 * __User Header__ is styled with site theme colours.
-* __Own Recipes__ are each displayed along with relevant cookware promotion and edit and delete buttons.
-* __Favourite Recipes__ are displayed along with relevant cookware promotion and unfavourite button.
+* __Own Recipes__ show the recipes the user has generated with the option of updating or deleting them. The recipe is styled
+simply so it's easy to follow. The recipe image and name are shown on top, then ingredients and cookware are displayed through
+bullet points lists in site theme colors. Ingredients appear as a collection in seperate boxes, again for ease of reading. Lastly 
+the cookware promotion is seen.
+* __Favourite Recipes__ are displayed with the same layout for consistency but contain a button to remove the recipe 
+from the user's favourites.
 
 ### **Add Recipe**
-* __Image Background__
+* __Image Background__ is a bright image of a selection of food, making the page vibrant will envoke a positive response from the user and motivate them to complete the form.
 * __Form__ is used to add a recipe to the database and is styled using site theme colours. Form contains a field for each recipe requirement in the database. For longer input, such as in ingredients or instructions, expected input 
-is explained through helper text below the input field. All fields must be filled out for the recipe to be submitted and incorrectly filled fields will be highlighted in red.
+is explained through helper text below the input field. All fields must be filled out for the recipe to be submitted and incorrectly filled fields will be highlighted in red so the user understands what needs correcting.
 
 ### **Edit Recipe**
-* __Image Background__
-* __Form__ is used to update a recipe in the database and is styled using site theme colours. The form's input fields are prefilled with current recipe data, allowing the user
+* __Image Background__ is the same image as the add recipe page so form is easily recognised by the user.
+* __Form__ is used to update a recipe in the database and is styled using site theme colours. The form's input fields are prefilled with the current recipe data, allowing the user
 to easily make adjustments to the recipe. 
