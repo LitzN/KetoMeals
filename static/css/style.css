@@ -107,6 +107,8 @@ body{
     color: #af3b6e;
     background-color: white;
     border-radius:25px;
+    font-size:3rem;
+    line-height:3rem;
 }
 
 .flashes h4{
@@ -222,6 +224,7 @@ body{
 .intro-text{
     padding-bottom: 2rem;
     padding-left: 1rem;
+    padding-right:1rem;
     padding-top: 0;
     margin-top: 0;
     font-size: 1.5rem;
@@ -275,6 +278,30 @@ body{
 
 .search-bar{
     min-width:100%;
+}
+
+.adjust-size{
+    max-width:100%;
+    min-height:0;
+    max-height:100%;
+    padding:0;
+}
+
+.recipe-section{
+    font-size:1.2rem;
+}
+
+.list-title{
+    font-size:1.5rem;
+}
+
+.brand-logo{
+    font-size:1.5rem !important;
+}
+
+.user-header{
+    line-height: 2rem;
+    font-size: 2.5rem;
 }
 
 }
