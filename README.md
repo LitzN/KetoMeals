@@ -88,7 +88,8 @@ from the user's favourites.
 ### **Add Recipe**
 * __Image Background__ is a bright image of a selection of food, making the page vibrant will envoke a positive response from the user and motivate them to complete the form.
 * __Form__ is used to add a recipe to the database and is styled using site theme colours. Form contains a field for each recipe requirement in the database. For longer input, such as in ingredients or instructions, expected input 
-is explained through helper text below the input field. All fields must be filled out for the recipe to be submitted and incorrectly filled fields will be highlighted in red so the user understands what needs correcting.
+is explained through helper text below the input field. All fields must be filled out for the recipe to be submitted and incorrectly filled fields will be highlighted in red so the user understands what needs correcting. Helper text
+is also provided below input fields to ensure user understands the format.
 
 ### **Edit Recipe**
 * __Image Background__ is the same image as the add recipe page so form is easily recognised by the user.
@@ -120,7 +121,7 @@ to easily make adjustments to the recipe.
 All code was put through validators (listed above) and passed with no errors.
 Except for and error on the edit and add page which is outlined in the bugs section below.
 
-### Testing is user stories needs are met
+### __Testing is user stories needs are met__
 
 1. I am new to keto lifestyle and want to know why I should follow this and what would be available to me.
     * Homepage has a brief explanation about the benefits of following a ketogenic diet. Directly below are the meal type 
@@ -146,9 +147,67 @@ Except for and error on the edit and add page which is outlined in the bugs sect
     * On logging in to the site the user is able to share their recipes, either through the “add recipe” button on the navigation or on their personal page.
     * On the users personal recipe page, alongside every recipe is an edit or delete button, if a user decides they want to update or remove a recipe all together.
 5. I am the site owner and would like to promote Haden cookware
-    ![Examples of cookware promotions](static/images/screenshot/haden_ad_1.png)
-    ![Examples of cookware promotions](static/images/screenshot/haden_ad_2.png)
+    ![Examples of cookware promotions](static/images/screenshots/haden_ad_1.png)
+    ![Examples of cookware promotions](static/images/screenshots/haden_ad_2.png)
     * On every recipe, based on the cookware specified, adverts will appear at the end showing the relevant Haden cookware. Adverts contain the Haden logo, 
     an image, name of the product and lead to the purchase page of the product on Amazon when pressed.
     * Seeing as the adverts appear on every recipe both registered and guest users will be able to see them.
+
+### __Testing Functionality and Responsive design__
+
+#### __Site Wide Features__
+* __Navigation bar__
+    * To test navigation bar is functional, I clicked on all navigation links which all led to the named page. The toggle button displayed on smaller screen widths
+    and led to the correct pages.
+* __Cookware promotion__ 
+    I pressed each of the advert links on all the recipes in the "My recipes" and "Home" pages. Each opened the relevant products amazon purchase page in 
+    a new tab as expected. Images resized on smaller device screen width to maintain advert appearance.
+
+#### __Homepage__
+* __Meal Type selector buttons__ I tested each of these buttons by pressing them and checking results which appeared were for the correct meal type.
+* __Meal Type results__ are displayed through cards with an expandable section for the recipe. As cards were created through a template I clicked on 
+the toggle for one recipe of each type to ensure the correct data was displaying.
+* __Search bar__ was tested by searching for the words "stevia" and "tomato" as they appear in several recipes. All recipes containing 
+the words were displayed. One featured the word exclusively in the recipe name and the others were ingredients.
+* __Search results__ collapsible list results all open when clicked on to display the correct recipe and cookware promotions. Using google developer tools,
+I checked whether images and text resized to fit well in smaller screen widths.
+
+### **Register Page**
+* __Form__ 
+    * I filled in the form using a username which is already in the database, the page reloaded with an alert at the top saying
+    "Username taken!". I checked the database on mongodb to ensure nothing had been added.
+    * I filled in the form with a username not on the database containing a non alphanumeric character, the username input turned red and displayed
+    some red helper text saying password can't contain special characters or be less than 5 characters.I tried to submit with the error but a pop up
+    alert appeared at the text input,to remind me the format is incorrect.
+    * I filled in the form with a username under 5 letters, the username input field border turned red and helper text appeared again, pop up alert appeared 
+    as before when I tried to submit the form.
+    * I filled in the form with a username containing 5 alphanumeric characters and a password and submitted the form. I checked the database to ensure data
+    had been added and password encrypted.
+
+### **Login Page**
+* __Form__ 
+    * I filled in the form using a username which is not in the database, the page reloaded with an alert at the top saying
+    "Invalid username/password".
+    * I filled in the form with a username on the database but using an incorrect password, again the page reloaded with an
+    alert above the form saying "Invalid username/password".
+    * I filled in the form with a username and password of a registered user, I was directed to the user's 
+    my recipe page containing all their recipes. An alert appeared above Welcoming the user.
+
+### **My Recipes** 
+* __Add Recipe button__ I clicked the add recipe button on the my recipes page for a user and was directed to the "Add a recipe" page.
+* __Own Recipes__ user recipes are being displayed, with relevant cookware promotions. Each contains an edit and delete button.
+    * I pressed the edit button and was directed to the edit page for the specific recipe with the input fields prefilled. 
+    * I pressed the delete button on a test recipe I added and checked it had been removed from the database.
+* __Favourite Recipes__ users favourited recipes are displayed with relevant cookware promotions. Each contains a "remove favourite"
+button. I pressed the button which directed me back to the homepage with an alert saying "Favourite saved". I checked the database 
+to ensure the user's favourites no longer contained the specific recipe id.
+
+### **Add Recipe**
+* __Form__ 
+
+### **Edit Recipe**
+* __Form__ 
+
+
+
 
