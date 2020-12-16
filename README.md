@@ -34,6 +34,35 @@ Wireframes created for this project:
 * [Register and Login pages](static/images/wireframes/register_login.png)
 * [My recipes page](static/images/wireframes/user_recipes.png)
 
+### **Database Schema**
+
+### __Users__
+
+| Field names    | Datatype     |
+| :------------- | :----------: | 
+| _id            | ObjectId     |
+|  username      | string       | 
+| password       | string       |
+| favourites     | array        |
+
+### __Types__
+| Field names    | Datatype     |
+| :------------- | :----------: | 
+|  _id           | ObjectId     | 
+|  meal_type     | string       |
+
+### __Recipes__
+| Field names    | Datatype     |
+| :------------- | :----------: | 
+|  _id           | ObjectId     | 
+|  meal_type     | string       |
+| recipe_name    | string       |
+|  ingredients   | string       | 
+|  instructions  | string       |
+| cookware       | string       |
+| image_url      |   string     |
+| created_by     |    string    |
+
 ## **Features**
 
 ### **Sitewide Features**
