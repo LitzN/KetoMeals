@@ -94,10 +94,12 @@ body{
 
 .signin{
     background: url(../images/register_image.jpg) no-repeat center center;
+    background-size:cover;
 }
 
 .add_img{
     background: url(../images/add_image.jpg) no-repeat center center;
+    background-size:cover;
 }
 /*-------------------------------HOMEPAGE--------------------------------------------*/
 
@@ -280,7 +282,7 @@ body{
 }
 
 .search-bar{
-    min-width:100%;
+    min-width:80%;
 }
 
 .adjust-size{
@@ -308,6 +310,3 @@ body{
 }
 
 }
-
-/*-----------------------------------------------------------MEDIA QUERIES MOBILE------*/
-
