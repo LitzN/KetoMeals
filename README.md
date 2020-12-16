@@ -125,6 +125,12 @@ is also provided below input fields to ensure user understands the format.
 * __Form__ is used to update a recipe in the database and is styled using site theme colours. The form's input fields are prefilled with the current recipe data, allowing the user
 to easily make adjustments to the recipe. 
 
+### __Defensive Programming features__
+* __Forms__ cannot be submitted unless all fields are correctly filled in 
+* __Login form__ mistakes are not accredited to "Incorrect password" or "Incorrect username" specifically to ensure people don't use this to hack into others accounts.
+* __Registered Users__ don't have access to edit and delete buttons of recipes so they don't alter other users data.
+* __Unregistered Users__ do not have access to Add Recipe button to prevent database being flooded with data from non-users.
+
 ### Features left to implement
 
 ## Technologies used
@@ -255,6 +261,9 @@ changed the body element minimum height to 100vh, which made the picture take up
  1. When running the edit and add recipe pages through the html validator, I got an error with a materialize
  component. The dropdown selector menu for the field "meal type" is causing the error: "Bad value true for attribute 
  readonly on element input". The readonly attribute is added automatically to the component.
+ 2. When a user has added a recipe as a favourite, if the recipe is deleted by the owner or admin, it still displays 
+ the favourite box for the recipe but without the relevant details. When the user tries to remove the empty favourited 
+ recipe, the site throws an error as it cannot extract the ObjectId it needs to remove from favourites.
 
  ## __Deployment__
 The project was created on Gitpod and pushed to Github after each major change. The master branch was used as a source for deployment on Heroku. The development version is the same as the deployed version.
@@ -293,3 +302,4 @@ The deployed site is avaliable at [Keto Meals](https://ketomeals-project.herokua
 
 ### __Acknowledgements__
 * I recieved inspiration for this project from [BBC good food](https://www.bbcgoodfood.com/recipes), [Delicious magazine](https://www.deliciousmagazine.co.uk/recipes/), [All recipes](http://allrecipes.co.uk/recipes/).
+* I recieved guidance and assistance from the CodeInstitute support team.
