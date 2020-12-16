@@ -257,6 +257,34 @@ changed the body element minimum height to 100vh, which made the picture take up
  readonly on element input". The readonly attribute is added automatically to the component.
 
  ## __Deployment__
+The project was created on Gitpod and pushed to Github after each major change. The master branch was used as a source for deployment on Heroku. The development version is the same as the deployed version.
+
+### __Steps taken to deploy__ 
+1. In the workspace for the project, I ran the following command to add a requirements file to the file system.
+Heroku uses this file in order to understand dependancies used for the project.
+    `pip3 freeze--local > requirements.txt`
+2. Next I ran the command below in order to create the Procfile needed for Heroku deployment.
+    `echo web: python app.py > Procfile`
+3. Push files to Github.
+3. Next I opened Heroku website, logged in and navigated to my dashboard.
+4. I created a new project using the "Create a New App" button on the Heroku dashboard. The app was named "ketomeals-project".
+5. I was then directed to the app dashboard. Under the "Deployment Method" section I chose Github.
+6. I found my github repository using the search bar. The repo appeared below and I clicked "Connect".
+7. Next, from the project dashboard on Heroku, I selected "Settings" tab on the navigation below the project title.
+8. In Setting, I found the "Config Vars" section and clicked "Reveal Config Vars"
+9. Here I inputted details contained in the env.py file in the github workspace, so they could be securely accessed to run the 
+    app on Heroku. Once this section was complete I clicked "Add".
+    Details required were:
+    * IP 
+    * PORT
+    * SECRET_KEY
+    * MONGO_URI
+    * MONGO_DBNAME
+10. Next, from the project dashboard, I selected the "Deploy" tab from the navigation below the project title and scrolled 
+down to the "Automatic deploys" section.
+11. I pressed the Enable Automatic deploys and chose the master branch to build the app.
+
+The deployed site is avaliable at [Keto Meals](https://ketomeals-project.herokuapp.com/)
 
  ## __Credits__
 
