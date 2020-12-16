@@ -209,8 +209,7 @@ def delete_recipe(recipe_id):
     return redirect("get_recipes")
 
 
-# CHANGE DEBUG TO FALSE WHEN PROJECTS DONE
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
