@@ -2,371 +2,374 @@
 {% block content %}
 <!--------------------------------------HEADER----------------------------------------------->
 <div class="row">
-    <div class="header-pic img-background responsive-img">
-        <h1 class="goldman header-text"> KetoMeals</h1>
-    </div>
+   <div class="header-pic img-background responsive-img">
+      <h1 class="goldman header-text"> KetoMeals</h1>
+   </div>
 </div>
 <div class="container">
-<div class="row">
-    <div class="col 12">
-        <div class="center-align rounded white">
+   <div class="row">
+      <div class="col 12">
+         <div class="center-align rounded white">
             <p class="goldman intro-heading km-pink-text">Welcome to Keto Meals, your online recipe library and cookbook.</p>
             <p class="intro-text">The ketogenic diet has been proven to protect <strong class="km-green-text">brain function</strong>, <strong class="km-green-text">prevent signs of aging</strong> and provide
-                impressive <strong class="km-green-text">weight loss</strong> results while maintaining muscle mass. 
-                <br>Explore the recipes below and start building your cookbook!
+               impressive <strong class="km-green-text">weight loss</strong> results while maintaining muscle mass. 
+               <br>Explore the recipes below and start building your cookbook!
             </p>
-        </div>
-    </div>
-</div>
-<!------------------------------------CATEGORY BUTTONS--------------------------------------->
-<div class="row">
-    <h4 class="goldman center-align subheading-text">Search by category</h4>
-    <div class="col s6 m4">
-        <button class="hoverable categories black darken-4 white-text cat-btn-txt goldman open-snack">
-            Snack
-            <img src="static/images/snack.jpg" class="category-pic" alt="Salmon Canapes">
-        </button>
-    </div>
-    <div class="col s6 m4">
-        <button class="hoverable categories black cat-btn-txt white-text goldman open-main">
-            Main Meal
-            <img src="static/images/main.jpg" class="category-pic" alt="Steak meal">
-        </button>
-    </div>
-    <div class="col s6 offset-s3 m4 center-align">
-        <button class="hoverable categories black white-text cat-btn-txt goldman open-dessert">
-            Dessert
-            <img src="static/images/dessert.jpg" class="category-pic" alt="Pudding in a glass">
-        </button>
-    </div>
-</div>
-<!------------------------------------CATEGORY RESULTS--------------------------------------->
-<div class="snacks hide">
-    <!-------------------------------------SNACKS------------------------------------------------>
-    <div class="row">
-        <div class="col s12">
+         </div>
+      </div>
+   </div>
+   <!------------------------------------CATEGORY BUTTONS--------------------------------------->
+   <div class="row">
+      <h4 class="goldman center-align subheading-text">Search by category</h4>
+      <div class="col s6 m4">
+         <button class="hoverable categories black darken-4 white-text cat-btn-txt goldman open-snack">
+         Snack
+         <img src="static/images/snack.jpg" class="category-pic" alt="Salmon Canapes">
+         </button>
+      </div>
+      <div class="col s6 m4">
+         <button class="hoverable categories black cat-btn-txt white-text goldman open-main">
+         Main Meal
+         <img src="static/images/main.jpg" class="category-pic" alt="Steak meal">
+         </button>
+      </div>
+      <div class="col s6 offset-s3 m4 center-align">
+         <button class="hoverable categories black white-text cat-btn-txt goldman open-dessert">
+         Dessert
+         <img src="static/images/dessert.jpg" class="category-pic" alt="Pudding in a glass">
+         </button>
+      </div>
+   </div>
+   <!------------------------------------CATEGORY RESULTS--------------------------------------->
+   <div class="snacks hide">
+      <!-------------------------------------SNACKS------------------------------------------------>
+      <div class="row">
+         <div class="col s12">
             <p class="subheading-text goldman">
-                Results:
+               Results:
             </p>
-        </div>
-    </div>
-    <div class="row">
-        {% for snack in snacks %}
-        <div class="col m6 s12">
+         </div>
+      </div>
+      <div class="row">
+         {% for snack in snacks %}
+         <div class="col m6 s12">
             <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{ snack.image_url }}" alt="{{ snack.recipe_name}}">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">{{ snack.recipe_name }}<i class="fas fa-ellipsis-v right"></i></span>
-                    <p><a href="#"></a></p>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">{{ snack.recipe_name }}<i class="fas fa-caret-down right"></i></span>
-                    <p class="ingred-item adjust-size">
-                        <strong class="recipe-section"> Ingredients :</strong>
-                        {% autoescape false %}
-                        <ul class="ingred-list">
-                            <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ snack.ingredients|replace(",", "</li><li class='ingred-item adjust-size'><i class=' km-green-text fas fa-heart'></i>") }}</li>
-                        </ul>
-                        {% endautoescape %}
-                    </p>
-                    <p>
-                        <strong> Instructions :</strong>
-                        {% autoescape false %}
-                        <ul class="collection">
-                            <li class="collection-item">{{ snack.instructions|replace(".", "</li><li class='collection-item'>") }}</li>
-                        </ul>
-                        {% endautoescape %}
-                    </p>
-                    {% if session['user'] != snack.created_by %}
-                    <div class="center-align">
-                        <a href="{{ url_for('add_favourite', recipe_id=snack._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
-                    </div>
-                    {% endif %}
-
-                    {% if session.user|lower == "admin" %}
-                    <a href="{{ url_for('delete_recipe', recipe_id=snack._id) }}" class="btn-small">Delete</a>
-                    <a href="{{ url_for('edit_recipe', recipe_id=snack._id) }}" class="btn-small">Edit</a>
-                    {% endif %}
-                </div>
+               <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="{{ snack.image_url }}" alt="{{ snack.recipe_name}}">
+               </div>
+               <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4">{{ snack.recipe_name }}<i class="fas fa-ellipsis-v right"></i></span>
+                  <p><a href="#"></a></p>
+               </div>
+               <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">{{ snack.recipe_name }}<i class="fas fa-caret-down right"></i></span>
+                  <p class="ingred-item adjust-size">
+                     <strong class="recipe-section"> Ingredients :</strong>
+                     {% autoescape false %}
+                  <ul class="ingred-list">
+                     <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ snack.ingredients|replace(",", "</li>
+                     <li class='ingred-item adjust-size'><i class=' km-green-text fas fa-heart'></i>") }}</li>
+                  </ul>
+                  {% endautoescape %}
+                  </p>
+                  <p>
+                     <strong> Instructions :</strong>
+                     {% autoescape false %}
+                  <ul class="collection">
+                     <li class="collection-item">{{ snack.instructions|replace(".", "</li>
+                     <li class='collection-item'>") }}</li>
+                  </ul>
+                  {% endautoescape %}
+                  </p>
+                  {% if session['user'] != snack.created_by %}
+                  <div class="center-align">
+                     <a href="{{ url_for('add_favourite', recipe_id=snack._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
+                  </div>
+                  {% endif %}
+                  {% if session.user|lower == "admin" %}
+                  <a href="{{ url_for('delete_recipe', recipe_id=snack._id) }}" class="btn-small">Delete</a>
+                  <a href="{{ url_for('edit_recipe', recipe_id=snack._id) }}" class="btn-small">Edit</a>
+                  {% endif %}
+               </div>
             </div>
-        </div>
-    {% endfor %}
-    </div>
-</div>
-<div class="mains hide">
-    <!-------------------------------------MAIN MEAL------------------------------------------------>
-    <div class="row">
-        <div class="col s12">
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+   <div class="mains hide">
+      <!-------------------------------------MAIN MEAL------------------------------------------------>
+      <div class="row">
+         <div class="col s12">
             <p class=" subheading-text goldman">
-                Results:
+               Results:
             </p>
-        </div>
-    </div>
-    <div class="row">
-        {% for main in mains %}
-        <div class="col m6 s12">
+         </div>
+      </div>
+      <div class="row">
+         {% for main in mains %}
+         <div class="col m6 s12">
             <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{ main.image_url }}">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">{{ main.recipe_name }}<i class="fas fa-ellipsis-v right"></i></span>
-                    <p><a href="#"></a></p>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">{{ main.recipe_name }}<i class="fas fa-caret-down left"></i></span>
-                    <p class="ingred-item adjust-size">
-                        <strong class="recipe-section"> Ingredients :</strong>
-                        {% autoescape false %}
-                        <ul class="ingred-list">
-                            <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ main.ingredients|replace(",", "</li><li class='ingred-item adjust-size'><i class=' km-green-text fas fa-heart'></i>") }}</li>
-                        </ul>
-                        {% endautoescape %}
-
-                    </p>
-                    <p>
-                        <strong> Instructions :</strong>
-                        <ul class="collection">
-                        {% autoescape false %}
-                            <li class="collection-item">{{ main.instructions|replace(".", "</li><li class='collection-item'>") }}</li>
-                        {% endautoescape %}
-                        </ul>
-                    </p>
-                    {% if session.user|lower == "admin" %}
-                    <a href="{{ url_for('delete_recipe', recipe_id=main._id) }}" class="btn-small">Delete</a>
-                    <a href="{{ url_for('edit_recipe', recipe_id=main._id) }}" class="btn-small">Edit</a>
-                    {% endif %}
-                    {% if session['user'] != main.created_by %}
-                    <div class="center-align">
-                        <a href="{{ url_for('add_favourite', recipe_id=main._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
-                    </div>
-                    {% endif %}
-                </div>
+               <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="{{ main.image_url }}">
+               </div>
+               <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4">{{ main.recipe_name }}<i class="fas fa-ellipsis-v right"></i></span>
+                  <p><a href="#"></a></p>
+               </div>
+               <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">{{ main.recipe_name }}<i class="fas fa-caret-down left"></i></span>
+                  <p class="ingred-item adjust-size">
+                     <strong class="recipe-section"> Ingredients :</strong>
+                     {% autoescape false %}
+                  <ul class="ingred-list">
+                     <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ main.ingredients|replace(",", "</li>
+                     <li class='ingred-item adjust-size'><i class=' km-green-text fas fa-heart'></i>") }}</li>
+                  </ul>
+                  {% endautoescape %}
+                  </p>
+                  <p>
+                     <strong> Instructions :</strong>
+                  <ul class="collection">
+                     {% autoescape false %}
+                     <li class="collection-item">{{ main.instructions|replace(".", "</li>
+                     <li class='collection-item'>") }}</li>
+                     {% endautoescape %}
+                  </ul>
+                  </p>
+                  {% if session.user|lower == "admin" %}
+                  <a href="{{ url_for('delete_recipe', recipe_id=main._id) }}" class="btn-small">Delete</a>
+                  <a href="{{ url_for('edit_recipe', recipe_id=main._id) }}" class="btn-small">Edit</a>
+                  {% endif %}
+                  {% if session['user'] != main.created_by %}
+                  <div class="center-align">
+                     <a href="{{ url_for('add_favourite', recipe_id=main._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
+                  </div>
+                  {% endif %}
+               </div>
             </div>
-        </div>
-    {% endfor %}
-    </div>
-</div>
-<div class="desserts hide">
-    <!-------------------------------------DESSERTS------------------------------------------------>
-    <div class="row">
-        <div class="col s12">
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+   <div class="desserts hide">
+      <!-------------------------------------DESSERTS------------------------------------------------>
+      <div class="row">
+         <div class="col s12">
             <p class="goldman subheading-text">
-                Results:
+               Results:
             </p>
-        </div>
-    </div>
-    <div class="row">
-        {% for dessert in desserts %}
-        <div class="col m6 s12">
+         </div>
+      </div>
+      <div class="row">
+         {% for dessert in desserts %}
+         <div class="col m6 s12">
             <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{ dessert.image_url }}">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">{{ dessert.recipe_name }}<i class="fas fa-ellipsis-v right"></i></span>
-                    <p><a href="#"></a></p>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">{{ dessert.recipe_name }}<i class="fas fa-caret-down right"></i></span>
-                    <p class="ingred-item adjust-size">
-                        <strong class="recipe-section"> Ingredients :</strong>
-                        {% autoescape false %}
-                        <ul class="ingred-list">
-                            <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ dessert.ingredients|replace(",", "</li><li class='ingred-item adjust-size'><i class=' km-green-text fas fa-heart'></i>") }}</li>
-                        </ul>
-                        {% endautoescape %}
-                    </p>
-                    <p>
-                        <strong> Instructions :</strong>
-                        {% autoescape false %}
-                        <ul class="collection">
-                            <li class="collection-item">{{ dessert.instructions|replace(".", "</li><li class='collection-item'>") }}</li>
-                        </ul>
-                        {% endautoescape %}
-                    </p>
-
-                    {% if session['user'] != dessert.created_by %}
-                    <div class="center-align">
-                        <a href="{{ url_for('add_favourite', recipe_id=dessert._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
-                    </div>
-                    {% endif %}
-
-                    {% if session.user|lower == "admin" %}
-                    <a href="{{ url_for('delete_recipe', recipe_id=dessert._id) }}" class="btn-small">Delete</a>
-                    <a href="{{ url_for('edit_recipe', recipe_id=dessert._id) }}" class="btn-small">Edit</a>
-                    {% endif %}
-                </div>
-                </div>
+               <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="{{ dessert.image_url }}">
+               </div>
+               <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4">{{ dessert.recipe_name }}<i class="fas fa-ellipsis-v right"></i></span>
+                  <p><a href="#"></a></p>
+               </div>
+               <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">{{ dessert.recipe_name }}<i class="fas fa-caret-down right"></i></span>
+                  <p class="ingred-item adjust-size">
+                     <strong class="recipe-section"> Ingredients :</strong>
+                     {% autoescape false %}
+                  <ul class="ingred-list">
+                     <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ dessert.ingredients|replace(",", "</li>
+                     <li class='ingred-item adjust-size'><i class=' km-green-text fas fa-heart'></i>") }}</li>
+                  </ul>
+                  {% endautoescape %}
+                  </p>
+                  <p>
+                     <strong> Instructions :</strong>
+                     {% autoescape false %}
+                  <ul class="collection">
+                     <li class="collection-item">{{ dessert.instructions|replace(".", "</li>
+                     <li class='collection-item'>") }}</li>
+                  </ul>
+                  {% endautoescape %}
+                  </p>
+                  {% if session['user'] != dessert.created_by %}
+                  <div class="center-align">
+                     <a href="{{ url_for('add_favourite', recipe_id=dessert._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
+                  </div>
+                  {% endif %}
+                  {% if session.user|lower == "admin" %}
+                  <a href="{{ url_for('delete_recipe', recipe_id=dessert._id) }}" class="btn-small">Delete</a>
+                  <a href="{{ url_for('edit_recipe', recipe_id=dessert._id) }}" class="btn-small">Edit</a>
+                  {% endif %}
+               </div>
             </div>
-        </div>
-    {% endfor %}
-    </div>
+         </div>
+      </div>
+      {% endfor %}
+   </div>
 </div>
 <!---------------------------------------SEARCH BAR------------------------------------------>
 <div class="row user-header">
-    <div class="col s12">
-        <p class="goldman subheading-text center-align"> Search Recipes:</p>
-        <form action="{{ url_for('search') }}" method="POST" class="search-form">
-            <div class="valign-wrapper center-align">
-                <div class="input-field center-align">
-                    <i class="fas fa-search prefix"></i>
-                    <input type="text" name="query" id="query" minlength="3" class="validate search-bar white black-text" required>
-                    <label for="query">Search Recipes</label>
-                </div>
+   <div class="col s12">
+      <p class="goldman subheading-text center-align"> Search Recipes:</p>
+      <form action="{{ url_for('search') }}" method="POST" class="search-form">
+         <div class="valign-wrapper center-align">
+            <div class="input-field center-align">
+               <i class="fas fa-search prefix"></i>
+               <input type="text" name="query" id="query" minlength="3" class="validate search-bar white black-text" required>
+               <label for="query">Search Recipes</label>
             </div>
-            <div>
-                <a href="{{ url_for('get_recipes') }}" class="btn km-pink"><i class="fa fa-refresh left"></i>Reset</a>
-                <button type="submit" class="btn km-green right"><i class="fas fa-search left"></i> Search </button>
-                </div>
-        </form>
-    </div>
+         </div>
+         <div>
+            <a href="{{ url_for('get_recipes') }}" class="btn km-pink"><i class="fa fa-refresh left"></i>Reset</a>
+            <button type="submit" class="btn km-green right"><i class="fas fa-search left"></i> Search </button>
+         </div>
+      </form>
+   </div>
 </div>
 <!------------------------------------RECIPE LIST--------------------------------------->
 <ul class="collapsible">
-    {% for recipe in find_recipe %}
-    <li>
-        <!--------------------------------RECIPE LIST HEADER---------------------------------------------->
-        <div class="collapsible-header">
-            <div class="row">
-                <div class="col s6">
-                    <p class="subheading-text goldman center-align list-title">{{ recipe.recipe_name }}</p>
-                </div>
-                <div class="col s6 center-align">
-                    <img src="{{ recipe.image_url}}" alt="{{recipe.recipe_name}}" class="recipe-pic adjust-size ">
-                </div>
+   {% for recipe in find_recipe %}
+   <li>
+      <!--------------------------------RECIPE LIST HEADER---------------------------------------------->
+      <div class="collapsible-header">
+         <div class="row">
+            <div class="col s6">
+               <p class="subheading-text goldman center-align list-title">{{ recipe.recipe_name }}</p>
             </div>
-        </div>
-        <!--------------------------------RECIPE LIST BODY---------------------------------------------->
-        <div class="collapsible-body white">
-            <!--------------------------------INGREDIENTS---------------------------------------------->
-            <div class="row">
-                <div class="col s6">
-                    <p class="ingred-item adjust-size">
-                        <strong class="recipe-section"> Ingredients :</strong>
-                        {% autoescape false %}
-                        <ul class="ingred-list adjust-size">
-                            <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ recipe.ingredients|replace(",", "</li><li class='ingred-item adjust-size'><i class=' km-green-text fas fa-heart'></i>") }}</li>
-                        </ul>
-                        {% endautoescape %}
-                    </p>
-                </div>
-                <!--------------------------------COOKWARE---------------------------------------------->
-                <div class="col s6">
-                    <p><strong class="recipe-section"> Cookware required:</strong></p>
-                    {% autoescape false %}
-                    <ul>
-                        <li><i class="fas fa-heart km-pink-text"></i>{{ recipe.cookware|replace(",", "</li><li><i class='fas fa-heart km-pink-text'></i>") }}</li>
-                    </ul>
-                    {% endautoescape %}
-                </div>
+            <div class="col s6 center-align">
+               <img src="{{ recipe.image_url}}" alt="{{recipe.recipe_name}}" class="recipe-pic adjust-size ">
             </div>
-            <!--------------------------------INSTRUCTIONS---------------------------------------------->
-            <div class="row">
-                <div class="col s12">
-                    <p>
-                        <strong> Instructions :</strong>
-                        {% autoescape false %}
-                        <ul class="collection">
-                            <li class="collection-item">{{ recipe.instructions|replace(".", "</li><li class='collection-item'>") }}</li>
-                        </ul>
-                        {% endautoescape %}
-                    </p>
-                </div>
+         </div>
+      </div>
+      <!--------------------------------RECIPE LIST BODY---------------------------------------------->
+      <div class="collapsible-body white">
+         <!--------------------------------INGREDIENTS---------------------------------------------->
+         <div class="row">
+            <div class="col s6">
+               <p class="ingred-item adjust-size">
+                  <strong class="recipe-section"> Ingredients :</strong>
+                  {% autoescape false %}
+               <ul class="ingred-list adjust-size">
+                  <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ recipe.ingredients|replace(",", "</li>
+                  <li class='ingred-item adjust-size'><i class=' km-green-text fas fa-heart'></i>") }}</li>
+               </ul>
+               {% endautoescape %}
+               </p>
             </div>
-            <!--------------------------------CREATED BY---------------------------------------------->
-
-            <p class="center-align" ><strong>Created by:</strong><i>{{ recipe.created_by }}</i></p>
-            <!--------------------------------EDIT/DELETE OPTION---------------------------------------------->
-            <div class="center-align">
-                {% if session.user|lower == recipe.created_by|lower %}
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small">Delete</a>
-                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit</a>
-                {% endif %}
-                {% if session.user|lower == "admin" %}
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small">Delete</a>
-                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit</a>
-                {% endif %}
+            <!--------------------------------COOKWARE---------------------------------------------->
+            <div class="col s6">
+               <p><strong class="recipe-section"> Cookware required:</strong></p>
+               {% autoescape false %}
+               <ul>
+                  <li><i class="fas fa-heart km-pink-text"></i>{{ recipe.cookware|replace(",", "</li>
+                  <li><i class='fas fa-heart km-pink-text'></i>") }}</li>
+               </ul>
+               {% endautoescape %}
             </div>
-            {% if session['user'] != recipe.created_by %}
-            <div class="center-align">
-                <a href="{{ url_for('add_favourite', recipe_id=recipe._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
+         </div>
+         <!--------------------------------INSTRUCTIONS---------------------------------------------->
+         <div class="row">
+            <div class="col s12">
+               <p>
+                  <strong> Instructions :</strong>
+                  {% autoescape false %}
+               <ul class="collection">
+                  <li class="collection-item">{{ recipe.instructions|replace(".", "</li>
+                  <li class='collection-item'>") }}</li>
+               </ul>
+               {% endautoescape %}
+               </p>
             </div>
-            
-            <!--------------------------------COOKWARE PROMOTION---------------------------------------------->
-            <div class="row center-align ad-box">
-                <p class="ad"><strong> Missing something?</strong> View quality cookware needed for this recipe by Haden</p>
-                <div class="col s4 center-align">
-                    <div class="valign-wrapper">
-                        <a href="https://www.amazon.co.uk/stores/Haden/page/440F70CE-6556-4598-9664-0EAADD236BFA?ref_=ast_bln" target="_blank">
-                        <img class="logo" src="https://d2o7dtsnwzl7g9.cloudfront.net/blaines/media/image/f1/c5/fc/Haden_Logo.png" alt="Haden logo adjust-size">
-                        </a>
-                    </div>
-                </div>
-                {% if "oven" in recipe.cookware %}
-                <div class="col s4 center-align">
-                    <a href="https://www.amazon.co.uk/Oven-Sngl-Fan-64L-Timer/dp/B07YZB63Z3/ref=sr_1_7_sspa?dchild=1&keywords=oven&qid=1607180596&sr=8-7-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyNzdDRFRMWlI0QjhZJmVuY3J5cHRlZElkPUEwOTAzNDI1WlFDRE1UU1MxUkZPJmVuY3J5cHRlZEFkSWQ9QTA1MTMyNDQyTzlOODk3V1lUVFImd2lkZ2V0TmFtZT1zcF9tdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl"
-                    target="_blank">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/4147%2BH1OULL._AC_.jpg" alt="Haden oven" class="ad-pic adjust-size">
-                        <p class="ad-link"> Electric oven £225</p>
-                    </a>
-                </div>
-                {% endif %}
-                {% if "microwave" in recipe.cookware %}
-                <div class="col s4 center-align">
-                    <a href="https://www.amazon.co.uk/Haden-186683-Cotswold-Microwave-Litre/dp/B073VPDH6V/ref=sr_1_5?dchild=1&keywords=microwave+ovens+haden&qid=1608078651&sr=8-5" target="_blank">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/713zanXfoZL._AC_SL1500_.jpg" alt="Haden microwave" class="ad-pic adjust-size">
-                        <p class="ad-link"> Microwave £80</p>
-                    </a>
-                </div>
-                {% endif %}
-                {% if "stove" in recipe.cookware %}
-                <div class="col s4 center-align">
-                    <a href="https://www.amazon.co.uk/Haden-HG60W-Gas-Hob-Stovetop/dp/B08DD3TJCW/ref=sr_1_1?dchild=1&keywords=stove+top+haden&qid=1607183238&sr=8-1" target="_blank">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/71Km3T%2BAnpL._AC_SL1500_.jpg" alt="Haden stove" class="ad-pic adjust-size">
-                        <p class="ad-link"> Gas stove £139</p>
-                    </a>
-                </div>
-                {% endif %}
-                {% if "pan" in recipe.cookware %}
-                <div class="col s4 center-align">
-                    <a href="https://www.amazon.co.uk/Haden-Goldstone-Pan-Set-Aluminium/dp/B08FRLQ537/ref=sr_1_1?crid=39VB11BQR6WIP&dchild=1&keywords=haden+pan&qid=1607189575&sprefix=haden+pan%2Caps%2C151&sr=8-1" target="_blank">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/61ScxS0tyXL._AC_SL1500_.jpg" alt="Haden pans" class="ad-pic adjust-size">
-                        <p class="ad-link"> pans £65</p>
-                    </a>
-                </div>
-                {% endif %}
-                {% if "pot" in recipe.cookware %}
-                <div class="col s4 center-align">
-                    <a href="https://www.amazon.co.uk/Haden-Goldstone-Pan-Set-Aluminium/dp/B08FRLQ537/ref=sr_1_1?crid=39VB11BQR6WIP&dchild=1&keywords=haden+pan&qid=1607189575&sprefix=haden+pan%2Caps%2C151&sr=8-1" target="_blank">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/61ScxS0tyXL._AC_SL1500_.jpg" alt="Haden pans" class="ad-pic adjust-size">
-                        <p class="ad-link"> pots £65</p>
-                    </a>
-                </div>
-                {% endif %}
-                {% if "mixer" in recipe.cookware %}
-                <div class="col s4 center-align">
-                    <a href="https://www.amazon.co.uk/197405-Accessories-ingredients-Powerful-Warranty/dp/B084RS5SQM?ref_=ast_sto_dp" target="_blank">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/618e7H7bgYL._AC_SL1500_.jpg" alt="Haden mixer" class="ad-pic adjust-size">
-                        <p class="ad-link"> Stand mixer £120</p>
-                    </a>
-                </div>
-                {% endif %}
-                {% if "slow cooker" in recipe.cookware %}
-                <div class="col s4 center-align">
-                    <a href="https://www.amazon.co.uk/Haden-3-5ltr-Slow-Cooker/dp/B07BXR3DM7?ref_=ast_sto_dp" target="_blank">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/61Bm6J2LSwL._AC_SL1500_.jpg" alt="Haden slow cooker" class="ad-pic adjust-size">
-                        <p class="ad-link"> Slow cooker £20</p>
-                    </a>
-                </div>
-                {% endif %}
+         </div>
+         <!--------------------------------CREATED BY---------------------------------------------->
+         <p class="center-align" ><strong>Created by:</strong><i>{{ recipe.created_by }}</i></p>
+         <!--------------------------------EDIT/DELETE OPTION---------------------------------------------->
+         <div class="center-align">
+            {% if session.user|lower == recipe.created_by|lower %}
+            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small">Delete</a>
+            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit</a>
+            {% endif %}
+            {% if session.user|lower == "admin" %}
+            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small">Delete</a>
+            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit</a>
+            {% endif %}
+         </div>
+         {% if session['user'] != recipe.created_by %}
+         <div class="center-align">
+            <a href="{{ url_for('add_favourite', recipe_id=recipe._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
+         </div>
+         <!--------------------------------COOKWARE PROMOTION---------------------------------------------->
+         <div class="row center-align ad-box">
+            <p class="ad"><strong> Missing something?</strong> View quality cookware needed for this recipe by Haden</p>
+            <div class="col s4 center-align">
+               <div class="valign-wrapper">
+                  <a href="https://www.amazon.co.uk/stores/Haden/page/440F70CE-6556-4598-9664-0EAADD236BFA?ref_=ast_bln" target="_blank">
+                  <img class="logo" src="https://d2o7dtsnwzl7g9.cloudfront.net/blaines/media/image/f1/c5/fc/Haden_Logo.png" alt="Haden logo adjust-size">
+                  </a>
+               </div>
+            </div>
+            {% if "oven" in recipe.cookware %}
+            <div class="col s4 center-align">
+               <a href="https://www.amazon.co.uk/Oven-Sngl-Fan-64L-Timer/dp/B07YZB63Z3/ref=sr_1_7_sspa?dchild=1&keywords=oven&qid=1607180596&sr=8-7-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyNzdDRFRMWlI0QjhZJmVuY3J5cHRlZElkPUEwOTAzNDI1WlFDRE1UU1MxUkZPJmVuY3J5cHRlZEFkSWQ9QTA1MTMyNDQyTzlOODk3V1lUVFImd2lkZ2V0TmFtZT1zcF9tdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl"
+                  target="_blank">
+                  <img src="https://images-na.ssl-images-amazon.com/images/I/4147%2BH1OULL._AC_.jpg" alt="Haden oven" class="ad-pic adjust-size">
+                  <p class="ad-link"> Electric oven £225</p>
+               </a>
             </div>
             {% endif %}
-        </div>
-    </li>
-    {% endfor %}
+            {% if "microwave" in recipe.cookware %}
+            <div class="col s4 center-align">
+               <a href="https://www.amazon.co.uk/Haden-186683-Cotswold-Microwave-Litre/dp/B073VPDH6V/ref=sr_1_5?dchild=1&keywords=microwave+ovens+haden&qid=1608078651&sr=8-5" target="_blank">
+                  <img src="https://images-na.ssl-images-amazon.com/images/I/713zanXfoZL._AC_SL1500_.jpg" alt="Haden microwave" class="ad-pic adjust-size">
+                  <p class="ad-link"> Microwave £80</p>
+               </a>
+            </div>
+            {% endif %}
+            {% if "stove" in recipe.cookware %}
+            <div class="col s4 center-align">
+               <a href="https://www.amazon.co.uk/Haden-HG60W-Gas-Hob-Stovetop/dp/B08DD3TJCW/ref=sr_1_1?dchild=1&keywords=stove+top+haden&qid=1607183238&sr=8-1" target="_blank">
+                  <img src="https://images-na.ssl-images-amazon.com/images/I/71Km3T%2BAnpL._AC_SL1500_.jpg" alt="Haden stove" class="ad-pic adjust-size">
+                  <p class="ad-link"> Gas stove £139</p>
+               </a>
+            </div>
+            {% endif %}
+            {% if "pan" in recipe.cookware %}
+            <div class="col s4 center-align">
+               <a href="https://www.amazon.co.uk/Haden-Goldstone-Pan-Set-Aluminium/dp/B08FRLQ537/ref=sr_1_1?crid=39VB11BQR6WIP&dchild=1&keywords=haden+pan&qid=1607189575&sprefix=haden+pan%2Caps%2C151&sr=8-1" target="_blank">
+                  <img src="https://images-na.ssl-images-amazon.com/images/I/61ScxS0tyXL._AC_SL1500_.jpg" alt="Haden pans" class="ad-pic adjust-size">
+                  <p class="ad-link"> pans £65</p>
+               </a>
+            </div>
+            {% endif %}
+            {% if "pot" in recipe.cookware %}
+            <div class="col s4 center-align">
+               <a href="https://www.amazon.co.uk/Haden-Goldstone-Pan-Set-Aluminium/dp/B08FRLQ537/ref=sr_1_1?crid=39VB11BQR6WIP&dchild=1&keywords=haden+pan&qid=1607189575&sprefix=haden+pan%2Caps%2C151&sr=8-1" target="_blank">
+                  <img src="https://images-na.ssl-images-amazon.com/images/I/61ScxS0tyXL._AC_SL1500_.jpg" alt="Haden pans" class="ad-pic adjust-size">
+                  <p class="ad-link"> pots £65</p>
+               </a>
+            </div>
+            {% endif %}
+            {% if "mixer" in recipe.cookware %}
+            <div class="col s4 center-align">
+               <a href="https://www.amazon.co.uk/197405-Accessories-ingredients-Powerful-Warranty/dp/B084RS5SQM?ref_=ast_sto_dp" target="_blank">
+                  <img src="https://images-na.ssl-images-amazon.com/images/I/618e7H7bgYL._AC_SL1500_.jpg" alt="Haden mixer" class="ad-pic adjust-size">
+                  <p class="ad-link"> Stand mixer £120</p>
+               </a>
+            </div>
+            {% endif %}
+            {% if "slow cooker" in recipe.cookware %}
+            <div class="col s4 center-align">
+               <a href="https://www.amazon.co.uk/Haden-3-5ltr-Slow-Cooker/dp/B07BXR3DM7?ref_=ast_sto_dp" target="_blank">
+                  <img src="https://images-na.ssl-images-amazon.com/images/I/61Bm6J2LSwL._AC_SL1500_.jpg" alt="Haden slow cooker" class="ad-pic adjust-size">
+                  <p class="ad-link"> Slow cooker £20</p>
+               </a>
+            </div>
+            {% endif %}
+         </div>
+         {% endif %}
+      </div>
+   </li>
+   {% endfor %}
 </ul>
 </div>
 {% endblock %}

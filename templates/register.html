@@ -3,43 +3,40 @@
 {% endblock %}
 {% block content %}
 <body class="img-background signin">
-<div class="valign-wrapper margin-top">
-  <div class="row offset-s2 s8 opaque">
-  <p class="center-align subheading-text goldman l-blue-text">Register with us</p>
-  <!--------------------------------REGISTRATION FORM---------------------------------------------->
-    <form class="col s12" method="POST" action="{{ url_for('register') }}">
-      <div class="row">
-      <!--------------------------------USERNAME SELECTION---------------------------------------------->
-        <div class="input-field col s12">
-          <input id="username" name="username" type="text" minlength="5"
-          maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate white-text" required>
-          <label for="username"><i class="fa fa-user-circle" aria-hidden="true"></i>Username</label>
-          <span class="helper-text white-text" data-error="Must not use special characters and must be over 5 characters." data-success="right"></span>
-        </div>
+   <div class="valign-wrapper margin-top">
+      <div class="row offset-s2 s8 opaque">
+         <p class="center-align subheading-text goldman l-blue-text">Register with us</p>
+         <!--------------------------------REGISTRATION FORM---------------------------------------------->
+         <form class="col s12" method="POST" action="{{ url_for('register') }}">
+            <div class="row">
+               <!--------------------------------USERNAME SELECTION---------------------------------------------->
+               <div class="input-field col s12">
+                  <input id="username" name="username" type="text" minlength="5"
+                     maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate white-text" required>
+                  <label for="username"><i class="fa fa-user-circle" aria-hidden="true"></i>Username</label>
+                  <span class="helper-text white-text" data-error="Must not use special characters and must be over 5 characters." data-success="right"></span>
+               </div>
+            </div>
+            <!--------------------------------PASSWORD SELECTION---------------------------------------------->
+            <div class="row">
+               <div class="input-field col s12">
+                  <input id="password" name="password" type="password" minlength="5" 
+                     maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate white-text" required>
+                  <label for="password"><i class="fa fa-key" aria-hidden="true"></i>Password</label>
+                  <span class="helper-text white-text" data-error="Must not use special characters and must be over 5 characters." data-success="right"></span>
+               </div>
+            </div>
+            <!--------------------------------REGISTRATION SUBMIT---------------------------------------------->
+            <button type="submit" class="hoverable btn-large km-pink center-align">
+            Register
+            </button>
+         </form>
+         <!--------------------------------LOGIN OPTION---------------------------------------------->
+         <div class="row">
+            <div class="col s12">
+               <p class="center-align"><strong class="l-blue-text">Already registered? <a href="{{ url_for('login') }}" class="km-pink-text">Log in here</a></strong></p>
+            </div>
+         </div>
       </div>
-      <!--------------------------------PASSWORD SELECTION---------------------------------------------->
-      <div class="row">
-        <div class="input-field col s12">
-            <input id="password" name="password" type="password" minlength="5" 
-            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate white-text" required>
-            <label for="password"><i class="fa fa-key" aria-hidden="true"></i>Password</label>
-            <span class="helper-text white-text" data-error="Must not use special characters and must be over 5 characters." data-success="right"></span>
-        </div>
-      </div>
-      <!--------------------------------REGISTRATION SUBMIT---------------------------------------------->
-      <button type="submit" class="hoverable btn-large km-pink center-align">
-        Register
-      </button>
-      </form>
-      <!--------------------------------LOGIN OPTION---------------------------------------------->
-    <div class="row">
-        <div class="col s12">
-            <p class="center-align"><strong class="l-blue-text">Already registered? <a href="{{ url_for('login') }}" class="km-pink-text">Log in here</a></strong></p>
-        </div>
-    </div>
-</div>
-</div>
-
-
-
-{% endblock %}
+   </div>
+   {% endblock %}

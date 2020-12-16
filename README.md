@@ -152,6 +152,7 @@ to easily make adjustments to the recipe.
 * [__W3C Validator__](https://validator.w3.org/) was used to check HTML for errors.
 * [__Jigsaw__](https://jigsaw.w3.org/css-validator/) was used to check CSS for errors
 * [__PEP8__](http://pep8online.com/) was used to check python code for errors.
+* [__Free formatter__](https://www.freeformatter.com/) was used to format HMTL.
 
 ## __Testing__
 
