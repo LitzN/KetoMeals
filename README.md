@@ -194,17 +194,15 @@ Except for an error on the edit and add page which is outlined in the "Bugs to b
 ### __Testing Functionality and Responsive design__
 
 #### __Site Wide Features__
-* __Navigation bar__
-    * To test navigation bar is functional, I clicked on all navigation links which all led to the named page. The toggle button displayed on smaller screen widths
-    and led to the correct pages.
-* __Cookware promotion__ 
-    I pressed each of the advert links on all the recipes in the "My recipes" and "Home" pages. Each opened the relevant products amazon purchase page in 
+* __Navigation bar__ To test navigation bar is functional, I clicked on all navigation links which all led to the named page. The toggle button displayed on smaller screen widths
+    opened when selected and led to the correct pages.
+* __Cookware promotion__ I pressed each of the advert links on all the recipes in the "My recipes" and "Home" pages. Each opened the relevant products amazon purchase page in 
     a new tab as expected. Images resized on smaller device screen width to maintain advert appearance.
 
 #### __Homepage__
 * __Meal Type selector buttons__ I tested each of these buttons by pressing them and checking results which appeared were for the correct meal type.
 * __Meal Type results__ are displayed through cards with an expandable section for the recipe. As cards were created through a template I clicked on 
-the toggle for one recipe of each type to ensure the correct data was displaying.
+the toggle for one recipe of each type to ensure the correct data was displaying. Google developer tools were used to ensure page styling adjusted with screen width.
 * __Search bar__ was tested by searching for the words "stevia" and "tomato" as they appear in several recipes. All recipes containing 
 the words were displayed. One featured the word exclusively in the recipe name and the others were ingredients.
 * __Search results__ collapsible list results all open when clicked on to display the correct recipe and cookware promotions. Using google developer tools,
@@ -263,7 +261,7 @@ changed the body element minimum height to 100vh, which made the picture take up
 ### __Not yet fixed__
  1. When running the edit and add recipe pages through the html validator, I got an error with a materialize
  component. The dropdown selector menu for the field "meal type" is causing the error: "Bad value true for attribute 
- readonly on element input". The readonly attribute is added automatically to the component.
+ readonly on element input". The readonly attribute is added automatically to the component by materialize.
  2. When a user has added a recipe as a favourite, if the recipe is deleted by the owner or admin, it still displays 
  the favourite box for the recipe but without the relevant details. When the user tries to remove the empty favourited 
  recipe, the site throws an error as it cannot extract the ObjectId it needs to remove from favourites.
@@ -277,14 +275,14 @@ Heroku uses this file in order to understand dependancies used for the project.
     `pip3 freeze--local > requirements.txt`
 2. Next I ran the command below in order to create the Procfile needed for Heroku deployment.
     `echo web: python app.py > Procfile`
-3. Push files to Github.
+3. I pushed the files to Github, so they are avaliable in the repository.
 3. Next I opened Heroku website, logged in and navigated to my dashboard.
 4. I created a new project using the "Create a New App" button on the Heroku dashboard. The app was named "ketomeals-project".
 5. I was then directed to the app dashboard. Under the "Deployment Method" section I chose Github.
 6. I found my github repository using the search bar. The repo appeared below and I clicked "Connect".
 7. Next, from the project dashboard on Heroku, I selected "Settings" tab on the navigation below the project title.
 8. In Setting, I found the "Config Vars" section and clicked "Reveal Config Vars"
-9. Here I inputted details contained in the env.py file in the github workspace, so they could be securely accessed to run the 
+9. Here I input the details contained in the env file in the github workspace, so they could be securely accessed to run the 
     app on Heroku. Once this section was complete I clicked "Add".
     Details required were:
     * IP 
