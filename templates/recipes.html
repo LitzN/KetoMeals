@@ -84,6 +84,11 @@
                         <a href="{{ url_for('add_favourite', recipe_id=snack._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
                     </div>
                     {% endif %}
+
+                    {% if session.user|lower == "admin" %}
+                    <a href="{{ url_for('delete_recipe', recipe_id=snack._id) }}" class="btn-small">Delete</a>
+                    <a href="{{ url_for('edit_recipe', recipe_id=snack._id) }}" class="btn-small">Edit</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -119,6 +124,7 @@
                             <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ main.ingredients|replace(",", "</li><li class='ingred-item adjust-size'><i class=' km-green-text fas fa-heart'></i>") }}</li>
                         </ul>
                         {% endautoescape %}
+
                     </p>
                     <p>
                         <strong> Instructions :</strong>
@@ -128,6 +134,15 @@
                         {% endautoescape %}
                         </ul>
                     </p>
+                    {% if session.user|lower == "admin" %}
+                    <a href="{{ url_for('delete_recipe', recipe_id=main._id) }}" class="btn-small">Delete</a>
+                    <a href="{{ url_for('edit_recipe', recipe_id=main._id) }}" class="btn-small">Edit</a>
+                    {% endif %}
+                    {% if session['user'] != main.created_by %}
+                    <div class="center-align">
+                        <a href="{{ url_for('add_favourite', recipe_id=main._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -172,6 +187,18 @@
                         </ul>
                         {% endautoescape %}
                     </p>
+
+                    {% if session['user'] != dessert.created_by %}
+                    <div class="center-align">
+                        <a href="{{ url_for('add_favourite', recipe_id=dessert._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
+                    </div>
+                    {% endif %}
+
+                    {% if session.user|lower == "admin" %}
+                    <a href="{{ url_for('delete_recipe', recipe_id=dessert._id) }}" class="btn-small">Delete</a>
+                    <a href="{{ url_for('edit_recipe', recipe_id=dessert._id) }}" class="btn-small">Edit</a>
+                    {% endif %}
+                </div>
                 </div>
             </div>
         </div>
@@ -255,6 +282,10 @@
             <!--------------------------------EDIT/DELETE OPTION---------------------------------------------->
             <div class="center-align">
                 {% if session.user|lower == recipe.created_by|lower %}
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small">Delete</a>
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit</a>
+                {% endif %}
+                {% if session.user|lower == "admin" %}
                     <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small">Delete</a>
                     <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit</a>
                 {% endif %}
