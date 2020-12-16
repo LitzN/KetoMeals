@@ -168,7 +168,8 @@ Except for an error on the edit and add page which is outlined in the "Bugs to b
 
 2. __I am following a keto diet and need ideas on what to cook which I can access quickly and easily__
     * Users are able to view recipes on the homepage by the meal type they want to make right now or by searching the ingredient they want to use
-    * While browsing, registered users also have the option of saving the recipes they like to their favourites, which appear on their personal 
+    * While browsing, registered users 
+    also have the option of saving the recipes they like to their favourites, which appear on their personal 
     page. This allows users to create their own personalised cookbook full of their favorite recipes, for immediate access when logging in. 
 
     ![recipe favourite](static/images/screenshots/meal_type_recipe.png)

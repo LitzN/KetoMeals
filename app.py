@@ -10,15 +10,14 @@ if os.path.exists("env.py"):
 
 
 app = Flask(__name__)
-
+# Code to get evironment variables
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
-
 mongo = PyMongo(app)
 
-
+# Code for function on Homepage - queries for meal type buttons and to get all recipes
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
@@ -31,6 +30,7 @@ def get_recipes():
         recipes=recipes)
 
 
+# Code for function of search bar - queries needed for successful homepage function on reload after searching, search index input query and post method
 @app.route("/search", methods=["GET", "POST"])
 def search():
     snacks = mongo.db.recipes.find({"meal_type": "Snack"})
@@ -44,6 +44,7 @@ def search():
                            find_recipe=find_recipe)
 
 
+# Code for function on Register page - prevent duplicate usernames, create hashed password and upload data to the users collection
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -67,6 +68,7 @@ def register():
     return render_template("register.html")
 
 
+# Code for function on Login Page - checks user input for match on database and display flash messages if input doesn't match
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -89,6 +91,7 @@ def login():
     return render_template("login.html")
 
 
+# Code for function on My Recipes Page - queries to get specific users created recipes and favourites, code to unpack recipe ids from their favourites.
 @app.route("/my_recipes/<username>", methods=["GET", "POST"])
 def my_recipes(username):
     username = mongo.db.users.find_one(
@@ -113,6 +116,7 @@ def my_recipes(username):
     return redirect(url_for("login"))
 
 
+# Code for function of Logout button on navigation - removes session cookie to log out user and flash message to alert them.
 @app.route("/logout")
 def logout():
     flash("You have been logged out")
@@ -120,6 +124,7 @@ def logout():
     return redirect(url_for("login"))
 
 
+# Code for function on Add recipe page - Post method uses inputs from form to create dictionary to submit to database. Displays flash message on completion.
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
@@ -140,6 +145,7 @@ def add_recipe():
     return render_template("add_recipe.html", meal_type=meal_type)
 
 
+# Code for function of favourite button - Adds recipe id to user's favourites array
 @app.route("/add_favourite/<recipe_id>", methods=["GET", "POST"])
 def add_favourite(recipe_id):
     mongo.db.users.update_one(
@@ -149,6 +155,7 @@ def add_favourite(recipe_id):
     return redirect(url_for("get_recipes"))
 
 
+# Code for function of remove favourite buttons - Removes recipe id from users favourites array
 @app.route("/remove_favourite/<recipe_id>", methods=["GET", "POST"])
 def remove_favourite(recipe_id):
     mongo.db.users.find_one_and_update(
@@ -157,7 +164,7 @@ def remove_favourite(recipe_id):
     flash("Favourite saved")
     return redirect(url_for("get_recipes"))
 
-
+# Code for function of Edit recipe Page - pulls recipe data from database for field population and submits updated dictionary to update database.
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
@@ -179,6 +186,7 @@ def edit_recipe(recipe_id):
         "edit_recipe.html", recipe=recipe, meal_type=meal_type)
 
 
+# Code for function of delete recipe buttons - removes recipe from the database
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
