@@ -258,9 +258,9 @@ to ensure the user's favourites no longer contained the specific recipe id.
     * I checked the recipe had updated on the database.
 
 ### **Lighthouse Audit** 
-    [Lighthouse audit results](static/screenshots/lighthouse-results.png)
-        * Biggest issue for performance was the size of the image files used as this takes up loading time.
-        * Suggestion of not including unused Javascript was also given, however this is coming from files necessary for materialize functionality.
+[Lighthouse audit results](static/screenshots/lighthouse-results.png)
+    - Biggest issue for performance was the size of the image files used as this takes up loading time.
+    - Suggestion of not including unused Javascript was also given, however this is coming from files necessary for materialize functionality.
 
 ## __Bugs__
 
