@@ -12,7 +12,7 @@ The project consists of 5 pages. When a user first visits the site, the pages av
 ### **Overall design**
 1. Viewing several popular recipe sites gave me an idea of the styling conventions for online cookbooks.
  It is clear users only want to see an image of the recipe and name while searching. When a recipe is selected ingredients and steps are presented simply, making the recipe easy to follow. 
- Colours are minimal with most focus on the recipe images.
+ Bright colours are used sparingly with most focus on the recipe images.
  Websites used for inspiration:
 [BBC good food](https://www.bbcgoodfood.com/recipes), [Delicious magazine](https://www.deliciousmagazine.co.uk/recipes/), [All recipes](http://allrecipes.co.uk/recipes/)
 
@@ -36,6 +36,9 @@ Wireframes created for this project:
 
 ### **Database Schema**
 
+Mongodb was used as host for the database. I chose this as I wanted the app to be capable of storing a large
+amount of data. The collections in the data are as follows:
+
 ### __Users__
 
 | Field names    | Datatype     |
@@ -43,7 +46,7 @@ Wireframes created for this project:
 | _id            | ObjectId     |
 |  username      | string       | 
 | password       | string       |
-| favourites     | array        |
+| favourites     | array of ObjectIds  |
 
 ### __Types__
 | Field names    | Datatype     |
@@ -88,7 +91,7 @@ The text is intended to inform users who are not familiar with the keto diet and
 and view relevant recipes. The buttons are made up of a large image, showing an example of the meal type and a heading. Background color is dark to draw attention against the lighter
 colour scheme and keep the main focus on the images.
 * __Meal Type results__ are displayed below the buttons, in the form of cards. Cards show the recipe image and title only until selected,
-once clicked on, an overlay containing the recipe and ingredients appears. This allows users to view more than one recipe at a time.
+once clicked on, an overlay containing the recipe, ingredients appears and a favourite button for logged in users. This allows users to view more than one recipe at a time.
 * __Search bar__ allows users to search for recipes by ingredient or recipe name. 
 * __Search results__ are displayed as a list of collapsibles with the recipe name and image appearing side by side. Once 
 recipe is selected, the drop down reveals the recipe and relevant cookware promotion. This section also contains different buttons 
@@ -106,10 +109,10 @@ a user in the database they will be shown a message telling them the username or
 
 
 ### **My Recipes** 
-* __User Header__ is styled with site theme colours.
-* __Own Recipes__ show the recipes the user has generated with the option of updating or deleting them. The recipe is styled
+* __User Header__ is styled with site theme colours and welcome the user to their personal page.
+* __Own Recipes__ show the recipes the session user has generated with the option of updating or deleting them. The recipe is styled
 simply so it's easy to follow. The recipe image and name are shown on top, then ingredients and cookware are displayed through
-bullet points lists in site theme colors. Ingredients appear as a collection in seperate boxes, again for ease of reading. Lastly 
+bullet point lists in site theme colors. Ingredients appear as a collection in seperate boxes, again for ease of reading. Lastly 
 the cookware promotion is seen.
 * __Favourite Recipes__ are displayed with the same layout for consistency but contain a button to remove the recipe 
 from the user's favourites.
@@ -117,9 +120,7 @@ from the user's favourites.
 ### **Add Recipe**
 * __Image Background__ is a bright image of a selection of food, making the page vibrant will envoke a positive response from the user and motivate them to complete the form.
 * __Form__ is used to add a recipe to the database and is styled using site theme colours. Form contains a field for each recipe requirement in the database. For longer input, such as in ingredients or instructions, expected input 
-is explained through helper text below the input field. All fields must be filled out for the recipe to be submitted and incorrectly filled fields will be highlighted in red so the user understands what needs correcting. Helper text
-is also provided below input fields to ensure user understands the format.
-
+is explained through helper text below the input field. All fields must be filled out for the recipe to be submitted and incorrectly filled fields will be highlighted in red so the user understands what needs correcting.
 ### **Edit Recipe**
 * __Image Background__ is the same image as the add recipe page so form is easily recognised by the user.
 * __Form__ is used to update a recipe in the database and is styled using site theme colours. The form's input fields are prefilled with the current recipe data, allowing the user
@@ -131,7 +132,8 @@ to easily make adjustments to the recipe.
 * __Registered Users__ don't have access to edit and delete buttons of recipes so they don't alter other users data.
 * __Unregistered Users__ do not have access to Add Recipe button to prevent database being flooded with data from non-users.
 
-### Features left to implement
+## Features left to implement
+* Comment section for each recipe so users can leave reviews.
 
 ## Technologies used
 * __HTML__ was used to build all templates.
@@ -149,24 +151,24 @@ to easily make adjustments to the recipe.
 * [__Googlefonts__](https://fonts.google.com/) was used for the main font throughout the site.
 * [__W3C Validator__](https://validator.w3.org/) was used to check HTML for errors.
 * [__Jigsaw__](https://jigsaw.w3.org/css-validator/) was used to check CSS for errors
-* [PEP8](http://pep8online.com/) was used to check python code for errors.
+* [__PEP8__](http://pep8online.com/) was used to check python code for errors.
 
 ## __Testing__
 
 All code was put through validators (listed above) and passed with no errors.
-Except for and error on the edit and add page which is outlined in the bugs section below.
+Except for an error on the edit and add page which is outlined in the "Bugs to be fixed" section below.
 
 ### __Testing is user stories needs are met__
 
-1. I am new to keto lifestyle and want to know why I should follow this and what would be available to me.
+1. __I am new to keto lifestyle and want to know why I should follow this and what would be available to me.__
     * Homepage has a brief explanation about the benefits of following a ketogenic diet. Directly below are the meal type 
     selector buttons where a user can see what their meals might look like, they can also use the search bar to see if the 
     database contains their favourite foods.
     ![Homepage](static/images/screenshots/homepage.png)
 
-2. I am following a keto diet and need ideas on what to cook which I can access quickly and easily
+2. __I am following a keto diet and need ideas on what to cook which I can access quickly and easily__
     * Users are able to view recipes on the homepage by the meal type they want to make right now or by searching the ingredient they want to use
-    * While browsing, they also have the option of saving the recipes they like to their favourites, which appear on their personal 
+    * While browsing, registered users also have the option of saving the recipes they like to their favourites, which appear on their personal 
     page. This allows users to create their own personalised cookbook full of their favorite recipes, for immediate access when logging in. 
 
     ![recipe favourite](static/images/screenshots/meal_type_recipe.png)
@@ -174,14 +176,14 @@ Except for and error on the edit and add page which is outlined in the bugs sect
     * Users are also able to remove any recipe from their favourite.
     ![recipe unfavourite](static/images/screenshots/favourites.png)
 
-3. I am following a keto diet and want to see if the site has recipes for a specific ingredient I want to use
+3. __I am following a keto diet and want to see if the site has recipes for a specific ingredient I want to use__
     * The search bar is located on the home page, users have the option to search for recipes by ingredient or by name of the recipe.
 
-4. I am a follower of the keto diet and want to share my recipes and update them if I’ve found a better way to make them
+4. __I am a follower of the keto diet and want to share my recipes and update them if I’ve found a better way to make them__
     ![Add & edit recipe access](static/images/screenshots/add_buttons.png)
     * On logging in to the site the user is able to share their recipes, either through the “add recipe” button on the navigation or on their personal page.
     * On the users personal recipe page, alongside every recipe is an edit or delete button, if a user decides they want to update or remove a recipe all together.
-5. I am the site owner and would like to promote Haden cookware
+5. __I am the site owner and would like to promote Haden cookware__
     ![Examples of cookware promotions](static/images/screenshots/haden_ad_1.png)
     ![Examples of cookware promotions](static/images/screenshots/haden_ad_2.png)
     * On every recipe, based on the cookware specified, adverts will appear at the end showing the relevant Haden cookware. Adverts contain the Haden logo, 

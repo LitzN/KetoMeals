@@ -1,10 +1,60 @@
+/*-------------------------------GENERAL/ SITEWIDE--------------------------------------------*/
 body{
     background-color:#E2E4F3;
+    min-height:100vh;
 }
 
 .nav-links{
     font-size:1.5rem;
 }
+
+.flashes h4{
+    line-height: 2;
+    font-weight:800;
+    color:white;
+    background-color:rgba(0, 0, 0, 0.4);
+    
+}
+
+.no-margin{
+    margin:0;
+}
+
+.margin-top{
+    margin-top:2rem;
+}
+
+
+.goldman{
+    font-family:'Goldman', cursive;
+}
+
+.opaque{
+    background-color: rgba(0,0,0,0.8);
+    color: #d9c5b2;
+    padding:2rem;
+}
+
+.img-background{ 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.btn-small{
+    margin: 5px;
+}
+
+.rounded{
+    border-radius:10px;
+}
+
+.btn{
+    margin-top: 1rem;
+}
+
+/*-------------------------------SITE THEME COLOURS--------------------------------------------*/
 
 .l-blue-text{
     color:#E2E4F3;
@@ -36,13 +86,11 @@ body{
     border-width:2px;
 }
 
-.no-margin{
-    margin:0;
+.l-blue{
+    background-color: #E2E4F3;
 }
 
-.margin-top{
-    margin-top:2rem;
-}
+/*-------------------------------LOGIN/REGISTER PAGE--------------------------------------------*/
 
 .signin{
     background: url(../images/register_image.jpg) no-repeat center center;
@@ -51,6 +99,7 @@ body{
 .add_img{
     background: url(../images/add_image.jpg) no-repeat center center;
 }
+/*-------------------------------HOMEPAGE--------------------------------------------*/
 
 .header-pic{
     background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://cdn.pixabay.com/photo/2018/03/13/18/30/food-3223286_960_720.jpg);
@@ -72,61 +121,24 @@ body{
     font-size:8rem;
 }
 
+.intro-heading{
+    padding:2rem;
+    font-size:2rem;
+    line-height:2rem;
+}
+
+.intro-text{
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right:1rem;
+    padding-top: 0;
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
 .subheading-text{
     font-size: 3rem;
     margin:0;
-}
-
-.img-background{ 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-body{
-    min-height:100vh;
-}
-.goldman{
-    font-family:'Goldman', cursive;
-}
-
-.opaque{
-    background-color: rgba(0,0,0,0.8);
-    color: #d9c5b2;
-    padding:2rem;
-}
-
-.user-header{
-    margin-top:1rem;
-    border-color:#af3b6e;
-    border-style:solid;
-    border-width:5px;
-    color: #af3b6e;
-    background-color: white;
-    border-radius:25px;
-    font-size:3rem;
-    line-height:3rem;
-}
-
-.flashes h4{
-    line-height: 2;
-    font-weight:800;
-    color:white;
-    background-color:rgba(0, 0, 0, 0.4);
-    
-}
-
-.logo-brand{
-    padding-left:2rem;
-    position:absolute;
-    font-size:2rem;
-}
-
-.recipe-pic{
-    max-width:20rem;
-    max-height:20rem;
-    padding:2rem;
 }
 
 .category-pic{
@@ -153,8 +165,27 @@ body{
     min-width:200%;
 }
 
-.btn-small{
-    margin: 5px;
+
+
+/*-------------------------------MY RECIPES PAGE--------------------------------------------*/
+.user-header{
+    margin-top:1rem;
+    border-color:#af3b6e;
+    border-style:solid;
+    border-width:5px;
+    color: #af3b6e;
+    background-color: white;
+    border-radius:25px;
+    font-size:3rem;
+    line-height:3rem;
+}
+
+
+/*-------------------------------RECIPE STYLING ON ALL PAGES--------------------------------------------*/
+.recipe-pic{
+    max-width:20rem;
+    max-height:20rem;
+    padding:2rem;
 }
 
 .credits{
@@ -163,32 +194,6 @@ body{
 
 .activator{
     max-height:30rem;
-}
-
-.rounded{
-    border-radius:10px;
-}
-
-.btn{
-    margin-top: 1rem;
-}
-
-.ad-link{
-    font-size:1.5rem;
-    color: gray;
-}
-
-.ad-pic{
-    max-width:12rem;
-    max-height:12rem;
-    min-height:8rem;
-}
-
-.ad-box{
-    border-color:#60992D;
-    border-width:3px;
-    border-style:solid;
-    border-radius:25px;
 }
 
 .recipes{
@@ -213,20 +218,30 @@ body{
     font-weight:bolder;
 }
 
-.intro-heading{
-    padding:2rem;
-    font-size:2rem;
-    line-height:2rem;
+.list-title{
+    padding-top:2rem;
 }
 
-.intro-text{
-    padding-bottom: 2rem;
-    padding-left: 1rem;
-    padding-right:1rem;
-    padding-top: 0;
-    margin-top: 0;
-    font-size: 1.5rem;
+/*-------------------------------COOKWARE PROMOTION STYLING--------------------------------------------*/
+
+.ad-link{
+    font-size:1.5rem;
+    color: gray;
 }
+
+.ad-pic{
+    max-width:12rem;
+    max-height:12rem;
+    min-height:8rem;
+}
+
+.ad-box{
+    border-color:#60992D;
+    border-width:3px;
+    border-style:solid;
+    border-radius:25px;
+}
+
 
 .ad{
     font-size: 1rem;
@@ -234,22 +249,10 @@ body{
     padding-top:1rem;
 }
 
-.l-blue{
-    background-color: #E2E4F3;
-}
-
 .logo{
     height:100%;
     width:100%;
     padding-bottom:1rem;
-}
-
-.list-title{
-    padding-top:2rem;
-}
-
-.fav-btn{
-    margin-bottom:1rem;
 }
 
 /*-----------------------------------------------------------MEDIA QUERIES MOBILE------*/
