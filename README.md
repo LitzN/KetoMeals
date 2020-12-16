@@ -204,10 +204,35 @@ to ensure the user's favourites no longer contained the specific recipe id.
 
 ### **Add Recipe**
 * __Form__ 
+    * I filled out the form completely and was redirected to the homepage,
+    an alert also appeared saying "Recipe added!". I checked the database to 
+    ensure the recipe had been added.
+    * I filled out the form leaving some fields blank and tried to submit the form. A pop up alert 
+    appeared at the missed out field asking me to fill it in.
 
 ### **Edit Recipe**
 * __Form__ 
+    * I opened a recipe with an incorrect meal type. I chose the correct one from the dropdown and 
+    submitted the form. A message appeared above the form when the page reloaded saying "Recipe Updated!".
+    * I checked the recipe had updated on the database.
 
+## __Bugs__
 
+### __Fixed__
+1. A white bar was appearing at the bottom of the login/register pages image background on large screen sizes. I 
+changed the body element minimum height to 100vh, which made the picture take up the whole screen. 
 
+### __Not yet fixed__
+ 1. When running the edit and add recipe pages through the html validator, I got an error with a materialize
+ component. The dropdown selector menu for the field "meal type" is causing the error: "Bad value true for attribute 
+ readonly on element input". The readonly attribute is added automatically to the component.
 
+ ## __Deployment__
+
+ ## __Credits__
+
+### __Media__
+* Photos used for this site were taken from [pixabay](https://pixabay.com/) and [unsplash](https://unsplash.com/).
+
+### __Acknowledgements__
+* I recieved inspiration for this project from [BBC good food](https://www.bbcgoodfood.com/recipes), [Delicious magazine](https://www.deliciousmagazine.co.uk/recipes/), [All recipes](http://allrecipes.co.uk/recipes/).
