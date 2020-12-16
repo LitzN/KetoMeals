@@ -203,13 +203,15 @@ Except for an error on the edit and add page which is outlined in the "Bugs to b
 #### __Homepage__
 * __Meal Type selector buttons__ I tested each of these buttons by pressing them and checking results which appeared were for the correct meal type.
 * __Meal Type results__ are displayed through cards with an expandable section for the recipe. As cards were created through a template I clicked on 
-the toggle for one recipe of each type to ensure the correct data was displaying. Google developer tools were used to ensure page styling adjusted with screen width.
+the toggle for one recipe of each type to ensure the correct data was displaying. Google developer tools were used to ensure page styling adjusted with screen widths,
+on smaller screens cards are stacked instead of two appearing on a row.
 * __Search bar__ was tested by searching for the words "stevia" and "tomato" as they appear in several recipes. All recipes containing 
 the words were displayed. One featured the word exclusively in the recipe name and the others were ingredients.
 * __Search results__ collapsible list results all open when clicked on to display the correct recipe and cookware promotions. Using google developer tools,
 I checked whether images and text resized to fit well in smaller screen widths.
 
 ### **Register Page**
+* __Image background__ was checked in developer tools, image covers looks good and covers the view on all screen sizes.
 * __Form__ 
     * I filled in the form using a username which is already in the database, the page reloaded with an alert at the top saying
     "Username taken!". I checked the database on mongodb to ensure nothing had been added.
@@ -222,6 +224,7 @@ I checked whether images and text resized to fit well in smaller screen widths.
     had been added and password encrypted.
 
 ### **Login Page**
+* __Image background__ was checked in developer tools, image covers looks good and covers the view on all screen sizes.
 * __Form__ 
     * I filled in the form using a username which is not in the database, the page reloaded with an alert at the top saying
     "Invalid username/password".
@@ -240,6 +243,7 @@ button. I pressed the button which directed me back to the homepage with an aler
 to ensure the user's favourites no longer contained the specific recipe id.
 
 ### **Add Recipe**
+* __Image background__ was checked in developer tools, image covers looks good and covers the view on all screen sizes.
 * __Form__ 
     * I filled out the form completely and was redirected to the homepage,
     an alert also appeared saying "Recipe added!". I checked the database to 
@@ -252,6 +256,11 @@ to ensure the user's favourites no longer contained the specific recipe id.
     * I opened a recipe with an incorrect meal type. I chose the correct one from the dropdown and 
     submitted the form. A message appeared above the form when the page reloaded saying "Recipe Updated!".
     * I checked the recipe had updated on the database.
+
+### **Lighthouse Audit** 
+    [Lighthouse audit results](static/screenshots/lighthouse-results.png)
+        * Biggest issue for performance was the size of the image files used as this takes up loading time.
+        * Suggestion of not including unused Javascript was also given, however this is coming from files necessary for materialize functionality.
 
 ## __Bugs__
 
