@@ -81,7 +81,7 @@
                   </ul>
                   {% endautoescape %}
                   </p>
-                    {% if username %}
+                    {% if session.user %}
                         {% if session['user'] != snack.created_by %}
                         <div class="center-align">
                             <a href="{{ url_for('add_favourite', recipe_id=snack._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
