@@ -54,6 +54,10 @@ body{
     margin-top: 1rem;
 }
 
+.search-box{
+    max-width:80vw;
+}
+
 /*-------------------------------SITE THEME COLOURS--------------------------------------------*/
 
 .l-blue-text{
@@ -279,6 +283,10 @@ body{
 
 .categories{
     margin-bottom:0.5rem;
+}
+
+.search-box{
+    max-width:100vw;
 }
 
 .search-bar{

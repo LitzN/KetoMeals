@@ -142,10 +142,12 @@
                   <a href="{{ url_for('delete_recipe', recipe_id=main._id) }}" class="btn-small">Delete</a>
                   <a href="{{ url_for('edit_recipe', recipe_id=main._id) }}" class="btn-small">Edit</a>
                   {% endif %}
-                  {% if session['user'] != main.created_by %}
-                  <div class="center-align">
-                     <a href="{{ url_for('add_favourite', recipe_id=main._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
-                  </div>
+                  {% if session.user %}
+                    {% if session['user'] != main.created_by %}
+                    <div class="center-align">
+                        <a href="{{ url_for('add_favourite', recipe_id=main._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
+                    </div>
+                    {% endif %}
                   {% endif %}
                </div>
             </div>
@@ -193,14 +195,16 @@
                   </ul>
                   {% endautoescape %}
                   </p>
-                  {% if session['user'] != dessert.created_by %}
-                  <div class="center-align">
-                     <a href="{{ url_for('add_favourite', recipe_id=dessert._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
-                  </div>
+                  {% if session.user %}
+                    {% if session['user'] != dessert.created_by %}
+                        <div class="center-align">
+                            <a href="{{ url_for('add_favourite', recipe_id=dessert._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
+                        </div>
+                    {% endif %}
                   {% endif %}
                   {% if session.user|lower == "admin" %}
-                  <a href="{{ url_for('delete_recipe', recipe_id=dessert._id) }}" class="btn-small">Delete</a>
-                  <a href="{{ url_for('edit_recipe', recipe_id=dessert._id) }}" class="btn-small">Edit</a>
+                    <a href="{{ url_for('delete_recipe', recipe_id=dessert._id) }}" class="btn-small">Delete</a>
+                    <a href="{{ url_for('edit_recipe', recipe_id=dessert._id) }}" class="btn-small">Edit</a>
                   {% endif %}
                </div>
             </div>
@@ -210,8 +214,8 @@
    </div>
 </div>
 <!---------------------------------------SEARCH BAR------------------------------------------>
-<div class="row user-header">
-   <div class="col s12">
+<div class="row user-header search-box">
+   <div class="col m10 offset-m1">
       <p class="goldman subheading-text center-align"> Search Recipes:</p>
       <form action="{{ url_for('search') }}" method="POST" class="search-form">
          <div class="valign-wrapper center-align">
@@ -229,6 +233,8 @@
    </div>
 </div>
 <!------------------------------------RECIPE LIST--------------------------------------->
+<div class="row">
+    <div class="col m10 offset-m1 center">
 <ul class="collapsible">
    {% for recipe in find_recipe %}
    <li>
@@ -296,10 +302,13 @@
             <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit</a>
             {% endif %}
          </div>
-         {% if session['user'] != recipe.created_by %}
+         {% if session.user %}
+            {% if session['user'] != recipe.created_by %}
          <div class="center-align">
             <a href="{{ url_for('add_favourite', recipe_id=recipe._id) }}" class="btn fav-btn km-pink">Favourite<i class="fas fa-star"></i></a>
          </div>
+            {% endif %}
+         {% endif %}
          <!--------------------------------COOKWARE PROMOTION---------------------------------------------->
          <div class="row center-align ad-box">
             <p class="ad"><strong> Missing something?</strong> View quality cookware needed for this recipe by Haden</p>
@@ -367,11 +376,11 @@
                </a>
             </div>
             {% endif %}
-         </div>
-         {% endif %}
-      </div>
+        </div>
+        </div>
    </li>
    {% endfor %}
 </ul>
+</div>
 </div>
 {% endblock %}
