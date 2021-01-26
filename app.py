@@ -159,26 +159,37 @@ def add_recipe():
 # array
 @app.route("/add_favourite/<recipe_id>", methods=["GET", "POST"])
 def add_favourite(recipe_id):
-    try:
+    username = session["user"]
+    user = mongo.db.users.find_one({"username": session["user"]})
+
+    favourites = user['favourites']
+    results = []
+    for fav in favourites:
+        results.append(mongo.db.recipes.find_one({"_id": ObjectId(fav)}))
+
+    current_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
+    if current_recipe in results:
+        flash("This recipe is already in your favourites")
+        return redirect(url_for("my_recipes", username=username))
+    else:
         mongo.db.users.update_one(
             {"username": session["user"].lower()},
             {"$push": {"favourites": ObjectId(recipe_id)}})
         flash("Favourite saved")
-        return redirect(url_for("my_recipes"))
-    except:
-        flash("Please login/register to add favourites")
-        return redirect(url_for("login"))
+        return redirect(url_for("my_recipes", username=username))
 
 
 # Code for function of remove favourite buttons - Removes recipe id from users
 # favourites array
 @app.route("/remove_favourite/<recipe_id>", methods=["GET", "POST"])
 def remove_favourite(recipe_id):
+    username = session['user']
     mongo.db.users.find_one_and_update(
         {"username": session["user"].lower()},
         {"$pull": {"favourites": ObjectId(recipe_id)}})
     flash("Favourite saved")
-    return redirect(url_for("get_recipes"))
+    return redirect(url_for("my_recipes", username=username))
 
 # Code for function of Edit recipe Page - pulls recipe data from database for
 # field population and submits updated dictionary to update database.
