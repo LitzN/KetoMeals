@@ -159,11 +159,15 @@ def add_recipe():
 # array
 @app.route("/add_favourite/<recipe_id>", methods=["GET", "POST"])
 def add_favourite(recipe_id):
-    mongo.db.users.update_one(
-        {"username": session["user"].lower()},
-        {"$push": {"favourites": ObjectId(recipe_id)}})
-    flash("Favourite saved")
-    return redirect(url_for("get_recipes"))
+    try:
+        mongo.db.users.update_one(
+            {"username": session["user"].lower()},
+            {"$push": {"favourites": ObjectId(recipe_id)}})
+        flash("Favourite saved")
+        return redirect(url_for("my_recipes"))
+    except:
+        flash("Please login/register to add favourites")
+        return redirect(url_for("login"))
 
 
 # Code for function of remove favourite buttons - Removes recipe id from users
@@ -204,12 +208,15 @@ def edit_recipe(recipe_id):
 # Code for function of delete recipe buttons - removes recipe from the database
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
+    mongo.db.users.update(
+        {"favourites": ObjectId(recipe_id)},
+        {"$pull": {"favourites": ObjectId(recipe_id)}})
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Deleted!")
-    return redirect("get_recipes")
+    return redirect(url_for("get_recipes"))
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)
