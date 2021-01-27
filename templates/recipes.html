@@ -55,7 +55,7 @@
          <div class="col m6 s12">
             <div class="card">
                <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="{{ snack.image_url }}" alt="{{ snack.recipe_name}}">
+                  <img class="activator" load="lazy" src="{{ snack.image_url }}" alt="{{ snack.recipe_name}}">
                </div>
                <div class="card-content">
                   <span class="card-title activator grey-text text-darken-4">{{ snack.recipe_name }}<i class="fas fa-ellipsis-v right"></i></span>
@@ -112,7 +112,7 @@
          <div class="col m6 s12">
             <div class="card">
                <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="{{ main.image_url }}">
+                  <img class="activator" load="lazy" src="{{ main.image_url }}">
                </div>
                <div class="card-content">
                   <span class="card-title activator grey-text text-darken-4">{{ main.recipe_name }}<i class="fas fa-ellipsis-v right"></i></span>
@@ -169,7 +169,7 @@
                 <div class="col m6 s12">
                     <div class="card">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="{{ dessert.image_url }}">
+                            <img class="activator" load="lazy" src="{{ dessert.image_url }}">
                         </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">{{ dessert.recipe_name }}<i class="fas fa-ellipsis-v right"></i></span>
@@ -244,7 +244,7 @@
                <p class="subheading-text goldman center-align list-title">{{ recipe.recipe_name }}</p>
             </div>
             <div class="col s6 center-align">
-               <img src="{{ recipe.image_url}}" alt="{{recipe.recipe_name}}" class="recipe-pic adjust-size ">
+               <img src="{{ recipe.image_url}}" alt="{{recipe.recipe_name}}" load="lazy" class="recipe-pic adjust-size ">
             </div>
          </div>
       </div>
