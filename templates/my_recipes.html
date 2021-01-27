@@ -42,8 +42,8 @@
                   <strong class="recipe-section"> Ingredients :</strong>
                   {% autoescape false %}
                <ul class="ingred-list">
-                  <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ recipe.ingredients|replace(",", "</li>
-                  <li class='ingred-item  adjust-size'><i class=' km-green-text fas fa-heart'></i>") }}</li>
+                  <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ recipe.ingredients|replace(",", '</li>
+                  <li class="ingred-item  adjust-size"><i class=" km-green-text fas fa-heart"></i>') }}</li>
                </ul>
                {% endautoescape %}
                </p>
@@ -52,8 +52,8 @@
                <p><strong class="recipe-section"> Cookware required:</strong></p>
                {% autoescape false %}
                <ul>
-                  <li><i class="fas fa-heart km-pink-text"></i>{{ recipe.cookware|replace(",", "</li>
-                  <li><i class='fas fa-heart km-pink-text'></i>") }}</li>
+                  <li><i class="fas fa-heart km-pink-text"></i>{{ recipe.cookware|replace(",", '</li>
+                  <li><i class="fas fa-heart km-pink-text"></i>') }}</li>
                </ul>
                {% endautoescape %}
             </div>
@@ -65,8 +65,8 @@
                   <strong class="recipe-section"> Instructions :</strong>
                   {% autoescape false %}
                <ul class="collection">
-                  <li class="collection-item">{{ recipe.instructions|replace(".", "</li>
-                  <li class='collection-item'>") }}</li>
+                  <li class="collection-item">{{ recipe.instructions|replace(".", '</li>
+                  <li class="collection-item">') }}</li>
                </ul>
                {% endautoescape %}
                </p>
@@ -181,8 +181,8 @@
                   <strong class="recipe-section"> Ingredients :</strong>
                   {% autoescape false %}
                <ul class="ingred-list">
-                  <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ result.ingredients|replace(",", "</li>
-                  <li class='ingred-item adjust-size'><i class='km-green-text fas fa-heart'></i>") }}</li>
+                  <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ result.ingredients|replace(",", '</li>
+                  <li class="ingred-item adjust-size"><i class="km-green-text fas fa-heart"></i>') }}</li>
                </ul>
                {% endautoescape %}
                </p>
@@ -192,8 +192,8 @@
                <p><strong class="recipe-section"> Cookware required:</strong></p>
                {% autoescape false %}
                <ul class="ingred-list">
-                  <li><i class="fas fa-heart km-pink-text"></i>{{ result.cookware|replace(",", "</li>
-                  <li><i class='fas fa-heart km-pink-text'></i>") }}</li>
+                  <li><i class="fas fa-heart km-pink-text"></i>{{ result.cookware|replace(",", '</li>
+                  <li><i class="fas fa-heart km-pink-text"></i>') }}</li>
                </ul>
                {% endautoescape %}
             </div>
@@ -205,8 +205,8 @@
                   <strong class="recipe-section"> Instructions :</strong>
                   {% autoescape false %}
                <ul class="collection">
-                  <li class="collection-item">{{ result.instructions|replace(".", "</li>
-                  <li class='collection-item'>") }}</li>
+                  <li class="collection-item">{{ result.instructions|replace(".", '</li>
+                  <li class="collection-item">') }}</li>
                </ul>
                {% endautoescape %}
                </p>

@@ -49,9 +49,10 @@ Wireframes created for this project:
 Mongodb was used as host for the database. I chose this as I wanted the app to be capable of storing a large
 amount of data. 
 The three collections in the database are: Users, Recipes and Types 
-* __Recipes collection__ contains all recipes created. Recipe has 8 fields, two generated automatically( id_ by mongodb, and created_by, corresponds to the user who created the recipe, their username is used). Recipe id, used to edit, delete and add the recipe as a favourite. The meal_type corresponds to the type collection.
+* __Recipes collection__ contains all recipes created. Recipe has 8 fields, two generated automatically( id_ by mongodb, and created_by, corresponds to the user who created the recipe, their username is used). Recipe id, used to edit, delete and add the recipe as a favourite. 
+    The meal_type corresponds to the type collection and only meal types featured in the type collection are given as an option when a recipe is created.
 * __Users collections__ contain their username, hashed password and an array of favourites. Favourites arrays are made up of the recipe’s object ids.
-* __Type collection__ contains three meal types and each recipe is created with a type to assist searching.
+* __Type collection__ contains three meal types and recipes can only be created with a meal type featured in the type collection.
 
 
 ### __Users__
@@ -83,10 +84,14 @@ The three collections in the database are: Users, Recipes and Types
 
 ## **Features**
 
+### __Defensive Programming and security features__
+* Forms cannot be submitted unless all fields are correctly filled in 
+* Login form mistakes are not accredited to "Incorrect password" or "Incorrect username" specifically to ensure people don't
+ use this to hack into others accounts.
 * All users who wish to post to the site must have an account, no links to create, edit or favourite recipes
  are available to users who do not have an account.
 * Accounts are secured using werkzeug so only hashed versions of the passwords are stored.
-* My recipes pages use the users log in cookie to load the correct profile so it can only be accessed by the user
+* My recipes pages use the users specific cookie to load the correct profile so it can only be accessed by the user
  when logged in.
 * A logged in cookie is also used so if an anonymous user types in the correct url for the add/edit recipe pages they 
 are redirected to the login page with a message above the form saying "You need to be logged in to add/edit a recipe".
@@ -156,11 +161,6 @@ is explained through helper text below the input field. All fields must be fille
 to easily make adjustments to the recipe. 
 * __Security__ If an anonymous user tries to open this page by typing the url, they will be redirected to the log in page with a message saying "Please log in to edit a recipe".
 
-### __Defensive Programming features__
-* __Forms__ cannot be submitted unless all fields are correctly filled in 
-* __Login form__ mistakes are not accredited to "Incorrect password" or "Incorrect username" specifically to ensure people don't use this to hack into others accounts.
-* __Registered Users__ don't have access to edit and delete buttons of recipes so they don't alter other users data.
-* __Unregistered Users__ do not have access to Add Recipe button to prevent database being flooded with data from non-users.
 
 ## Features left to implement
 * Comment section for each recipe so users can leave reviews.
@@ -226,7 +226,7 @@ Except for an error on the edit and add page which is outlined in the "Bugs to b
 
 #### __Site Wide Features__
 * __Navigation bar__ : to test this I manually pressed each link on the nagivation page, both as 
-an anonymous used and as an existing user as the links avaliable are different. I did this on both
+an anonymous user and as an existing user as the links avaliable are different. I did this on both
 large screen version of the site and mobile to ensure the toggle menu was working well.
     * Functionality: Before logging in:
         * I clicked on the Register link which led to the registration page. Then I pressed the home link and was taken to the homepage.
@@ -245,9 +245,9 @@ my recipes page.
     * Functionality: Homepage:
         * I searched for recipes containing all 7 products in turn, as cookware only appears in the search results.
          Each opened the relevant product's amazon purchase page in a new tab as expected. 
-    * Functionality: Homepage:
+    * Functionality: My Recipes page:
         * I pressed each of the advert links on all the recipes in the "My recipes" pages. 
-         Each opened the relevant products amazon purchase page in a new tab as expected.     
+         Each opened the relevant product's amazon purchase page in a new tab as expected.     
     * Responsive Design: 
         *Images resized on smaller device screen width to maintain advert appearance.
 
@@ -268,13 +268,13 @@ my recipes page.
 the toggle for one recipe of each type to ensure the correct data was displaying.
     * Functionality: as anonymous user:
         * Snack results: I pressed the toggle button on the right which bought up the recipe name, ingredients and instructions.
-         when the caret down button at the top was selected the recipe was hidden and the recipe image reappeared.
+         When the caret down button at the top was selected the recipe was hidden and the recipe image reappeared.
         * Main results: I pressed the toggle button on the recipe and the expected details appeared. Button to hide recipe worked.
         * Dessert results: I pressed the toggle button on a recipe and the details were shown. The toggle button hid the recipe when pressed.
     * Functionality: as logged in user:
         * I clicked on a snack recipe created by the user and the relevant details appeared. I clicked on another recipe not created by the 
         user, favourite button appeared at the end as expected. When pressed, I was redirected to the users my recipes page where a message
-        displayed saying "Favourite saved" and the recipe appeared in full in the User's favourites section.
+        displayed saying "Favourite saved" and the recipe appeared in full in the user's favourites section.
         * I repeated this proccess for recipes in the main and dessert results, all produced the same results.
     * Responsive Design:
         * Google developer tools were used to ensure page styling adjusted with screen widths, on smaller screens cards are stacked instead of two appearing on a row.
@@ -286,7 +286,7 @@ the toggle for one recipe of each type to ensure the correct data was displaying
         * Without clearing the result, I typed 'lemon' which is present in only one of the stevia containing recipes and pressed search,
          only the one desert recipe containing the words 'stevia' and 'lemon' was displayed.
         * I pressed the reset button which refreshed the page and cleared the old results. I typed tomato in the search bar and results consisted of
-         2 recipes featured the word in the title and the last only in ingredients. 
+         2 recipes which featured the word in the title and one with the word featured only in ingredients. 
     * Responsive Design: 
         *  I used google developer tools to view the search bar in different screen sizes. 
          The length of the input field is resized in mobile, tablet and laptop views to fit nicely in the container.
@@ -300,7 +300,7 @@ the toggle for one recipe of each type to ensure the correct data was displaying
         * I searched for the word tomato. I selected the first result and the full recipe appeared. The recipe was from a different
          user and so a favourite button appeared. When pressed led me to the logged in users my recipes page with the message "Favourite saved"
          and the recipe appearing in the user's favourites section. The cookware promotion was visible and functional.
-        * I cleared the result and searched for a recipe created by the logged in user. When opened the correct information and cookware promotion
+        * I cleared the result and searched for a recipe created by the logged in user. When opened, the correct information and cookware promotion
          appeared. The recipe also contained an edit and delete button. Edit button when pressed redirected to the editing page for the recipe with 
          the form prefilled. Delete button when pressed led back to the homepage with a message displayed saying "Recipe deleted". I checked the database
          to ensure the recipe had been deleted succesfully.
@@ -342,7 +342,8 @@ the toggle for one recipe of each type to ensure the correct data was displaying
 button.
     * Functionality:
         * I pressed the button which directed me back to my recipes page with an alert saying "Favourite removed". 
-        I checked the users favourites no longer contained this recipe and that it was deleted from the database.
+        I checked the users favourites no longer contained this recipe and that it was deleted from the users favourites in the
+        database.
 
 ### **Add Recipe**
 * __Image background__ was checked in developer tools, image covers looks good and covers the view on all screen sizes.
@@ -357,7 +358,7 @@ button.
 * __Form__ 
     * I opened a recipe with an incorrect meal type. I chose the correct one from the dropdown and 
     submitted the form. I was redirected to the users my recipes page with an alert saying "Recipe Updated!".
-    * I checked the recipe was no longer in the users recipes and had updated on the database.
+    * I checked the recipe was updated on the database.
 
 ### **Lighthouse Audit** 
 [Lighthouse audit results](static/screenshots/lighthouse-results.png)
