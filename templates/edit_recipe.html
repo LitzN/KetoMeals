@@ -3,11 +3,11 @@
 <body class="img-background add_img">
    <div class="container">
       <div class="row center-align">
-         <!--------------------------------EDIT RECIPE FORM---------------------------------------------->
+         <!--EDIT RECIPE FORM..........................................-->
          <form class="col s12 l-blue margin-top" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
             <h3 class="goldman km-pink-text"> Edit a Recipe</h3>
             <div class="row">
-               <!--------------------------------EDIT MEAL TYPE---------------------------------------------->
+               <!--EDIT MEAL TYPE.......................................-->
                <div class="input-field col s12">
                   <select id="meal_type" name="meal_type" required>
                      <option value="" disabled>Choose the meal type</option>
@@ -22,14 +22,14 @@
                   <label for="meal_type"><strong>Meal Type</strong></label>
                </div>
             </div>
-            <!--------------------------------EDIT RECIPE NAME---------------------------------------------->
+            <!--EDIT RECIPE NAME.............................................-->
             <div class="row">
                <div class="input-field col s12">
                   <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{ recipe.recipe_name}}" required>
                   <label class="black-text" for="recipe_name">Recipe Name</label>
                </div>
             </div>
-            <!--------------------------------EDIT INGREDIENTS---------------------------------------------->
+            <!--EDIT INGREDIENTS............................................-->
             <div class="row">
                <div class="input-field col s12">
                   <input id="ingredients" name="ingredients" type="text" class="validate" value="{{ recipe.ingredients}}" required>
@@ -38,7 +38,7 @@
                   Seperate ingredients using a comma Eg: 300g sprinkles, 200g love, 2tsp sunshine</span>
                </div>
             </div>
-            <!--------------------------------EDIT INSTRUCTIONS---------------------------------------------->
+            <!--EDIT INSTRUCTIONS......................................................-->
             <div class="row">
                <div class="input-field col s12">
                   <input id="instructions" name="instructions" type="text" class="validate" value="{{ recipe.instructions}}" required>
@@ -47,7 +47,7 @@
                   Seperate instructions using a full stop Eg: Fry sprinkles, love and sunshine. Add Garnish</span>
                </div>
             </div>
-            <!--------------------------------EDIT COOKWARE---------------------------------------------->
+            <!--EDIT COOKWARE................................................-->
             <div class="row">
                <div class="input-field col s12">
                   <input id="cookware" name="cookware" type="text" class="validate" value="{{ recipe.cookware}}" required>
@@ -56,7 +56,7 @@
                   List the cookware needed for this recipe</span>
                </div>
             </div>
-            <!--------------------------------EDIT IMAGE---------------------------------------------->
+            <!--EDIT IMAGE....................................................-->
             <div class="row">
                <div class="input-field col s12">
                   <input id="image" name="image" type="text" class="validate" value="{{ recipe.image_url }}" required>
@@ -65,7 +65,7 @@
                   Simply copy and paste the link leading to your meal image</span>
                </div>
             </div>
-            <!--------------------------------EDIT FORM SUBMIT---------------------------------------------->
+            <!--EDIT FORM SUBMIT...............................................-->
             <div class="row">
                <div class="col s12">
                   <a href="{{ url_for('get_recipes') }}" class="btn-large km-pink"> Cancel</a>

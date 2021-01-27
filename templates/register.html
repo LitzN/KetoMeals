@@ -6,10 +6,10 @@
    <div class="valign-wrapper margin-top">
       <div class="row offset-s2 s8 opaque">
          <p class="center-align subheading-text goldman l-blue-text">Register with us</p>
-         <!--------------------------------REGISTRATION FORM---------------------------------------------->
+         <!--REGISTRATION FORM.............................................-->
          <form class="col s12" method="POST" action="{{ url_for('register') }}">
             <div class="row">
-               <!--------------------------------USERNAME SELECTION---------------------------------------------->
+               <!--USERNAME SELECTION.......................................-->
                <div class="input-field col s12">
                   <input id="username" name="username" type="text" minlength="5"
                      maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate white-text" required>
@@ -17,7 +17,7 @@
                   <span class="helper-text white-text" data-error="Must not use special characters and must be over 5 characters." data-success="right"></span>
                </div>
             </div>
-            <!--------------------------------PASSWORD SELECTION---------------------------------------------->
+            <!--PASSWORD SELECTION...............................................-->
             <div class="row">
                <div class="input-field col s12">
                   <input id="password" name="password" type="password" minlength="5" 
@@ -26,12 +26,12 @@
                   <span class="helper-text white-text" data-error="Must not use special characters and must be over 5 characters." data-success="right"></span>
                </div>
             </div>
-            <!--------------------------------REGISTRATION SUBMIT---------------------------------------------->
+            <!--REGISTRATION SUBMIT..............................................-->
             <button type="submit" class="hoverable btn-large km-pink center-align">
             Register
             </button>
          </form>
-         <!--------------------------------LOGIN OPTION---------------------------------------------->
+         <!--LOGIN OPTION........................................................-->
          <div class="row">
             <div class="col s12">
                <p class="center-align"><strong class="l-blue-text">Already registered? <a href="{{ url_for('login') }}" class="km-pink-text">Log in here</a></strong></p>
@@ -39,4 +39,5 @@
          </div>
       </div>
    </div>
+</body>
    {% endblock %}

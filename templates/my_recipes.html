@@ -4,7 +4,7 @@
 {% block content %}
 <body class="">
    <div class="container">
-      <!--------------------------------USER RECIPE HEADING---------------------------------------------->
+      <!--USER RECIPE HEADING............................................-->
       <div class="row user-header">
          <div class="col s12 m8 offset-m2">
             <p class="center-align goldman">
@@ -21,7 +21,7 @@
       <div class="recipes">
          <div class="row">
             <div class="col s12 m6">
-               <!----------------------------------RECIPE NAME + EDIT BUTTONS ---------------------------------->
+               <!--RECIPE NAME + EDIT BUTTONS....................................-->
                <p class="recipe-name center-align">{{ recipe.recipe_name }}</p>
                <div class="center-align">
                   {% if session.user|lower == recipe.created_by|lower %}
@@ -30,12 +30,12 @@
                   {% endif %}
                </div>
             </div>
-            <!----------------------------------IMAGE ------------------------------------------------------>
+            <!--IMAGE..............................................................-->
             <div class="col s12 m6 center-align">
                <img src="{{ recipe.image_url}}" alt="{{recipe.recipe_name}}" class="recipe-pic">
             </div>
          </div>
-         <!----------------------------------INGREDIENTS ------------------------------------------------------>
+         <!--INGREDIENTS..........................................................-->
          <div class="row">
             <div class="col s6">
                <p class="ingred-item adjust-size">
@@ -58,7 +58,7 @@
                {% endautoescape %}
             </div>
          </div>
-         <!----------------------------------INSTRUCTIONS ------------------------------------------------------>
+         <!--INSTRUCTIONS......................................................-->
          <div class="row">
             <div class="col offset-s1 s10">
                <p>
@@ -72,7 +72,7 @@
                </p>
             </div>
          </div>
-         <!-------------------------------------------COOKWARE PROMOTION--------------------------------------------->
+         <!--COOKWARE PROMOTION.........................................................-->
          <div class="row center-align ad-box">
             <p><strong> Missing something?</strong> View quality cookware needed for this recipe by Haden</p>
             <div class="col s4 center-align">
@@ -151,20 +151,20 @@
             </p>
          </div>
       </div>
-      <!--------------------------------FAVOURITE RECIPE TITLE---------------------------------------------->
+      <!--FAVOURITE RECIPE TITLE............................................-->
       {% for result in results %}
       <div class="recipes">
          <div class="row">
             <div class="col s12 m6">
-               <!----------------------------------FAV RECIPE NAME---------------------------------->
+               <!--FAV RECIPE NAME...........................................-->
                <p class="center-align recipe-name">{{ result.recipe_name }}</p>
             </div>
-            <!----------------------------------FAV RECIPE IMAGE ------------------------------------------------------>
+            <!--FAV RECIPE IMAGE.............................................-->
             <div class="col s12 m6 center-align">
                <img src="{{ result.image_url}}" alt="{{result.recipe_name}}" class="recipe-pic">
             </div>
          </div>
-         <!--------------------------------------------FAV CREATED BY & UNFAVOURITE-------------------------------------->
+         <!--FAV CREATED BY & UNFAVOURITE....................................-->
          <div class="row">
             <div class="col s6 center-align">
                <a href="{{ url_for('remove_favourite', recipe_id=result._id) }}" class="center-align btn km-pink">
@@ -174,7 +174,7 @@
                <p class= "center-align"> <strong>Created by:<br></strong><i>{{ result.created_by }}</i></p>
             </div>
          </div>
-         <!----------------------------------FAV INGREDIENTS ------------------------------------------------------>
+         <!--FAV INGREDIENTS ..........................................-->
          <div class="row">
             <div class="col s12 m6">
                <p class="ingred-item adjust-size">
@@ -187,7 +187,7 @@
                {% endautoescape %}
                </p>
             </div>
-            <!---------------------------------------FAV COOKWARE--------------------------------------------------------->
+            <!--FAV COOKWARE.................................................................-->
             <div class="col s12 m6 ">
                <p><strong class="recipe-section"> Cookware required:</strong></p>
                {% autoescape false %}
@@ -198,7 +198,7 @@
                {% endautoescape %}
             </div>
          </div>
-         <!---------------------------------- FAV INSTRUCTIONS ------------------------------------------------------>
+         <!--FAV INSTRUCTIONS........................................................-->
          <div class="row">
             <div class="col offset-s1 s10">
                <p>
@@ -212,7 +212,7 @@
                </p>
             </div>
          </div>
-         <!-------------------------------------------FAV COOKWARE PROMOTION--------------------------------------------->
+         <!--FAV COOKWARE PROMOTION..............................................-->
          <div class="row center-align ad-box">
             <p><strong> Missing something?</strong> View quality cookware needed for this recipe by Haden</p>
             <div class="col s4 center-align">
@@ -280,8 +280,9 @@
             </div>
             {% endif %}
          </div>
-         <!---------------------------------- FAV CREATED BY ------------------------------------------------------>
+         <!-- FAV CREATED BY.....................................................-->
       </div>
       {% endfor %}
    </div>
+   </body>
    {% endblock %}

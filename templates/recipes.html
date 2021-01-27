@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<!--------------------------------------HEADER----------------------------------------------->
+<!--HEADER.....................................................-->
 <div class="row">
    <div class="header-pic img-background responsive-img">
       <h1 class="goldman header-text"> KetoMeals</h1>
@@ -18,7 +18,7 @@
          </div>
       </div>
    </div>
-   <!------------------------------------CATEGORY BUTTONS--------------------------------------->
+   <!--CATEGORY BUTTONS.......................................................-->
    <div class="row">
       <h4 class="goldman center-align subheading-text">Search by category</h4>
       <div class="col s6 m4">
@@ -40,9 +40,9 @@
          </button>
       </div>
    </div>
-   <!------------------------------------CATEGORY RESULTS--------------------------------------->
+   <!--CATEGORY RESULTS................................................-->
    <div class="snacks hide">
-      <!-------------------------------------SNACKS------------------------------------------------>
+      <!--SNACKS.......................................................-->
       <div class="row">
          <div class="col s12">
             <p class="subheading-text goldman">
@@ -99,7 +99,7 @@
       </div>
    </div>
    <div class="mains hide">
-      <!-------------------------------------MAIN MEAL------------------------------------------------>
+      <!--MAIN MEAL.......................................................-->
       <div class="row">
          <div class="col s12">
             <p class=" subheading-text goldman">
@@ -156,7 +156,7 @@
       </div>
    </div>
    <div class="desserts hide">
-      <!-------------------------------------DESSERTS------------------------------------------------>
+      <!--DESSERTS.......................................................-->
         <div class="row">
             <div class="col s12">
                 <p class="goldman subheading-text">
@@ -212,7 +212,7 @@
             {% endfor %}
         </div>
     </div>
-<!---------------------------------------SEARCH BAR------------------------------------------>
+<!--SEARCH BAR...............................................................-->
 <div class="row user-header search-box">
    <div class="col m10 offset-m1">
       <p class="goldman subheading-text center-align"> Search Recipes:</p>
@@ -231,13 +231,13 @@
       </form>
    </div>
 </div>
-<!------------------------------------RECIPE LIST--------------------------------------->
+<!--RECIPE LIST..........................................................-->
 <div class="row">
     <div class="col m10 offset-m1 center">
 <ul class="collapsible">
    {% for recipe in find_recipe %}
    <li>
-      <!--------------------------------RECIPE LIST HEADER---------------------------------------------->
+      <!--RECIPE LIST HEADER...............................................-->
       <div class="collapsible-header">
          <div class="row">
             <div class="col s6">
@@ -248,9 +248,9 @@
             </div>
          </div>
       </div>
-      <!--------------------------------RECIPE LIST BODY---------------------------------------------->
+      <!--RECIPE LIST BODY................................................-->
       <div class="collapsible-body white">
-         <!--------------------------------INGREDIENTS---------------------------------------------->
+         <!--INGREDIENTS...................................................-->
          <div class="row">
             <div class="col s6">
                <p class="ingred-item adjust-size">
@@ -263,7 +263,7 @@
                {% endautoescape %}
                </p>
             </div>
-            <!--------------------------------COOKWARE---------------------------------------------->
+            <!--COOKWARE..................................................-->
             <div class="col s6">
                <p><strong class="recipe-section"> Cookware required:</strong></p>
                {% autoescape false %}
@@ -274,7 +274,7 @@
                {% endautoescape %}
             </div>
          </div>
-         <!--------------------------------INSTRUCTIONS---------------------------------------------->
+         <!--INSTRUCTIONS..................................................-->
          <div class="row">
             <div class="col s12">
                <p>
@@ -288,9 +288,9 @@
                </p>
             </div>
          </div>
-         <!--------------------------------CREATED BY---------------------------------------------->
+         <!--CREATED BY..............................................-->
          <p class="center-align" ><strong>Created by:</strong><i>{{ recipe.created_by }}</i></p>
-         <!--------------------------------EDIT/DELETE OPTION---------------------------------------------->
+         <!--EDIT/DELETE OPTION........................................-->
          <div class="center-align">
             {% if session.user|lower == recipe.created_by|lower %}
             <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small">Delete</a>
@@ -308,7 +308,7 @@
          </div>
             {% endif %}
          {% endif %}
-         <!--------------------------------COOKWARE PROMOTION---------------------------------------------->
+         <!--COOKWARE PROMOTION...................................................-->
          <div class="row center-align ad-box">
             <p class="ad"><strong> Missing something?</strong> View quality cookware needed for this recipe by Haden</p>
             <div class="col s4 center-align">

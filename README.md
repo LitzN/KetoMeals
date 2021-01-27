@@ -1,11 +1,21 @@
 # **KetoMeals**
 
-Keto meals is a site for a cookbook database which allows users to find recipes they can use when following a ketogenic diet. The website informs visitors of the benefits of this type of diet as well as allowing them to build their own personalised cookbook to make their lifestyle change easier. The website also allows users to view cookware products they may need from a promoted brand.
+The project provides a way of creating an online cookbook for people wishing to follow a ketogenic diet. 
+The ketogenic diet is helpful to people with weight and insulin issues, so it is often recommended therapeutically
+ and people looking into it are likely to need assistance when coming up with meal plans as it is usually a 
+ considerable lifestyle change. Seeing as the rate of obesity is high in the UK, it is likely this market will 
+ remain relevant for the future. The value for the user is that they are able to view recipes from other keto diet
+  followers which is useful when starting and they are also able to share their own recipes. The value for the 
+  site owner would be the ability to advertise the promoted brand of cookware.
 
-The project consists of 5 pages. When a user first visits the site, the pages available to them will be the homepage and register/login page. On registering/logging in they will gain access to the my recipes, add recipe and logout button.
- The homepage gives the user the chance to understand the types of recipes available and the aim of the ketogenic diet. The search capabilities are flexible allowing users to search either by meal type or by recipe or ingredient name. 
- The register page allows users to create an account for the site. After registering the user is directed to their profile page (my recipes), here they are invited to add a recipe, which will become available for all users to view. 
- Only the user is able to edit or delete the recipe. When browsing recipes, users can decide to add their favourites to their personal page for easy viewing. 
+The project consists of 5 pages. When a user first visits the site, the pages available to them will be the homepage and register/login page.
+ On registering/logging in they will gain access to the my recipes, add recipe and logout button.
+ The homepage gives the user the chance to understand the types of recipes available and the aim of the ketogenic 
+ diet. The search capabilities are flexible allowing users to search either by meal type or by recipe or ingredient name. 
+ The register page allows users to create an account for the site. After registering the user is directed to their
+  profile page (my recipes), here they are invited to add a recipe, which will become available for all users to view. 
+ Only the user is able to edit or delete the recipe. When browsing recipes, users can decide to add their favourites to
+  their personal page for easy viewing. 
 
 ## **User Stories & UX**
 
@@ -37,7 +47,12 @@ Wireframes created for this project:
 ### **Database Schema**
 
 Mongodb was used as host for the database. I chose this as I wanted the app to be capable of storing a large
-amount of data. The collections in the data are as follows:
+amount of data. 
+The three collections in the database are: Users, Recipes and Types 
+* __Recipes collection__ contains all recipes created. Recipe has 8 fields, two generated automatically( id_ by mongodb, and created_by, corresponds to the user who created the recipe, their username is used). Recipe id, used to edit, delete and add the recipe as a favourite. The meal_type corresponds to the type collection.
+* __Users collections__ contain their username, hashed password and an array of favourites. Favourites arrays are made up of the recipe’s object ids.
+* __Type collection__ contains three meal types and each recipe is created with a type to assist searching.
+
 
 ### __Users__
 
@@ -67,6 +82,16 @@ amount of data. The collections in the data are as follows:
 | created_by     |    string    |
 
 ## **Features**
+
+* All users who wish to post to the site must have an account, no links to create, edit or favourite recipes
+ are available to users who do not have an account.
+* Accounts are secured using werkzeug so only hashed versions of the passwords are stored.
+* My recipes pages use the users log in cookie to load the correct profile so it can only be accessed by the user
+ when logged in.
+* Recipes created by a user can only be edited or deleted by that user or the site admin so recipes can’t be 
+tampered with by any other users.
+* Recipies can only be favourited once by a user preventing unnecessary build up in their my recipes page.
+
 
 ### **Sitewide Features**
 
@@ -267,14 +292,17 @@ to ensure the user's favourites no longer contained the specific recipe id.
 ### __Fixed__
 1. A white bar was appearing at the bottom of the login/register pages image background on large screen sizes. I 
 changed the body element minimum height to 100vh, which made the picture take up the whole screen. 
+ 2. When a user has added a recipe as a favourite, if the recipe is deleted by the owner or admin, it still displays 
+ the favourite box for the recipe but without the relevant details. When the user tries to remove the empty favourited 
+ recipe, the site throws an error as it cannot extract the ObjectId it needs to remove from favourites.
+ This was fixed by writing code to ensure all instances of the object id are removed from the users collection in the database
+  when the recipe is deleted.
 
 ### __Not yet fixed__
  1. When running the edit and add recipe pages through the html validator, I got an error with a materialize
  component. The dropdown selector menu for the field "meal type" is causing the error: "Bad value true for attribute 
  readonly on element input". The readonly attribute is added automatically to the component by materialize.
- 2. When a user has added a recipe as a favourite, if the recipe is deleted by the owner or admin, it still displays 
- the favourite box for the recipe but without the relevant details. When the user tries to remove the empty favourited 
- recipe, the site throws an error as it cannot extract the ObjectId it needs to remove from favourites.
+
 
  ## __Deployment__
 The project was created on Gitpod and pushed to Github after each major change. The master branch was used as a source for deployment on Heroku. The development version is the same as the deployed version.
