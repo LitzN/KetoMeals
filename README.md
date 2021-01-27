@@ -220,20 +220,87 @@ Except for an error on the edit and add page which is outlined in the "Bugs to b
 ### __Testing Functionality and Responsive design__
 
 #### __Site Wide Features__
-* __Navigation bar__ To test navigation bar is functional, I clicked on all navigation links which all led to the named page. The toggle button displayed on smaller screen widths
-    opened when selected and led to the correct pages.
-* __Cookware promotion__ I pressed each of the advert links on all the recipes in the "My recipes" and "Home" pages. Each opened the relevant products amazon purchase page in 
-    a new tab as expected. Images resized on smaller device screen width to maintain advert appearance.
+* __Navigation bar__ : to test this I manually pressed each link on the nagivation page, both as 
+an anonymous used and as an existing user as the links avaliable are different. I did this on both
+large screen version of the site and mobile to ensure the toggle menu was working well.
+    * Functionality: Before logging in:
+        * I clicked on the Register link which led to the registration page. Then I pressed the home link and was taken to the homepage.
+        * I clicked on the Login link which led to the login page. From this page I selected the home link and was taken to the homepage.
+    * Functionality: After logging in:
+        * Landed on the my recipes page. Pressed the home link and was taken to the homepage. 
+        * From the homepage, I selected the my recipes page and was redirected as expected. 
+        * Next I selected the add recipe link which led to the correct page when pressed.
+        * Lastly I selected the logout link which led to the login page and displayed a message saying "You have been logged out".
+    * Responsive design:
+        * The toggle button displayed on smaller screen widths opened when selected and maintained functionality.
+
+* __Cookware promotion__ : The promotions are featured on the homepage and the my recipes page and use the same template. There are 7 products being promoted.
+To test these I found a recipe containing each product and selected it to ensure it led to the correct purchase page as planned. I did this from both the homepage and 
+my recipes page. 
+    * Functionality: Homepage:
+        * I searched for recipes containing all 7 products in turn, as cookware only appears in the search results.
+         Each opened the relevant product's amazon purchase page in a new tab as expected. 
+    * Functionality: Homepage:
+        * I pressed each of the advert links on all the recipes in the "My recipes" pages. 
+         Each opened the relevant products amazon purchase page in a new tab as expected.     
+    * Responsive Design: 
+        *Images resized on smaller device screen width to maintain advert appearance.
 
 #### __Homepage__
-* __Meal Type selector buttons__ I tested each of these buttons by pressing them and checking results which appeared were for the correct meal type.
-* __Meal Type results__ are displayed through cards with an expandable section for the recipe. As cards were created through a template I clicked on 
-the toggle for one recipe of each type to ensure the correct data was displaying. Google developer tools were used to ensure page styling adjusted with screen widths,
-on smaller screens cards are stacked instead of two appearing on a row.
-* __Search bar__ was tested by searching for the words "stevia" and "tomato" as they appear in several recipes. All recipes containing 
-the words were displayed. One featured the word exclusively in the recipe name and the others were ingredients.
-* __Search results__ collapsible list results all open when clicked on to display the correct recipe and cookware promotions. Using google developer tools,
-I checked whether images and text resized to fit well in smaller screen widths.
+* __Meal Type selector buttons__: were tested by selecting and checking in the database if the meal type matched that on the recipe.
+    * Functionality:
+        * I pressed on the snack button: The recipies which appeared where checked in the database and all had the 'snack' meal type.
+            There were no recipes in the database with the snack meal type which did not appear when the button was pressed.
+        * I pressed on the main meal button: The recipe results below changed and all recipes displayed were checked in the database to 
+        to ensure they had the 'main' meal type. There were no other recipes with this meal type that did not appear when the button was pressed.
+        * I pressed on the dessert button: The recipes results were again updated and now displayed new recipes which when checked in the database
+        all had the 'dessert' meal type. There were no other recipies in the database with the dessert type which did not show up.
+    * Responsive Design: 
+        * Buttons image resized on smaller screen widths. On mobile screens the buttons were arranged two in a row with the third appearing below, instead of 
+        all appearing in a line as with tablet and laptop views.
+
+* __Meal Type results__ are displayed through cards with an expandable section for the recipe. Cards were created through a template so to test them I clicked on 
+the toggle for one recipe of each type to ensure the correct data was displaying.
+    * Functionality: as anonymous user:
+        * Snack results: I pressed the toggle button on the right which bought up the recipe name, ingredients and instructions.
+         when the caret down button at the top was selected the recipe was hidden and the recipe image reappeared.
+        * Main results: I pressed the toggle button on the recipe and the expected details appeared. Button to hide recipe worked.
+        * Dessert results: I pressed the toggle button on a recipe and the details were shown. The toggle button hid the recipe when pressed.
+    * Functionality: as logged in user:
+        * I clicked on a snack recipe created by the user and the relevant details appeared. I clicked on another recipe not created by the 
+        user, favourite button appeared at the end as expected. When pressed, I was redirected to the users my recipes page where a message
+        displayed saying "Favourite saved" and the recipe appeared in full in the User's favourites section.
+        * I repeated this proccess for recipes in the main and dessert results, all produced the same results.
+    * Responsive Design:
+        * Google developer tools were used to ensure page styling adjusted with screen widths, on smaller screens cards are stacked instead of two appearing on a row.
+
+
+* __Search bar__ was tested by searching for the words "stevia" and "tomato" as they appear in several recipes.
+    * Functionality:
+        * Typed stevia in the search bar: Two recipes appeared, which all featured the word in the ingredients.
+        * Without clearing the result, I typed 'lemon' which is present in only one of the stevia containing recipes and pressed search,
+         only the one desert recipe containing the words 'stevia' and 'lemon' was displayed.
+        * I pressed the reset button which refreshed the page and cleared the old results. I typed tomato in the search bar and results consisted of
+         2 recipes featured the word in the title and the last only in ingredients. 
+    * Responsive Design: 
+        *  I used google developer tools to view the search bar in different screen sizes. 
+         The length of the input field is resized in mobile, tablet and laptop views to fit nicely in the container.
+
+* __Search results__ made up of a collapsible list, containing cookware promotions. To test I ensured all recipes displayed opened 
+ when pressed, contained the correct information and functional buttons relevant to the user. 
+    * Functionality: Anonymous user
+        * I searched for the word tomato. I selected the first result and the full recipe appeared. The cookware promotion 
+         was visible and functional and had relevant products.
+    * Functionality: Logged in user
+        * I searched for the word tomato. I selected the first result and the full recipe appeared. The recipe was from a different
+         user and so a favourite button appeared. When pressed led me to the logged in users my recipes page with the message "Favourite saved"
+         and the recipe appearing in the user's favourites section. The cookware promotion was visible and functional.
+        * I cleared the result and searched for a recipe created by the logged in user. When opened the correct information and cookware promotion
+         appeared. The recipe also contained an edit and delete button. Edit button when pressed redirected to the editing page for the recipe with 
+         the form prefilled. Delete button when pressed led back to the homepage with a message displayed saying "Recipe deleted". I checked the database
+         to ensure the recipe had been deleted succesfully.
+    * Responsive Design: 
+        * Using google developer tools, I checked whether images and text resized to fit well in smaller screen widths.
 
 ### **Register Page**
 * __Image background__ was checked in developer tools, image covers looks good and covers the view on all screen sizes.
