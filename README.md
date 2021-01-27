@@ -88,6 +88,8 @@ The three collections in the database are: Users, Recipes and Types
 * Accounts are secured using werkzeug so only hashed versions of the passwords are stored.
 * My recipes pages use the users log in cookie to load the correct profile so it can only be accessed by the user
  when logged in.
+* A logged in cookie is also used so if an anonymous user types in the correct url for the add/edit recipe pages they 
+are redirected to the login page with a message above the form saying "You need to be logged in to add/edit a recipe".
 * Recipes created by a user can only be edited or deleted by that user or the site admin so recipes can’t be 
 tampered with by any other users.
 * Recipies can only be favourited once by a user preventing unnecessary build up in their my recipes page.
@@ -141,15 +143,18 @@ bullet point lists in site theme colors. Ingredients appear as a collection in s
 the cookware promotion is seen.
 * __Favourite Recipes__ are displayed with the same layout for consistency but contain a button to remove the recipe 
 from the user's favourites.
+* __Security__ Page is loaded using a session cookie created when logging in so anonymous users will not be able to open the page.
 
 ### **Add Recipe**
 * __Image Background__ is a bright image of a selection of food, making the page vibrant will envoke a positive response from the user and motivate them to complete the form.
 * __Form__ is used to add a recipe to the database and is styled using site theme colours. Form contains a field for each recipe requirement in the database. For longer input, such as in ingredients or instructions, expected input 
 is explained through helper text below the input field. All fields must be filled out for the recipe to be submitted and incorrectly filled fields will be highlighted in red so the user understands what needs correcting.
+* __Security__ If an anonymous user tries to open this page by typing the url, they will be redirected to the log in page with a message saying "Please log in to add a recipe".
 ### **Edit Recipe**
 * __Image Background__ is the same image as the add recipe page so form is easily recognised by the user.
 * __Form__ is used to update a recipe in the database and is styled using site theme colours. The form's input fields are prefilled with the current recipe data, allowing the user
 to easily make adjustments to the recipe. 
+* __Security__ If an anonymous user tries to open this page by typing the url, they will be redirected to the log in page with a message saying "Please log in to edit a recipe".
 
 ### __Defensive Programming features__
 * __Forms__ cannot be submitted unless all fields are correctly filled in 
@@ -326,13 +331,18 @@ the toggle for one recipe of each type to ensure the correct data was displaying
     my recipe page containing all their recipes. An alert appeared above Welcoming the user.
 
 ### **My Recipes** 
-* __Add Recipe button__ I clicked the add recipe button on the my recipes page for a user and was directed to the "Add a recipe" page.
+* __Add Recipe button__ 
+    * Functionality:
+        * I clicked the add recipe button on the my recipes page for a user and was directed to the "Add a recipe" page.
 * __Own Recipes__ user recipes are being displayed, with relevant cookware promotions. Each contains an edit and delete button.
-    * I pressed the edit button and was directed to the edit page for the specific recipe with the input fields prefilled. 
-    * I pressed the delete button on a test recipe I added and checked it had been removed from the database.
+    * Functionality:
+        * Edit button: I pressed the button and was directed to the edit page for the specific recipe with the input fields prefilled. 
+        * Delete button: I pressed the button on a test recipe I added and checked it had been removed from the database.
 * __Favourite Recipes__ users favourited recipes are displayed with relevant cookware promotions. Each contains a "remove favourite"
-button. I pressed the button which directed me back to the homepage with an alert saying "Favourite saved". I checked the database 
-to ensure the user's favourites no longer contained the specific recipe id.
+button.
+    * Functionality:
+        * I pressed the button which directed me back to my recipes page with an alert saying "Favourite removed". 
+        I checked the users favourites no longer contained this recipe and that it was deleted from the database.
 
 ### **Add Recipe**
 * __Image background__ was checked in developer tools, image covers looks good and covers the view on all screen sizes.
@@ -346,8 +356,8 @@ to ensure the user's favourites no longer contained the specific recipe id.
 ### **Edit Recipe**
 * __Form__ 
     * I opened a recipe with an incorrect meal type. I chose the correct one from the dropdown and 
-    submitted the form. A message appeared above the form when the page reloaded saying "Recipe Updated!".
-    * I checked the recipe had updated on the database.
+    submitted the form. I was redirected to the users my recipes page with an alert saying "Recipe Updated!".
+    * I checked the recipe was no longer in the users recipes and had updated on the database.
 
 ### **Lighthouse Audit** 
 [Lighthouse audit results](static/screenshots/lighthouse-results.png)

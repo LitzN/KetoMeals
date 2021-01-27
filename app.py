@@ -86,6 +86,7 @@ def login():
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
+                session['logged_in'] = True
                 return redirect(url_for(
                     "my_recipes", username=session["user"]))
             else:
@@ -129,6 +130,7 @@ def my_recipes(username):
 def logout():
     flash("You have been logged out")
     session.pop("user")
+    session.pop('logged_in', None)
     return redirect(url_for("login"))
 
 
@@ -152,7 +154,12 @@ def add_recipe():
         return redirect("get_recipes")
 
     meal_type = mongo.db.types.find().sort("meal_type", 1)
-    return render_template("add_recipe.html", meal_type=meal_type)
+
+    if session.get('logged_in') is True:
+        return render_template("add_recipe.html", meal_type=meal_type)
+    else:
+        flash("Please log in to add a recipe")
+        return redirect(url_for('login'))
 
 
 # Code for function of favourite button - Adds recipe id to user's favourites
@@ -188,7 +195,7 @@ def remove_favourite(recipe_id):
     mongo.db.users.find_one_and_update(
         {"username": session["user"].lower()},
         {"$pull": {"favourites": ObjectId(recipe_id)}})
-    flash("Favourite saved")
+    flash("Favourite removed")
     return redirect(url_for("my_recipes", username=username))
 
 # Code for function of Edit recipe Page - pulls recipe data from database for
@@ -198,6 +205,7 @@ def remove_favourite(recipe_id):
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
+        username = session["user"]
         submit = {
             "meal_type": request.form.get("meal_type"),
             "recipe_name": request.form.get("recipe_name"),
@@ -209,11 +217,17 @@ def edit_recipe(recipe_id):
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Recipe Updated!")
+        return redirect(url_for("my_recipes", username=username))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     meal_type = mongo.db.types.find().sort("meal_type", 1)
-    return render_template(
-        "edit_recipe.html", recipe=recipe, meal_type=meal_type)
+
+    if session.get('logged_in') is True:
+        return render_template(
+                    "edit_recipe.html", recipe=recipe, meal_type=meal_type)
+    else:
+        flash("Please log in to edit a recipe")
+        return redirect(url_for('login'))
 
 
 # Code for function of delete recipe buttons - removes recipe from the database
