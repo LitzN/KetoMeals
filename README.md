@@ -361,8 +361,10 @@ button.
     * I checked the recipe was updated on the database.
 
 ### **Lighthouse Audit** 
-[Lighthouse audit results](static/screenshots/lighthouse-results.png)
+![Lighthouse audit results](static/screenshots/lighthouse-results.png)
     - Biggest issue for performance was the size of the image files used as this takes up loading time.
+    I compressed the images which were larger than they would need to appear on the site.
+    I also added lazy loading to images on the recipes page as most of them are hidden when the page is initially loaded.
     - Suggestion of not including unused Javascript was also given, however this is coming from files necessary for materialize functionality.
 
 ## __Bugs__
