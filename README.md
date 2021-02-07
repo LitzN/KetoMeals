@@ -1,6 +1,7 @@
 # **KetoMeals**
+https://ketomeals-project.herokuapp.com/
 
-The project provides a way of creating an online cookbook for people wishing to follow a ketogenic diet. 
+This project provides a way of creating an online cookbook for people wishing to follow a ketogenic diet. 
 The ketogenic diet is helpful to people with weight and insulin issues, so it is often recommended therapeutically
  and people looking into it are likely to need assistance when coming up with meal plans as it is usually a 
  considerable lifestyle change. Seeing as the rate of obesity is high in the UK, it is likely this market will 
@@ -39,17 +40,17 @@ The project consists of 5 pages. When a user first visits the site, the pages av
 ### **Wireframes**
 
 Wireframes created for this project:
-* [Homepage](static/images/wireframes/home.png)
-* [Add Recipe and Edit Recipe pages](static/images/wireframes/add_edit.png)
-* [Register and Login pages](static/images/wireframes/register_login.png)
-* [My recipes page](static/images/wireframes/user_recipes.png)
+* [Homepage](documentation/wireframes/home.png)
+* [Add Recipe and Edit Recipe pages](documentation/wireframes/add_edit.png)
+* [Register and Login pages](documentation/wireframes/register_login.png)
+* [My recipes page](documentation/wireframes/user_recipes.png)
 
 ### **Database Schema**
 
 Mongodb was used as host for the database. I chose this as I wanted the app to be capable of storing a large
 amount of data. 
 The three collections in the database are: Users, Recipes and Types 
-* __Recipes collection__ contains all recipes created. Recipe has 8 fields, two generated automatically( id_ by mongodb, and created_by, corresponds to the user who created the recipe, their username is used). Recipe id, used to edit, delete and add the recipe as a favourite. 
+* __Recipes collection__ contains all recipes created. Each recipe has 8 fields, two generated automatically( id_ by mongodb, and created_by, corresponds to the user who created the recipe, their username is used). Recipe id, used to edit, delete and add the recipe as a favourite. 
     The meal_type corresponds to the type collection and only meal types featured in the type collection are given as an option when a recipe is created.
 * __Users collections__ contain their username, hashed password and an array of favourites. Favourites arrays are made up of the recipe’s object ids.
 * __Type collection__ contains three meal types and recipes can only be created with a meal type featured in the type collection.
@@ -195,7 +196,7 @@ Except for an error on the edit and add page which is outlined in the "Bugs to b
     * Homepage has a brief explanation about the benefits of following a ketogenic diet. Directly below are the meal type 
     selector buttons where a user can see what their meals might look like, they can also use the search bar to see if the 
     database contains their favourite foods.
-    ![Homepage](static/images/screenshots/homepage.png)
+    ![Homepage](documentation/screenshots/homepage.png)
 
 2. __I am following a keto diet and need ideas on what to cook which I can access quickly and easily__
     * Users are able to view recipes on the homepage by the meal type they want to make right now or by searching the ingredient they want to use
@@ -203,7 +204,7 @@ Except for an error on the edit and add page which is outlined in the "Bugs to b
     also have the option of saving the recipes they like to their favourites, which appear on their personal 
     page. This allows users to create their own personalised cookbook full of their favorite recipes, for immediate access when logging in. 
 
-    ![recipe favourite](static/images/screenshots/meal_type_recipe.png)
+    ![recipe favourite](documentation/screenshots/meal_type_recipe.png)
 
     * Users are also able to remove any recipe from their favourite.
     ![recipe unfavourite](static/images/screenshots/favourites.png)
@@ -212,12 +213,12 @@ Except for an error on the edit and add page which is outlined in the "Bugs to b
     * The search bar is located on the home page, users have the option to search for recipes by ingredient or by name of the recipe.
 
 4. __I am a follower of the keto diet and want to share my recipes and update them if I’ve found a better way to make them__
-    ![Add & edit recipe access](static/images/screenshots/add_buttons.png)
+    ![Add & edit recipe access](documentation/screenshots/add_buttons.png)
     * On logging in to the site the user is able to share their recipes, either through the “add recipe” button on the navigation or on their personal page.
     * On the users personal recipe page, alongside every recipe is an edit or delete button, if a user decides they want to update or remove a recipe all together.
 5. __I am the site owner and would like to promote Haden cookware__
-    ![Examples of cookware promotions](static/images/screenshots/haden_ad_1.png)
-    ![Examples of cookware promotions](static/images/screenshots/haden_ad_2.png)
+    ![Examples of cookware promotions](documentation/screenshots/haden_ad_1.png)
+    ![Examples of cookware promotions](documentation/screenshots/haden_ad_2.png)
     * On every recipe, based on the cookware specified, adverts will appear at the end showing the relevant Haden cookware. Adverts contain the Haden logo, 
     an image, name of the product and lead to the purchase page of the product on Amazon when pressed.
     * Seeing as the adverts appear on every recipe both registered and guest users will be able to see them.
@@ -298,7 +299,7 @@ the toggle for one recipe of each type to ensure the correct data was displaying
          was visible and functional and had relevant products.
     * Functionality: Logged in user
         * I searched for the word tomato. I selected the first result and the full recipe appeared. The recipe was from a different
-         user and so a favourite button appeared. When pressed led me to the logged in users my recipes page with the message "Favourite saved"
+         user and so a favourite button appeared. I pressed the add favourite button and was led to the logged in users 'my recipes' page with the message "Favourite saved"
          and the recipe appearing in the user's favourites section. The cookware promotion was visible and functional.
         * I cleared the result and searched for a recipe created by the logged in user. When opened, the correct information and cookware promotion
          appeared. The recipe also contained an edit and delete button. Edit button when pressed redirected to the editing page for the recipe with 
@@ -361,7 +362,7 @@ button.
     * I checked the recipe was updated on the database.
 
 ### **Lighthouse Audit** 
-![Lighthouse audit results](static/images/screenshots/lighthouse-results.png)
+![Lighthouse audit results](documentation/screenshots/lighthouse-results.png)
     - Biggest issue for performance was the size of the image files used as this takes up loading time.
     I compressed the images which were larger than they would need to appear on the site.
     I also added lazy loading to images on the recipes page as most of them are hidden when the page is initially loaded.
