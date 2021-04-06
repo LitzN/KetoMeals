@@ -52,16 +52,17 @@
       </div>
       <section>
          <!--FLASH MESSAGES.................................................-->
+         <h4 class="hide">Messages</h4>
          {% with messages = get_flashed_messages() %}
          {% if messages %}
          {% for message in messages %}
-         <div class="row flashes">
+         <div class="col-12 flashes">
             <h4 class="center-align">{{ message }}</h4>
          </div>
          {% endfor %}
          {% endif %}
          {% endwith %}
-      </section>
+        </section>
       {% block content %}
       {% endblock %}
       <!--JQUERY SCRIPT.......................................-->
