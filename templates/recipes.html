@@ -63,24 +63,21 @@
                </div>
                <div class="card-reveal">
                   <span class="card-title grey-text text-darken-4">{{ snack.recipe_name }}<i class="fas fa-caret-down right"></i></span>
-                  <p class="ingred-item adjust-size">
-                        <strong class="recipe-section"> Ingredients :</strong>
+                  <p class="ingred-item adjust-size"><strong class="recipe-section"> Ingredients :</strong></p>
                         {% autoescape false %}
                         <ul class="ingred-list">
                             <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ snack.ingredients|replace(",", '</li>
                             <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>') }}</li>
                         </ul>
                     {% endautoescape %}
-                  </p>
-                  <p>
-                     <strong> Instructions :</strong>
+                  <p><strong> Instructions :</strong></p>
                      {% autoescape false %}
                     <ul class="collection">
                         <li class="collection-item">{{ snack.instructions|replace(".", '</li>
                         <li class="collection-item">') }}</li>
                     </ul>
                   {% endautoescape %}
-                  </p>
+                  
                     {% if session.user %}
                         {% if session['user'] != snack.created_by %}
                         <div class="center-align">
@@ -120,24 +117,20 @@
                </div>
                <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">{{ main.recipe_name }}<i class="fas fa-caret-down left"></i></span>
-                    <p class="ingred-item adjust-size">
-                        <strong class="recipe-section"> Ingredients :</strong>
+                    <p class="ingred-item adjust-size"><strong class="recipe-section"> Ingredients :</strong></p>
                         {% autoescape false %}
                     <ul class="ingred-list">
                         <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ main.ingredients|replace(",", '</li>
                         <li class="ingred-item adjust-size"><i class="km-green-text fas fa-heart"></i>') }}</li>
                     </ul>
-                    </p>
                   {% endautoescape %}
-                  <p>
-                    <strong> Instructions :</strong>
+                  <p><strong> Instructions :</strong></p>
                     <ul class="collection">
                         {% autoescape false %}
                         <li class="collection-item">{{ main.instructions|replace(".", '</li>
                         <li class="collection-item">') }}</li>
                         {% endautoescape %}
                     </ul>
-                  </p>
                   {% if session.user|lower == "admin" %}
                   <a href="{{ url_for('delete_recipe', recipe_id=main._id) }}" class="btn-small">Delete</a>
                   <a href="{{ url_for('edit_recipe', recipe_id=main._id) }}" class="btn-small">Edit</a>
@@ -177,24 +170,20 @@
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4">{{ dessert.recipe_name }}<i class="fas fa-caret-down right"></i></span>
-                            <p class="ingred-item adjust-size">
-                                <strong class="recipe-section"> Ingredients :</strong>
+                            <p class="ingred-item adjust-size"><strong class="recipe-section"> Ingredients :</strong></p>
                                 {% autoescape false %}
                                     <ul class="ingred-list">
                                         <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ dessert.ingredients|replace(",", '</li>
                                         <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>') }}</li>
                                     </ul>
                                 {% endautoescape %}
-                            </p>
-                            <p>
-                                <strong> Instructions :</strong>
+                            <p><strong> Instructions :</strong></p>
                                 {% autoescape false %}
                                     <ul class="collection">
                                         <li class="collection-item">{{ dessert.instructions|replace(".", '</li>
                                         <li class="collection-item">') }}</li>
                                     </ul>
                                 {% endautoescape %}
-                            </p>
                             {% if session.user %}
                                 {% if session['user'] != dessert.created_by %}
                                     <div class="center-align">
@@ -253,15 +242,13 @@
                         <!--INGREDIENTS...................................................-->
                         <div class="row">
                             <div class="col s6">
-                            <p class="ingred-item adjust-size">
-                                <strong class="recipe-section"> Ingredients :</strong>
+                            <p class="ingred-item adjust-size"><strong class="recipe-section"> Ingredients :</strong></p>
                                 {% autoescape false %}
                                     <ul class="ingred-list adjust-size">
                                         <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ recipe.ingredients|replace(",", '</li>
                                         <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>') }}</li>
                                     </ul>
                                 {% endautoescape %}
-                            </p>
                             </div>
                             <!--COOKWARE..................................................-->
                             <div class="col s6">
@@ -277,15 +264,13 @@
                         <!--INSTRUCTIONS..................................................-->
                         <div class="row">
                             <div class="col s12">
-                            <p>
-                                <strong> Instructions :</strong>
+                            <p><strong> Instructions :</strong></p>
                                 {% autoescape false %}
                             <ul class="collection">
                                 <li class="collection-item">{{ recipe.instructions|replace(".", '</li>
                                 <li class="collection-item">') }}</li>
                             </ul>
                             {% endautoescape %}
-                            </p>
                             </div>
                         </div>
                         <!--CREATED BY..............................................-->
