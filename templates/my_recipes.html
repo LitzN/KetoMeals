@@ -38,15 +38,14 @@
          <!--INGREDIENTS..........................................................-->
          <div class="row">
             <div class="col s6">
-               <p class="ingred-item adjust-size">
-                  <strong class="recipe-section"> Ingredients :</strong>
+               <p class="ingred-item adjust-size"><strong class="recipe-section"> Ingredients :</strong></p>
                   {% autoescape false %}
                <ul class="ingred-list">
                   <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ recipe.ingredients|replace(",", '</li>
                   <li class="ingred-item  adjust-size"><i class=" km-green-text fas fa-heart"></i>') }}</li>
                </ul>
                {% endautoescape %}
-               </p>
+               
             </div>
             <div class="col s6">
                <p><strong class="recipe-section"> Cookware required:</strong></p>
@@ -61,15 +60,13 @@
          <!--INSTRUCTIONS......................................................-->
          <div class="row">
             <div class="col offset-s1 s10">
-               <p>
-                  <strong class="recipe-section"> Instructions :</strong>
+               <p><strong class="recipe-section"> Instructions :</strong></p>
                   {% autoescape false %}
                <ul class="collection">
                   <li class="collection-item">{{ recipe.instructions|replace(".", '</li>
                   <li class="collection-item">') }}</li>
                </ul>
                {% endautoescape %}
-               </p>
             </div>
          </div>
          <!--COOKWARE PROMOTION.........................................................-->
@@ -177,15 +174,14 @@
          <!--FAV INGREDIENTS ..........................................-->
          <div class="row">
             <div class="col s12 m6">
-               <p class="ingred-item adjust-size">
-                  <strong class="recipe-section"> Ingredients :</strong>
+               <p class="ingred-item adjust-size"><strong class="recipe-section"> Ingredients :</strong></p>
                   {% autoescape false %}
                <ul class="ingred-list">
                   <li class="ingred-item adjust-size"><i class=" km-green-text fas fa-heart"></i>{{ result.ingredients|replace(",", '</li>
                   <li class="ingred-item adjust-size"><i class="km-green-text fas fa-heart"></i>') }}</li>
                </ul>
                {% endautoescape %}
-               </p>
+               
             </div>
             <!--FAV COOKWARE.................................................................-->
             <div class="col s12 m6 ">
@@ -201,15 +197,13 @@
          <!--FAV INSTRUCTIONS........................................................-->
          <div class="row">
             <div class="col offset-s1 s10">
-               <p>
-                  <strong class="recipe-section"> Instructions :</strong>
+               <p><strong class="recipe-section"> Instructions :</strong></p>
                   {% autoescape false %}
                <ul class="collection">
                   <li class="collection-item">{{ result.instructions|replace(".", '</li>
                   <li class="collection-item">') }}</li>
                </ul>
                {% endautoescape %}
-               </p>
             </div>
          </div>
          <!--FAV COOKWARE PROMOTION..............................................-->
