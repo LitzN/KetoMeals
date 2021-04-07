@@ -379,11 +379,6 @@ changed the body element minimum height to 100vh, which made the picture take up
  This was fixed by writing code to ensure all instances of the object id are removed from the users collection in the database
   when the recipe is deleted.
 
-### __Not yet fixed__
- 1. When running the edit and add recipe pages through the html validator, I got an error with a materialize
- component. The dropdown selector menu for the field "meal type" is causing the error: "Bad value true for attribute 
- readonly on element input". The readonly attribute is added automatically to the component by materialize.
-
 
  ## __Deployment__
 The project was created on Gitpod and pushed to Github after each major change. The master branch was used as a source for deployment on Heroku. The development version is the same as the deployed version.

@@ -9,10 +9,11 @@
             <!--MEAL TYPE OPTION.......................................-->
             <div class="row">
                <div class="input-field col s12">
+               <p class="left-align">Select a meal type:</p>
                 {% for type in meal_type %}
-                <p>
+                <p class="radio-buttons">
                 <label for="{{ type.meal_type }}">
-                    <input name="meal_type" id="{{ type.meal_type }}" value="{{ type.meal_type }}" type="radio" />
+                    <input name="meal_type" id="{{ type.meal_type }}" value="{{ type.meal_type }}" type="radio" required />
                     <span>{{ type.meal_type }}</span>
                 </label>
                 </p>
@@ -23,14 +24,14 @@
             <div class="row">
                <div class="input-field col s12">
                   <input id="recipe_name" name="recipe_name" type="text" class="validate" required>
-                  <label class="black-text" for="recipe_name">Recipe Name</label>
+                  <label for="recipe_name">Recipe Name</label>
                </div>
             </div>
             <!--INGREDIENT INPUT..........................................-->
             <div class="row">
                <div class="input-field col s12">
                   <input id="ingredients" name="ingredients" type="text" class="validate" required>
-                  <label class="black-text" for="ingredients"> Ingredients</label>
+                  <label for="ingredients"> Ingredients</label>
                   <span class="helper-text" data-error="wrong" data-success="right">
                   Seperate ingredients using a comma Eg: 300g sprinkles, 200g love, 2tsp sunshine</span>
                </div>
