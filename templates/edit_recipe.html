@@ -9,17 +9,25 @@
             <div class="row">
                <!--EDIT MEAL TYPE.......................................-->
                <div class="input-field col s12">
-                  <select id="meal_type" name="meal_type" required>
-                     <option value="" disabled>Choose the meal type</option>
-                     {% for type in meal_type %}
-                     {% if recipe.meal_type == type.meal_type %}
-                     <option value="{{ type.meal_type }}" selected>{{ type.meal_type }}</option>
-                     {% else %}
-                     <option value="{{ type.meal_type }}">{{ type.meal_type }}</option>
-                     {% endif %}
-                     {% endfor %}
-                  </select>
-                  <label for="meal_type"><strong>Meal Type</strong></label>
+                  <div class="input-field col s12">
+                        {% for type in meal_type %}
+                        {% if type.meal_type == recipe.meal_type %}
+                        <p>
+                        <label for="{{ type.meal_type }}">
+                            <input name="meal_type" id="{{ type.meal_type }}" value="{{ type.meal_type }}" type="radio" checked />
+                            <span>{{ type.meal_type }}</span>
+                        </label>
+                        </p>
+                        {% else %}
+                        <p>
+                        <label for="{{ type.meal_type }}">
+                            <input name="meal_type" id="{{ type.meal_type }}" value="{{ type.meal_type }}" type="radio" />
+                            <span>{{ type.meal_type }}</span>
+                        </label>
+                        </p>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
                </div>
             </div>
             <!--EDIT RECIPE NAME.............................................-->
