@@ -9,22 +9,22 @@
             <div class="row">
                <!--EDIT MEAL TYPE.......................................-->
                <div class="input-field col s12">
-                  <div class="input-field col s12">
-                    <p class="left-align">Select a meal type:</p>
+                    <div class="input-field col s12">
+                        <p class="left-align">Select a meal type:</p>
                         {% for type in meal_type %}
                         {% if type.meal_type == recipe.meal_type %}
                         <p class="radio-buttons">
-                        <label for="{{ type.meal_type }}">
-                            <input name="meal_type" id="{{ type.meal_type }}" value="{{ type.meal_type }}" type="radio" checked />
-                            <span>{{ type.meal_type }}</span>
-                        </label>
+                            <label for="{{ type.meal_type }}">
+                                <input name="meal_type" id="{{ type.meal_type }}" value="{{ type.meal_type }}" type="radio" checked />
+                                <span>{{ type.meal_type }}</span>
+                            </label>
                         </p>
                         {% else %}
                         <p class="radio-buttons">
-                        <label for="{{ type.meal_type }}">
-                            <input name="meal_type" id="{{ type.meal_type }}" value="{{ type.meal_type }}" type="radio" />
-                            <span>{{ type.meal_type }}</span>
-                        </label>
+                            <label for="{{ type.meal_type }}">
+                                <input name="meal_type" id="{{ type.meal_type }}" value="{{ type.meal_type }}" type="radio" />
+                                <span>{{ type.meal_type }}</span>
+                            </label>
                         </p>
                         {% endif %}
                         {% endfor %}

@@ -8,16 +8,16 @@
             <h3 class="goldman km-pink-text"> Add a Recipe</h3>
             <!--MEAL TYPE OPTION.......................................-->
             <div class="row">
-               <div class="input-field col s12">
-               <p class="left-align">Select a meal type:</p>
-                {% for type in meal_type %}
-                <p class="radio-buttons">
-                <label for="{{ type.meal_type }}">
-                    <input name="meal_type" id="{{ type.meal_type }}" value="{{ type.meal_type }}" type="radio" required />
-                    <span>{{ type.meal_type }}</span>
-                </label>
-                </p>
-                {% endfor %}
+                <div class="input-field col s12">
+                    <p class="left-align">Select a meal type:</p>
+                    {% for type in meal_type %}
+                    <p class="radio-buttons">
+                    <label for="{{ type.meal_type }}">
+                        <input name="meal_type" id="{{ type.meal_type }}" value="{{ type.meal_type }}" type="radio" required />
+                        <span>{{ type.meal_type }}</span>
+                    </label>
+                    </p>
+                    {% endfor %}
                 </div>
             </div>
             <!--RECIPE NAME INPUT..........................................-->
