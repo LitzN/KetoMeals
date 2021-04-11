@@ -357,7 +357,7 @@ button.
 
 ### **Edit Recipe**
 * __Form__ 
-    * I opened a recipe with an incorrect meal type. I chose the correct one from the dropdown and 
+    * I opened a recipe with an incorrect meal type. I chose the correct one from the radio button selector and 
     submitted the form. I was redirected to the users my recipes page with an alert saying "Recipe Updated!".
     * I checked the recipe was updated on the database.
 
@@ -365,7 +365,6 @@ button.
 ![Lighthouse audit results](documentation/screenshots/lighthouse-results.png)
     - Biggest issue for performance was the size of the image files used as this takes up loading time.
     I compressed the images which were larger than they would need to appear on the site.
-    I also added lazy loading to images on the recipes page as most of them are hidden when the page is initially loaded.
     - Suggestion of not including unused Javascript was also given, however this is coming from files necessary for materialize functionality.
 
 ## __Bugs__
