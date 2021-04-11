@@ -129,7 +129,8 @@ once clicked on, an overlay containing the recipe, ingredients appears and a fav
 * __Search results__ are displayed as a list of collapsibles with the recipe name and image appearing side by side. Once 
 recipe is selected, the drop down reveals the recipe and relevant cookware promotion. This section also contains different buttons 
 depending on the identity of the user. If the user is the recipe owner, they have the option of "Edit" or "Delete"; while other users
-will see a "favourite" button, used to add the recipe to their personal page.
+will see a "favourite" button, used to add the recipe to their personal page. The site admin also has access to a delete button for recipes 
+of all users so they are able to moderate what's on the site.
 
 ### **Register/Login Pages**
 * __Image background__ is of a wooden table with a knife and fork and a form centered in the middle. The image motivates
