@@ -2,6 +2,19 @@
 {% block content %}
 <body class="img-background add_img">
    <div class="container">
+        <!--FLASH MESSAGES-->
+        <div class="row"> 
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="col-12 flashes">
+                <h4 class="hide">Messages</h4>
+                <h4 class="center-align">{{ message }}</h4>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
       <div class="row center-align">
          <!--ADD RECIPE FORM...........................................-->
          <form class="col s12 l-blue margin-top" method="POST" action="{{ url_for('add_recipe') }}">

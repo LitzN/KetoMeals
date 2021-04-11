@@ -3,6 +3,18 @@
 {% endblock %}
 {% block content %}
 <div class="container-fluid img-background signin">
+    <div class="row">  
+         {% with messages = get_flashed_messages() %}
+         {% if messages %}
+         {% for message in messages %}
+         <div class="col-12 flashes">
+            <h4 class="hide">Messages</h4>
+            <h4 class="center-align">{{ message }}</h4>
+         </div>
+         {% endfor %}
+         {% endif %}
+         {% endwith %}
+    </div>
    <div class="valign-wrapper">
       <div class="row offset-s2 s8 opaque">
          <p class="center-align subheading-text goldman l-blue-text">Register with us</p>
