@@ -189,7 +189,6 @@ to easily make adjustments to the recipe.
 ## __Testing__
 
 All code was put through validators (listed above) and passed with no errors.
-Except for an error on the edit and add page which is outlined in the "Bugs to be fixed" section below.
 
 ### __Testing is user stories needs are met__
 
@@ -208,7 +207,7 @@ Except for an error on the edit and add page which is outlined in the "Bugs to b
     ![recipe favourite](documentation/screenshots/meal_type_recipe.png)
 
     * Users are also able to remove any recipe from their favourite.
-    ![recipe unfavourite](static/images/screenshots/favourites.png)
+    ![recipe unfavourite](documentation/screenshots/favourites.png)
 
 3. __I am following a keto diet and want to see if the site has recipes for a specific ingredient I want to use__
     * The search bar is located on the home page, users have the option to search for recipes by ingredient or by name of the recipe.
@@ -364,9 +363,9 @@ button.
 
 ### **Lighthouse Audit** 
 ![Lighthouse audit results](documentation/screenshots/lighthouse-results.png)
-    - Biggest issue for performance was the size of the image files used as this takes up loading time.
+- Biggest issue for performance was the size of the image files used as this takes up loading time.
     I compressed the images which were larger than they would need to appear on the site.
-    - Suggestion of not including unused Javascript was also given, however this is coming from files necessary for materialize functionality.
+- Suggestion of not including unused Javascript was also given, however this is coming from files necessary for materialize functionality.
 
 ## __Bugs__
 
