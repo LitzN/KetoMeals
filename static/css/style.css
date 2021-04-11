@@ -104,6 +104,7 @@ html, body {
 .signin{
     background: url(../images/register_image.jpg) no-repeat center center;
     background-size:cover;
+    min-height:100vh;
 }
 
 .add_img{
