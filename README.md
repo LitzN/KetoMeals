@@ -407,7 +407,7 @@ Heroku uses this file in order to understand dependancies used for the project.
 down to the "Automatic deploys" section.
 11. I pressed the Enable Automatic deploys and chose the master branch to build the app.
 
-The deployed site is avaliable at [Keto Meals](https://ketomeals-project.herokuapp.com/)
+The deployed site is avaliable at : [Keto Meals](https://ketomeals-project.herokuapp.com/)
 
  ## __Credits__
 
