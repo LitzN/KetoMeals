@@ -20,6 +20,9 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+def home():
+    return render_template('home.html')
+
 @app.route("/get_recipes")
 def get_recipes():
     snacks = mongo.db.recipes.find({"meal_type": "Snack"})
@@ -241,5 +244,5 @@ def delete_recipe(recipe_id):
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")),
+            port=int(8000),
             debug=False)

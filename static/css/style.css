@@ -1,7 +1,11 @@
 /*-------------------------------GENERAL/ SITEWIDE--------------------------------------------*/
 body{
-    background-color:#E2E4F3;
+    /*background-color:#E2E4F3;*/
     min-height:100vh;
+}
+
+.container{
+    width:100%;
 }
 
 html, body {
@@ -14,7 +18,6 @@ html, body {
 }
 
 .flashes h4{
-    line-height: 2;
     font-weight:800;
     color:white;
     background-color:rgba(0, 0, 0, 0.4);
@@ -99,12 +102,47 @@ html, body {
     background-color: #E2E4F3;
 }
 
+/*-------------------------------HOME PAGE--------------------------------------------*/
+
+.home-img{
+    height:100vh;
+    background-image:url(https://images.unsplash.com/photo-1555243896-c709bfa0b564?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8a2V0b3xlbnwwfHwwfHx8MA%3D%3D);
+    background-size: cover;
+    background-position: center;
+    margin:0;
+    overflow:hidden;
+}
+
+.title-text{
+    font-size: 6rem;
+    line-height: 6rem;
+    font-weight: 900;
+    margin-bottom:0.5rem;
+}
+
+.entry-buttons{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    margin:1rem;
+}
+
+.entry{
+    font-size: 2.5rem;
+    color:white;
+    padding: 0.5rem 2rem;
+    display: inline-block;
+    background-color: black;
+    border: 3px solid white;
+    margin: 1rem;
+}
+
 /*-------------------------------LOGIN/REGISTER PAGE--------------------------------------------*/
 
 .signin{
     background: url(../images/register_image.jpg) no-repeat center center;
     background-size:cover;
-    min-height:100vh;
+    m:100vh;
 }
 
 .add_img{
@@ -134,18 +172,14 @@ html, body {
 }
 
 .intro-heading{
-    padding:2rem;
-    font-size:2rem;
-    line-height:2rem;
+    font-size:1.5rem;
+    color:darkgreen;
 }
 
 .intro-text{
-    padding-bottom: 2rem;
-    padding-left: 1rem;
-    padding-right:1rem;
-    padding-top: 0;
+    padding:0 1rem;
     margin-top: 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .subheading-text{
@@ -155,7 +189,6 @@ html, body {
 
 .category-pic{
     width:100%;
-    height:100%;
 }
 
 .categories{
@@ -171,10 +204,7 @@ html, body {
 
 .search-form{
     padding-bottom:1.5rem;
-}
-
-.search-bar{
-    min-width:200%;
+    margin-left:10%;
 }
 
 .fav-btn{
@@ -183,22 +213,17 @@ html, body {
 
 /*-------------------------------MY RECIPES PAGE--------------------------------------------*/
 .user-header{
-    margin-top:1rem;
-    border-color:#af3b6e;
-    border-style:solid;
-    border-width:5px;
-    color: #af3b6e;
-    background-color: white;
-    border-radius:25px;
+    min-width:100vw;
+    margin:1rem 0;
+    background-image:url(/static/images/avo-bg.png);
+    color: #60992D;
     font-size:3rem;
-    line-height:3rem;
 }
-
 
 /*-------------------------------RECIPE STYLING ON ALL PAGES--------------------------------------------*/
 .recipe-pic{
     max-width:20rem;
-    max-height:20rem;
+    m:20rem;
     padding:2rem;
 }
 
@@ -207,7 +232,7 @@ html, body {
 }
 
 .activator{
-    max-height:30rem;
+    m:30rem;
 }
 
 .recipes{
@@ -226,7 +251,7 @@ html, body {
 }
 
 .recipe-name{
-    line-height:3rem;
+    li:3rem;
     padding-top:2rem;
     font-size:2rem;
     font-weight:bolder;
@@ -249,8 +274,8 @@ html, body {
 
 .ad-pic{
     max-width:12rem;
-    max-height:12rem;
-    min-height:8rem;
+    m:12rem;
+    m:8rem;
 }
 
 .ad-box{
@@ -268,7 +293,6 @@ html, body {
 }
 
 .logo{
-    height:100%;
     width:100%;
     padding-bottom:1rem;
 }
@@ -300,13 +324,13 @@ html, body {
 }
 
 .search-bar{
-    min-width:80%;
+    width:80%;
 }
 
 .adjust-size{
     max-width:100%;
-    min-height:0;
-    max-height:100%;
+    m:0;
+    m:100%;
     padding:0;
 }
 
@@ -323,7 +347,7 @@ html, body {
 }
 
 .user-header{
-    line-height: 2rem;
+    li: 2rem;
     font-size: 2.5rem;
 }
 
