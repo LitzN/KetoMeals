@@ -104,9 +104,16 @@ html, body {
 
 /*-------------------------------HOME PAGE--------------------------------------------*/
 
+.entry-row{
+    height:100vh;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0,0,0,0.2);
+}
+
 .home-img{
     height:100vh;
-    background-image:url(https://images.unsplash.com/photo-1555243896-c709bfa0b564?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8a2V0b3xlbnwwfHwwfHx8MA%3D%3D);
+    background-image:url(/static/images/purple-avo-bg.jpg);
     background-size: cover;
     background-position: center;
     margin:0;
@@ -118,6 +125,8 @@ html, body {
     line-height: 6rem;
     font-weight: 900;
     margin-bottom:0.5rem;
+    color: white;
+    text-shadow: 6px 6px BLACK;
 }
 
 .entry-buttons{
@@ -352,3 +361,33 @@ html, body {
 }
 
 }
+
+@media only screen and (min-width: 600px) {
+
+.home-img{
+    background-image:url(/static/images/eggs.jpg);
+}
+
+.entry-col{
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.entry-buttons{
+    flex-direction:row;
+    justify-content: space-around;
+}
+}
+
+
+@media only screen and (min-width: 992px) {
+    .home-img{
+        background-image:url(/static/images/bg-1.jpg);
+    }
+
+    .entry-buttons{
+        flex-direction:column;
+    }
+    }
