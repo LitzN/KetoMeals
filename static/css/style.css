@@ -72,6 +72,10 @@ html, body {
     color:#60992D;
 }
 
+.avo-bg{
+    background-image:url(/static//images/avo-bg.png);
+}
+
 /*-------------------------------SITE THEME COLOURS--------------------------------------------*/
 
 .l-blue-text{
@@ -157,7 +161,10 @@ html, body {
 .signin{
     background: url(../images/register_image.jpg) no-repeat center center;
     background-size:cover;
-    m:100vh;
+    min-height:100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .add_img{
@@ -187,6 +194,17 @@ html, body {
     transform: translate(-50%, -50%);
     color: white;
     font-size:8rem;
+}
+
+.input-field>label {
+    top:1rem !important;
+    left:1rem !important;
+}
+
+.input-field .prefix{
+    top:1rem !important;
+    left:-1rem !important;
+    font-size:3rem;
 }
 
 .intro-heading{
@@ -222,7 +240,6 @@ html, body {
 
 .search-form{
     padding-bottom:1.5rem;
-    margin-left:10%;
 }
 
 .fav-btn{
@@ -388,6 +405,11 @@ html, body {
     flex-direction:row;
     justify-content: space-around;
 }
+
+.search-form{
+    margin-left:10%;
+}
+
 }
 
 

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<body class="img-background add_img">
+<body class="img-background avo-bg">
    <div class="container">
         <!--FLASH MESSAGES-->
         <div class="row"> 
@@ -17,7 +17,7 @@
       <div class="row center-align">
          <!--ADD RECIPE FORM...........................................-->
          <form class="col s12 l-blue margin-top" method="POST" action="{{ url_for('add_recipe') }}">
-            <h3 class="goldman km-pink-text"> Add a Recipe</h3>
+            <h3 class="goldman km-green-text"> Add a Recipe</h3>
             <!--MEAL TYPE OPTION.......................................-->
             <div class="row">
                 <div class="input-field col s12">
@@ -51,12 +51,12 @@
             <!--INSTRUCTION INPUT........................................-->
             <div class="row">
                <div class="input-field col s12">
-                  <input id="instructions" name="instructions" type="text" class="validate" required>
-                  <label for="instructions">Instructions</label>
-                  <span class="helper-text" data-error="wrong" data-success="right">
+                 <textarea id="instructions" name="instructions" class="materialize-textarea validate" required></textarea>
+                 <label for="instructions">Instructions</label>
+                 <span class="helper-text" data-error="wrong" data-success="right">
                   Seperate instructions using a full stop Eg: Fry sprinkles, love and sunshine. Add Garnish</span>
                </div>
-            </div>
+             </div>
             <!--COOKWARE INPUT......................................-->
             <div class="row">
                <div class="input-field col s12">

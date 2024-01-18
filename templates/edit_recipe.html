@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<body class="img-background add_img">
+<body class="img-background avo-bg">
    <div class="container">
        <!--FLASH MESSAGES-->
        <div class="row"> 
@@ -62,9 +62,9 @@
             <!--EDIT INSTRUCTIONS......................................................-->
             <div class="row">
                <div class="input-field col s12">
-                  <input id="instructions" name="instructions" type="text" class="validate" value="{{ recipe.instructions}}" required>
-                  <label for="instructions">Instructions</label>
-                  <span class="helper-text" data-error="wrong" data-success="right">
+                  <textarea id="instructions" name="instructions" class="materialize-textarea validate" required>{{ recipe.instructions}}</textarea>
+                 <label for="instructions">Instructions</label>
+                 <span class="helper-text" data-error="wrong" data-success="right">
                   Seperate instructions using a full stop Eg: Fry sprinkles, love and sunshine. Add Garnish</span>
                </div>
             </div>
